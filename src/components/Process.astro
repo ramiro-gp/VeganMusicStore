@@ -1,0 +1,9 @@
+---
+const steps = [
+  { title: 'Encontrá tu disco', text: 'Explorá el catálogo o contanos qué artista, álbum o edición estás buscando.' },
+  { title: 'Confirmamos los detalles', text: 'Consultamos disponibilidad, formato y precio. El stock de la lista es orientativo.' },
+  { title: 'Coordinamos con vos', text: 'Conversamos sobre la compra, el pedido o la importación y acordamos cómo seguir.' },
+  { title: 'Lo hacemos llegar', text: 'Coordinamos la entrega o el envío. Trabajamos con destinos nacionales e internacionales.' },
+];
+---
+<section class="process-section" aria-labelledby="process-title"><div class="shell section-space"><div class="section-meta"><span class="eyebrow">03 / CÓMO TRABAJAMOS</span><span class="eyebrow">DE LA BÚSQUEDA A TU COLECCIÓN</span></div><h2 id="process-title" class="section-title">HABLEMOS<br />DE DISCOS.</h2><ol class="process-list">{steps.map((step, index) => <li><span class="process-number" aria-hidden="true">0{index + 1}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol></div></section>

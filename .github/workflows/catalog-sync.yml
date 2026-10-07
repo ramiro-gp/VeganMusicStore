@@ -1,0 +1,53 @@
+name: Sincronizar catálogo
+on:
+  schedule:
+    - cron: '17 12 * * *' # 09:17 Buenos Aires (UTC-3)
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: catalog-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    if: vars.CATALOG_AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24.12.0'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Descargar, validar y construir antes de promover
+        run: pnpm catalog:sync --verify
+        env:
+          CATALOG_CSV_URL: ${{ vars.CATALOG_CSV_URL }}
+          SITE_MODE: ${{ vars.SITE_MODE || 'demo' }}
+          SITE_URL: ${{ vars.SITE_URL }}
+      - name: Versionar el snapshot validado
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/data/catalog.snapshot.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Actualizar catálogo validado'
+            git push
+          fi
+      - name: Archivos estáticos para Hostinger
+        if: vars.DEPLOY_TARGET == 'hostinger'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          target="$RUNNER_TEMP/vegan-static"
+          mkdir -p "$target"
+          cp -R dist/. "$target/"
+          git -C "$target" init -b deploy-static
+          git -C "$target" config user.name 'github-actions[bot]'
+          git -C "$target" config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C "$target" add .
+          git -C "$target" commit -m 'Publicar build estático validado'
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w 0)
+          git -C "$target" -c "http.extraheader=AUTHORIZATION: basic $auth" push --force "https://github.com/${GITHUB_REPOSITORY}.git" HEAD:deploy-static

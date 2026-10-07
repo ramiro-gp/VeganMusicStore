@@ -1,0 +1,5 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import { siteConfig } from '../config/site';
+---
+<footer class="site-footer"><div class="shell"><div class="footer-top"><a href="/" class="footer-brand" aria-label="Vegan Store Music, inicio">VEGAN<br />STORE MUSIC<span aria-hidden="true">✳</span></a><nav aria-label="Navegación del pie de página"><a href="/catalogo/">Catálogo <ArrowUpRight size={15} aria-hidden="true" /></a><a href="/#tienda">La tienda <ArrowUpRight size={15} aria-hidden="true" /></a><a href="/#contacto">Contacto <ArrowUpRight size={15} aria-hidden="true" /></a></nav></div><div class="footer-bottom"><p>{siteConfig.address.display}</p><p>DISCOS / VINILOS / IMPORTACIÓN</p><p>HECHO PARA ESCUCHAR.</p></div></div></footer>

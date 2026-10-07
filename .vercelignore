@@ -1,0 +1,13 @@
+.git/
+.agents/
+.cache/
+reports/
+docs/
+node_modules/
+dist/
+.astro/
+.env*
+.github/
+tests/
+skills-lock.json
+README.md

@@ -1,0 +1,62 @@
+[
+  {
+    "profile": "production",
+    "page": "home",
+    "run": 1,
+    "categories": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp": 1205.466,
+    "cls": 0.00006651831283156812,
+    "tbt": 0,
+    "failed": []
+  },
+  {
+    "profile": "production",
+    "page": "home",
+    "run": 2,
+    "categories": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp": 1207.06275,
+    "cls": 0.00006651831283156812,
+    "tbt": 0,
+    "failed": []
+  },
+  {
+    "profile": "production",
+    "page": "home",
+    "run": 3,
+    "categories": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp": 1204.1891999999998,
+    "cls": 0.00006651831283156812,
+    "tbt": 0,
+    "failed": []
+  },
+  {
+    "profile": "production",
+    "page": "catalog",
+    "run": 1,
+    "categories": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp": 1355.7361500000002,
+    "cls": 0,
+    "tbt": 0,
+    "failed": []
+  }
+]

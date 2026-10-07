@@ -1,0 +1,5 @@
+---
+import ContactLink from './ContactLink.astro';
+import { siteConfig } from '../config/site';
+---
+<section class="import-callout" aria-labelledby="import-title"><div class="shell import-grid"><p class="eyebrow">BÚSQUEDAS & IMPORTACIONES</p><h2 id="import-title">¿NO APARECE<br />EN LA LISTA?</h2><div class="import-copy"><p>Algunos discos necesitan un poco más de búsqueda. Contanos el artista, el álbum y la edición que tenés en mente.</p><p>Consultamos por pedidos e importaciones y coordinamos los detalles con vos.</p><ContactLink class="button button-paper" message={siteConfig.messages.import}>Consultar por importación</ContactLink></div><span class="import-asterisk" aria-hidden="true">✳</span></div></section>
