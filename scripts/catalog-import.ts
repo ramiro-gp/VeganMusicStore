@@ -5,6 +5,15 @@ import { normalizeText } from '../src/lib/catalog.ts';
 
 const required = ['Banda / Titulo', 'PRECIO EFT/TRAN', 'STOCK', 'ORIGEN', 'SELLO'];
 
+function parseInstallment(raw: string, row: number, title: string): number | null {
+  if (!raw) return null;
+  const match = raw.match(/^\$?\s*(\d{1,3}(?:\.\d{3})*|\d+)(?:,(\d{1,2}))?$/);
+  if (!match) throw new Error(`Valor de cuota inválido en fila ${row}: ${title}.`);
+  const price = Number(`${match[1].replace(/\./g, '')}${match[2] ? `.${match[2]}` : ''}`);
+  if (!Number.isFinite(price)) throw new Error(`Valor de cuota fuera de rango en fila ${row}: ${title}.`);
+  return price;
+}
+
 export function importCatalog(csv: string, syncedAt = new Date().toISOString()): CatalogSnapshot {
   if (!csv.trim() || /^\s*</.test(csv)) throw new Error('La fuente no devolvió un CSV: archivo vacío o HTML de Google.');
   let headers: string[] = [];
@@ -20,6 +29,7 @@ export function importCatalog(csv: string, syncedAt = new Date().toISOString()):
     if (rawPrice && !/^\d+(?:[.,]\d{1,2})?$/.test(rawPrice)) throw new Error(`Precio inválido en fila ${index + 2}: ${sourceTitle}.`);
     const price = rawPrice ? Number(rawPrice.replace(',', '.')) : null;
     if (price !== null && !Number.isFinite(price)) throw new Error(`Precio fuera de rango en fila ${index + 2}: ${sourceTitle}.`);
+    const installment3Ars = parseInstallment((row['Valor cuota'] ?? '').trim(), index + 2, sourceTitle);
     const stockRaw = row.STOCK?.trim() ?? '';
     const stockNumber = /^\d+\+?$/.test(stockRaw) ? Number.parseInt(stockRaw, 10) : null;
     const origin = row.ORIGEN?.trim() || null;
@@ -33,11 +43,11 @@ export function importCatalog(csv: string, syncedAt = new Date().toISOString()):
       throw new Error(`Identidad duplicada con datos diferentes en fila ${index + 2}: ${sourceTitle}.`);
     }
     identities.set(id, signature);
-    products.push({ id, sourceTitle, artist: null, album: null, format: null, priceCashArs: price, stockStatus: stockNumber === null ? 'unknown' : stockNumber > 0 ? 'listed' : 'out', stockRaw, origin, label, coverKey: null, featuredOrder: null });
+    products.push({ id, sourceTitle, artist: null, album: null, format: null, priceCashArs: price, installment3Ars, stockStatus: stockNumber === null ? 'unknown' : stockNumber > 0 ? 'listed' : 'out', stockRaw, origin, label, coverKey: null, featuredOrder: null });
   }
   if (!products.length) throw new Error('El CSV no contiene productos. Se conserva el catálogo anterior.');
   products.sort((a, b) => a.sourceTitle.localeCompare(b.sourceTitle, 'es-AR'));
-  return { schemaVersion: 1, syncedAt, products };
+  return { schemaVersion: 2, syncedAt, products };
 }
 
 export async function fetchCsv(url: string, options: { timeoutMs?: number; retries?: number; fetcher?: typeof fetch; delay?: (ms: number) => Promise<void> } = {}): Promise<string> {

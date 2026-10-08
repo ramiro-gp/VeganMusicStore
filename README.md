@@ -18,11 +18,13 @@ La URL del CSV está en `src/config/site.ts`, con override opcional `CATALOG_CSV
 
 Los IDs dependen de título, origen y sello, nunca de precio, stock o orden. Cambiar esos datos de identidad exige revisar el enriquecimiento editorial. `10+` indica stock positivo, no una cantidad exacta. Los duplicados exactos se colapsan, sin sumar stock. Los datos contradictorios y precios inválidos bloquean la sincronización.
 
-`src/data/catalog.editorial.ts` contiene la selección y la separación manual de artista/álbum. Las fundas de catálogo actuales son ilustraciones tipográficas identificadas como tales, no portadas oficiales. Reemplazarlas por imágenes verificadas cuando las entregue el negocio; importarlas desde `src/assets/covers` con `astro:assets` y conservar dimensiones explícitas.
+`src/data/catalog.editorial.ts` contiene la selección y la separación manual de artista/álbum. La cuota informada se importa de `Valor cuota` y se muestra como tres pagos cuando existe. Las fundas de catálogo actuales son ilustraciones tipográficas identificadas como tales, no portadas oficiales. Reemplazarlas por imágenes verificadas cuando las entregue el negocio; importarlas desde `src/assets/covers` con `astro:assets` y conservar dimensiones explícitas.
 
 ## WhatsApp y marca
 
-Configurar el número exclusivamente en `siteConfig.contact.whatsappNumber`, dentro de `src/config/site.ts`, con código internacional y sólo dígitos. Mientras sea `null`, los CTA llevan a la ubicación y al aviso de contacto pendiente. No hay números falsos en componentes.
+El número activo se configura en `siteConfig.contact.whatsappNumber`, dentro de `src/config/site.ts`, con código internacional y sólo dígitos. Actualizarlo ahí si cambia; los CTA generan mensajes según el contexto.
+
+La ubicación incorpora un mapa de Google Maps con carga diferida al llegar a esa sección.
 
 La identidad y el copy son provisionales. No se afirman horarios, antigüedad ni condiciones comerciales desconocidas.
 

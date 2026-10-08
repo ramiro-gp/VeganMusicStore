@@ -4,7 +4,7 @@ export const siteConfig = {
   locale: 'es-AR',
   contact: {
     // Único lugar para el número. Usar código internacional, sin + ni espacios.
-    whatsappNumber: null as string | null,
+    whatsappNumber: '5491151354489' as string | null,
   },
   address: {
     street: 'Medrano 529',
@@ -15,6 +15,7 @@ export const siteConfig = {
     display: 'Medrano 529 — Almagro, CABA',
   },
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Medrano%20529%2C%20Almagro%2C%20CABA',
+  mapsEmbedUrl: 'https://www.google.com/maps?q=Medrano%20529%2C%20Almagro%2C%20CABA&output=embed',
   social: [] as { label: string; url: string }[],
   catalog: {
     csvUrl: 'https://docs.google.com/spreadsheets/d/1ux6tu3l2bwC_gwFLL83aTMGz2JfYG-8-/export?format=csv&gid=1052727913',

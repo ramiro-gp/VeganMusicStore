@@ -6,6 +6,6 @@ const home = Astro.url.pathname === '/';
   <div class="header-inner shell">
     <a class="wordmark" href="/" aria-label="VSM, Vegan Store Music, inicio"><span class="wordmark-short" aria-hidden="true">VSM<span class="brand-dot">✳</span></span><span class="wordmark-full" aria-hidden="true">VEGAN STORE MUSIC<span class="brand-dot">✳</span></span></a>
     <nav aria-label="Navegación principal"><a href={home ? '#catalogo' : '/catalogo/'} aria-current={!home && Astro.url.pathname === '/catalogo/' ? 'page' : undefined}>Catálogo</a><a class="nav-about" href="/#tienda">La tienda</a></nav>
-    <ContactLink class="header-contact" compact>Consultar</ContactLink>
+    <ContactLink class="button button-dark header-contact" compact>Consultar</ContactLink>
   </div>
 </header>

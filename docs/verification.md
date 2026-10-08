@@ -6,12 +6,13 @@ Realizada el 7 de octubre de 2026. Demo temporal: https://vegan-store-music.verc
 
 - `pnpm test`: 13 pruebas aprobadas, incluyendo CSV, duplicados, colisiones, errores de red, preservación del snapshot y mensajes de WhatsApp.
 - `pnpm check`: 0 errores, advertencias o sugerencias.
-- `pnpm catalog:sync --verify`: descarga real, validación, pruebas y build completos; 255 productos únicos. Última sincronización: `2026-10-07T23:22:41.180Z`.
-- Los fallos de CSV o build conservan byte por byte el snapshot anterior. Los precios inválidos y fuera de rango bloquean la importación; los precios decimales conservan sus centavos.
+- `pnpm catalog:sync --verify`: descarga real, validación, pruebas y build completos de la implementación inicial; 255 productos únicos.
+- El snapshot actual usa esquema 2 y 255 títulos. Sincronizado desde la hoja, incluida la columna `Valor cuota`: `2026-10-08T00:31:09.339Z` (21:31 del 7 de octubre en Buenos Aires). Ejemplo real: cuota ARS 20.213 para Airbag. El sitio presenta ese monto tres veces, conservando el valor mensual.
+- Los fallos de CSV o build conservan byte por byte el snapshot anterior. Los precios inválidos y fuera de rango bloquean la importación; los importes de cuota en ARS se interpretan con separador de miles local.
 
 ## Lighthouse móvil
 
-Lighthouse 13.5.0 sobre el build servido localmente. Perfil de producción con sitemap e indexación habilitada y `https://example.com` como fixture de canonical, exclusivamente durante la auditoría. La demo publicada usa su dominio real y `noindex, follow`; por ello su evaluación de indexación es deliberadamente diferente. Estas puntuaciones corresponden a la medición local, no a PageSpeed Insights del despliegue.
+Lighthouse 13.5.0 sobre el build servido localmente. Perfil de producción con sitemap e indexación habilitada y `https://example.com` como fixture de canonical, exclusivamente durante la auditoría. La demo publicada usa su dominio real y `noindex, follow`; por ello su evaluación de indexación es deliberadamente diferente. Las puntuaciones siguientes corresponden a la medición local de la versión inicial, anterior al mapa y a la revisión, no a PageSpeed Insights del despliegue.
 
 | Página / medición | Performance | Accessibility | Best Practices | SEO | LCP | CLS | TBT |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -22,7 +23,7 @@ Lighthouse 13.5.0 sobre el build servido localmente. Perfil de producción con s
 
 El resumen exacto está en `docs/lighthouse-summary.json`. Los informes completos JSON y HTML, además de las capturas, se conservan localmente en `reports/`, excluidos del despliegue.
 
-JavaScript propio extraído del HTML y comprimido con gzip: inicio 828 bytes, catálogo 519 bytes. No hay hidratación ni scripts de terceros.
+JavaScript propio extraído del HTML de la implementación inicial y comprimido con gzip: inicio 828 bytes, catálogo 519 bytes. No hay hidratación ni scripts propios de terceros.
 
 ## Navegación y presentación
 

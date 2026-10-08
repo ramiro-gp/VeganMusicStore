@@ -5,6 +5,7 @@ export interface CatalogItem {
   album: string | null;
   format: string | null;
   priceCashArs: number | null;
+  installment3Ars: number | null;
   stockStatus: 'listed' | 'out' | 'unknown';
   stockRaw: string;
   origin: string | null;
@@ -14,7 +15,7 @@ export interface CatalogItem {
 }
 
 export interface CatalogSnapshot {
-  schemaVersion: 1;
+  schemaVersion: 2;
   syncedAt: string;
   products: CatalogItem[];
 }

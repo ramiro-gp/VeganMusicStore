@@ -15,10 +15,10 @@ export function enrichCatalog(snapshot: CatalogSnapshot): CatalogItem[] {
 export function assertSnapshot(value: unknown): asserts value is CatalogSnapshot {
   if (!value || typeof value !== 'object') throw new Error('Snapshot inválido.');
   const snapshot = value as CatalogSnapshot;
-  if (snapshot.schemaVersion !== 1 || !Number.isFinite(Date.parse(snapshot.syncedAt)) || !Array.isArray(snapshot.products) || snapshot.products.length === 0) throw new Error('Snapshot vacío o incompatible.');
+  if (snapshot.schemaVersion !== 2 || !Number.isFinite(Date.parse(snapshot.syncedAt)) || !Array.isArray(snapshot.products) || snapshot.products.length === 0) throw new Error('Snapshot vacío o incompatible.');
   const ids = new Set<string>();
   for (const item of snapshot.products) {
-    if (!item.id || ids.has(item.id) || !item.sourceTitle?.trim() || !['listed', 'out', 'unknown'].includes(item.stockStatus) || (item.priceCashArs !== null && (!Number.isFinite(item.priceCashArs) || item.priceCashArs < 0))) throw new Error(`Producto inválido o duplicado: ${item.id ?? 'sin ID'}.`);
+    if (!item.id || ids.has(item.id) || !item.sourceTitle?.trim() || !['listed', 'out', 'unknown'].includes(item.stockStatus) || (item.priceCashArs !== null && (!Number.isFinite(item.priceCashArs) || item.priceCashArs < 0)) || (item.installment3Ars !== null && (!Number.isFinite(item.installment3Ars) || item.installment3Ars < 0))) throw new Error(`Producto inválido o duplicado: ${item.id ?? 'sin ID'}.`);
     ids.add(item.id);
   }
 }
