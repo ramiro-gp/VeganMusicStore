@@ -1,0 +1,50 @@
+/* Original brand artwork is displayed without filters or recolouring. */
+:root { --header-height: 92px; }
+.header-inner { min-height: 92px; }
+.wordmark { flex: 0 0 auto; padding-block: 8px; }
+.brand-logo { height: auto; object-fit: contain; }
+.brand-logo-header { width: 88px; }
+.hero-logo-title { margin: 0; width: min(100%, 320px); line-height: 1; }
+.brand-logo-hero { width: 100%; }
+.brand-logo-footer { width: clamp(150px, 26vw, 300px); }
+.destinations-grid { --destination-height: clamp(250px, 28vw, 450px); }
+.destinations-grid .destination-art { width: 100%; min-width: 0; height: var(--destination-height); aspect-ratio: auto; }
+.destination-records-art { background: #000; align-items: center; justify-content: center; padding: 20px; }
+.destination-records-art .brand-logo-records { width: auto; max-width: 100%; height: 100%; }
+.records-callout-brand > .brand-logo-records { width: min(100%, 320px); margin-top: 28px; }
+.record-sleeve { color: var(--ink); }
+.sleeve-top, .sleeve-bottom { border-color: #211c2760; }
+.sleeve-star { color: var(--accent-ink); }
+.hero-art .sleeve-art-word { font-size: clamp(32px, 5.1vw, 76px); }
+.footer-credit-icon, .footer-credit a { color: var(--accent); }
+@media (max-width: 767px) {
+  :root { --header-height: 84px; }
+  .header-inner { min-height: 84px; }
+  .brand-logo-header { width: 78px; }
+  .hero-grid { grid-template-columns: 1.2fr 1fr; }
+  .hero-art { width: 115%; }
+  .hero-eyebrow { font-size: 8px; }
+  .hero-logo-title { width: 100%; }
+  .hero-art .sleeve-art-word { font-size: clamp(18px, 4.5vw, 34px); }
+  .hero-details .hero-tagline { font-size: 19px; }
+}
+@media (min-width: 768px) {
+  .hero-grid { gap: 18px 48px; }
+  .hero-grid { padding-bottom: 64px; }
+  .hero-foot { position: absolute; inset-inline: 0; bottom: 8px; }
+  .hero-art { width: min(100%, 54svh); }
+}
+@media (max-width: 374px) {
+  .brand-logo-header { width: 70px; }
+  .hero-grid { gap: 18px 12px; }
+}
+
+.hero { --hero-distance: clamp(100px, 18svh, 190px); }
+.hero-grid { min-height: calc(65svh - var(--header-height)); }
+html.has-js .hero[data-enhanced="true"] { height: calc(var(--hero-scene-height) + var(--hero-distance)); }
+html.has-js .hero[data-enhanced="true"] .hero-pin { position: sticky; top: var(--header-height); height: var(--hero-scene-height); }
+html.has-js .hero[data-enhanced="true"] .hero-grid { height: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html.has-js .hero[data-enhanced="true"] { height: auto; }
+  html.has-js .hero[data-enhanced="true"] .hero-pin { position: relative; height: auto; }
+}

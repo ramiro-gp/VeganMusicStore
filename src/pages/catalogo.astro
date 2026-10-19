@@ -3,9 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CatalogList from '../components/CatalogList.astro';
 import ImportCallout from '../components/ImportCallout.astro';
 import Location from '../components/Location.astro';
-import { products } from '../lib/catalog-data';
+import CatalogIntro from '../components/CatalogIntro.astro';
+import { siteVariant } from '../config/variant';
+import { catalogSchema } from '../lib/catalog-schema';
+if (siteVariant === 'v2') return Astro.redirect('/#catalogo', 301);
 const origin = Astro.site ?? new URL('http://localhost:4321');
-const url = new URL('/catalogo/', origin).href;
-const schema = [{ '@type': 'CollectionPage', '@id': `${url}#pagina`, name: 'Catálogo de discos y vinilos', url, mainEntity: { '@type': 'ItemList', numberOfItems: products.length, itemListElement: products.map((item, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Product', '@id': `${url}#disco-${item.id}`, url: `${url}#disco-${item.id}`, name: item.sourceTitle, ...(item.priceCashArs !== null ? { offers: { '@type': 'Offer', price: item.priceCashArs, priceCurrency: 'ARS', description: 'Precio de lista en efectivo o transferencia. Confirmar stock y precio.', seller: { '@id': new URL('/#negocio', origin).href } } } : {}) } })) } }, { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Inicio', item: origin.href }, { '@type': 'ListItem', position: 2, name: 'Catálogo', item: url }] }];
+const schema = catalogSchema(origin);
 ---
-<BaseLayout title="Catálogo de discos y vinilos — Vegan Store Music" description="Explorá el catálogo de Vegan Store Music: discos y vinilos, precios en efectivo o transferencia y consultas por stock, pedidos e importaciones." schema={schema}><div class="catalog-intro shell"><nav class="breadcrumbs" aria-label="Ruta de navegación"><a href="/">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Catálogo</span></nav><div class="section-heading"><h1 class="section-title">BUSCÁ.<br /><span class="accent">ENCONTRÁ.</span></h1><p>{products.length} títulos en la lista.</p></div></div><CatalogList /><ImportCallout /><Location /></BaseLayout>
+<BaseLayout title="Catálogo de discos y vinilos — Vegan Music Store" description="Explorá el catálogo de Vegan Music Store: discos y vinilos, precios por medio de pago y carrito de consulta por WhatsApp." schema={schema}><CatalogIntro /><CatalogList /><ImportCallout /><Location /></BaseLayout>

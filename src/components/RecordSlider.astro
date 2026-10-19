@@ -1,0 +1,40 @@
+---
+import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from '@lucide/astro';
+import { products } from '../lib/catalog-data';
+import { stockLimit, originCategory, isOnRequest, REQUEST_LIMIT } from '../lib/cart';
+import { formatPrice } from '../lib/whatsapp';
+import { routes } from '../config/variant';
+import DecorativeMark from './DecorativeMark.astro';
+interface Props { context?: 'home' | 'cart'; }
+const { context = 'home' } = Astro.props;
+const isCart = context === 'cart';
+const id = `record-slider-${context}`;
+const selection = ['Babasonicos Jessico', 'Bad Brains Into The Future', 'Virus Superficies De Placer', 'Nirvana Greatest Hits', 'Airbag Blanco y Negro', 'The Beatles Please Please Me', 'Astor Piazzolla Adios Nonino', 'Bad Brains Live at CBGB 1982'];
+const records = selection.flatMap(title => {
+  const item = products.find(item => item.sourceTitle === title);
+  return item && (isOnRequest(item) || stockLimit(item) > 0 && item.priceCashArs !== null && item.priceCashArs > 0) ? [item] : [];
+});
+const motifs = ['spark', 'rings', 'wave', 'target', 'arrow', 'crescent', 'asterisk', 'rings'] as const;
+---
+{records.length > 0 && <section class:list={['record-slider', { 'record-slider-cart': isCart }]} aria-labelledby={`${id}-title`} data-slider data-cart-source>
+  <div class="shell slider-heading">
+    <div><p class="eyebrow">{isCart ? 'UN ÚLTIMO HALLAZGO' : 'NACIONALES / INTERNACIONALES'}</p><h2 id={`${id}-title`}>{isCart ? <>UNO MÁS <br /><span>Y YA ESTÁ…</span></> : <>DALE UNA <br /><span>VUELTA.</span></>}</h2></div>
+    <div class="slider-heading-actions">
+      {!isCart && <a class="text-link" href={routes.catalog}>Ver catálogo completo <ArrowUpRight size={18} aria-hidden="true" /></a>}
+      <div class="slider-navigation" data-slider-navigation hidden><button type="button" data-slider-direction="-1" aria-label="Ver discos anteriores" aria-controls={id}><ArrowLeft size={20} aria-hidden="true" /></button><button type="button" data-slider-direction="1" aria-label="Ver más discos" aria-controls={id}><ArrowRight size={20} aria-hidden="true" /></button></div>
+    </div>
+  </div>
+  <div class="slider-track" id={id} data-slider-track tabindex="0" role="region" aria-label="Selección de discos. Deslizá o usá las flechas para explorar.">
+    <ul class="slider-records">
+      {records.map((item, index) => <li class="slider-record">
+        <div class:list={['illustrated-cover', `cover-${item.coverKey}`]} role="img" aria-label={`Tapa tipográfica ilustrativa: ${item.artist}, ${item.album}. No representa la portada original.`}>
+          <span class="cover-caption">VMS / SELECCIÓN DE LA TIENDA</span><span class="cover-artist">{item.artist}</span><DecorativeMark class="cover-symbol" shape={motifs[index] ?? 'spark'} /><span class="cover-album">{item.album}</span><span class="cover-reference">IMAGEN ILUSTRATIVA / 0{index + 1}</span>
+        </div>
+        <div class="slider-record-info"><p class="slider-origin">{originCategory(item.origin) === 'national' ? 'EDICIÓN NACIONAL' : 'EDICIÓN INTERNACIONAL'}</p><h3>{item.artist}<span>{item.album}</span></h3><p class="slider-edition">{[item.origin, item.label].filter(Boolean).join(' · ')}</p><p class="slider-price">{isOnRequest(item) ? 'A cotizar' : formatPrice(item.priceCashArs)}<span>{isOnRequest(item) ? 'Sin stock · A pedido' : 'Efectivo / transferencia'}</span></p>{!isOnRequest(item) && item.installment3Ars !== null && <p class="slider-installments">3 cuotas de {formatPrice(item.installment3Ars)}</p>}
+        <button class="button slider-add" type="button" data-add-cart={item.id} data-limit={isOnRequest(item) ? REQUEST_LIMIT : stockLimit(item)} data-on-request={isOnRequest(item)} data-title={item.sourceTitle} aria-label={`Sumar ${item.sourceTitle} al carrito`} hidden><span data-add-label>{isOnRequest(item) ? 'Sin stock · Pedir' : 'Sumar al carrito'}</span><Plus size={17} aria-hidden="true" /></button></div>
+      </li>)}
+    </ul>
+  </div>
+  <div class="shell slider-foot"><p>Tapas ilustrativas. Edición, stock y precio a confirmar.</p><div role="status" aria-live="polite" aria-atomic="true" data-add-feedback></div></div>
+</section>}
+<script>import '../scripts/record-slider';</script>

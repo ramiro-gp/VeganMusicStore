@@ -1,10 +1,41 @@
 ---
 import { products, snapshot } from '../lib/catalog-data';
+import { ArrowUpRight, Plus } from '@lucide/astro';
 import { normalizeText, syncDate } from '../lib/catalog';
+import { originCategory, stockLimit, isOnRequest, REQUEST_LIMIT } from '../lib/cart';
 import { formatPrice, productMessage, whatsappUrl } from '../lib/whatsapp';
 import ContactLink from './ContactLink.astro';
 import { siteConfig } from '../config/site';
+import { routes } from '../config/variant';
 const status = { listed: 'Stock en lista · confirmar', out: 'Sin stock en lista · consultar', unknown: 'Consultar stock' };
 ---
-<section class="catalog-body shell" aria-labelledby="catalog-list-title" data-catalog><h2 id="catalog-list-title" class="sr-only">Discos y vinilos del catálogo</h2><form class="catalog-controls" data-catalog-controls hidden role="search" aria-label="Buscar en el catálogo"><div class="search-field"><label for="catalog-search">¿Qué disco estás buscando?</label><input id="catalog-search" type="search" name="buscar" placeholder="Artista, álbum, sello…" autocomplete="off" data-search /></div><label class="stock-filter"><input type="checkbox" data-stock-filter /> Con stock informado</label><p class="catalog-count" aria-live="polite" aria-atomic="true" data-result-count>{products.length} títulos</p></form><p class="catalog-disclaimer">Precios en efectivo / transferencia. Confirmá edición, precio y disponibilidad.<br />Catálogo sincronizado el {syncDate(snapshot)}.</p><div class="catalog-column-labels" aria-hidden="true"><span>ARTISTA / ÁLBUM / EDICIÓN</span><span>PRECIO DE LISTA</span><span>HABLANOS</span></div><ul class="catalog-list">{products.map(item => { const url = whatsappUrl(productMessage(item)); return <li id={`disco-${item.id}`} data-catalog-item data-stock={item.stockStatus} data-search-text={normalizeText([item.sourceTitle, item.artist, item.album, item.origin, item.label].filter(Boolean).join(' '))}><h3>{item.sourceTitle}</h3><p class="catalog-item-meta">{[item.format, item.origin, item.label, status[item.stockStatus]].filter(Boolean).join(' · ')}</p><p class="catalog-item-price">{formatPrice(item.priceCashArs)}{item.installment3Ars !== null && <span class="catalog-installment">3 cuotas de {formatPrice(item.installment3Ars)}</span>}</p><a class="catalog-item-link" href={url ?? '/#contacto'} target={url ? '_blank' : undefined} rel={url ? 'noopener noreferrer' : undefined} aria-label={`Consultar por ${item.sourceTitle}`}>Consultar <span aria-hidden="true">↗</span></a></li> })}</ul><div class="catalog-empty" data-empty hidden><p class="large-copy">Ese disco todavía no aparece acá.</p><p>Probá con otra palabra o contanos qué estás buscando.</p><ContactLink class="button button-dark" message={siteConfig.messages.order}>Pedir un álbum</ContactLink></div></section><script>import '../scripts/catalog-search';</script>
+<section id="catalogo" class="catalog-body shell" aria-labelledby="catalog-list-title" data-catalog data-cart-source>
+  <h2 id="catalog-list-title" class="sr-only">Discos y vinilos del catálogo</h2>
+  <form class="catalog-controls" data-catalog-controls hidden role="search" aria-label="Buscar en el catálogo">
+    <div class="search-field"><label for="catalog-search">¿Qué disco estás buscando?</label><input id="catalog-search" type="search" name="buscar" placeholder="Artista, álbum, sello…" autocomplete="off" data-search /></div>
+    <div class="origin-field"><label for="catalog-origin">Origen de la edición</label><select id="catalog-origin" name="origen" data-origin-filter><option value="all">Todas</option><option value="national">Nacional</option><option value="international">Internacional</option></select></div>
+    <label class="stock-filter"><input type="checkbox" data-stock-filter checked /> Con stock informado</label>
+    <p class="catalog-count" aria-live="polite" aria-atomic="true" data-result-count>{products.length} títulos</p>
+  </form>
+  <p class="catalog-disclaimer">Precios en efectivo / transferencia. Confirmá edición, precio y disponibilidad.<br />Catálogo sincronizado el {syncDate(snapshot)}.</p>
+  <div class="catalog-feedback" role="status" aria-live="polite" aria-atomic="true"><span data-catalog-feedback></span><a href={routes.cart} data-cart-shortcut hidden>Ver carrito <ArrowUpRight size={14} aria-hidden="true" /></a></div>
+  <div class="catalog-column-labels" aria-hidden="true"><span>ARTISTA / ÁLBUM / EDICIÓN</span><span>PRECIO DE LISTA</span><span>ARMÁ TU SELECCIÓN / HABLANOS</span></div>
+  <ul class="catalog-list">
+    {products.map(item => {
+      const url = whatsappUrl(productMessage(item));
+      const onRequest = isOnRequest(item);
+      const limit = onRequest ? REQUEST_LIMIT : item.priceCashArs !== null && item.priceCashArs > 0 ? stockLimit(item) : 0;
+      return <li id={`disco-${item.id}`} data-catalog-item data-stock={item.stockStatus} data-origin={originCategory(item.origin)} data-search-text={normalizeText([item.sourceTitle, item.artist, item.album, item.origin, item.label].filter(Boolean).join(' '))}>
+        <h3>{item.sourceTitle}</h3>
+        <p class="catalog-item-meta">{[item.format, item.origin ?? 'Origen sin informar', item.label, status[item.stockStatus]].filter(Boolean).join(' · ')}</p>
+        <p class="catalog-item-price">{onRequest ? 'A cotizar' : formatPrice(item.priceCashArs)}{!onRequest && item.installment3Ars !== null && <span class="catalog-installment">3 cuotas de {formatPrice(item.installment3Ars)}</span>}</p>
+        <div class="catalog-item-actions">
+          <button class="button catalog-add" type="button" data-add-cart={item.id} data-limit={limit} data-on-request={onRequest} data-title={item.sourceTitle} disabled={limit === 0} hidden aria-label={`Sumar ${item.sourceTitle}${onRequest ? ' a pedido' : ' al carrito'}`}><span data-add-label>{onRequest ? 'Sin stock · Pedir' : limit ? 'Sumar al carrito' : 'Sólo consulta'}</span><Plus size={15} aria-hidden="true" /></button>
+          <a class="catalog-item-link" href={url ?? routes.contact} target={url ? '_blank' : undefined} rel={url ? 'noopener noreferrer' : undefined} aria-label={`Consultar ya por ${item.sourceTitle}`}>Consultar ya <ArrowUpRight class="catalog-item-arrow" size={15} stroke-width={1.7} aria-hidden="true" /></a>
+        </div>
+      </li>;
+    })}
+  </ul>
+  <div class="catalog-empty" data-empty hidden><p class="large-copy">Ese disco todavía no aparece acá.</p><p>Probá con otra palabra o contanos qué estás buscando.</p><ContactLink class="button button-dark" message={siteConfig.messages.order}>Pedir un álbum</ContactLink></div>
+</section>
 <script>import '../scripts/catalog-search';</script>

@@ -1,0 +1,9 @@
+---
+import { Image } from 'astro:assets';
+import storeLogo from '../assets/brand/vegan-music-store.png';
+import recordsLogo from '../assets/brand/vegan-records.png';
+interface Props { brand?: 'store' | 'records'; placement?: 'header' | 'hero' | 'footer' | 'records'; }
+const { brand = 'store', placement = 'header' } = Astro.props;
+const widths = placement === 'header' ? [100, 200] : [240, 480, 720];
+---
+<Image class:list={['brand-logo', `brand-logo-${placement}`]} src={brand === 'store' ? storeLogo : recordsLogo} alt={brand === 'store' ? 'Vegan Music Store' : 'Vegan Records'} width={placement === 'header' ? 100 : 480} widths={widths} sizes={placement === 'header' ? '100px' : '(max-width: 767px) 70vw, 480px'} format="webp" quality={90} loading={placement === 'header' || placement === 'hero' ? 'eager' : 'lazy'} />

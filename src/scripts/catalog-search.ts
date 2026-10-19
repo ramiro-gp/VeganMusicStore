@@ -3,6 +3,7 @@ if (catalog) {
   const controls = catalog.querySelector<HTMLFormElement>('[data-catalog-controls]')!;
   const search = catalog.querySelector<HTMLInputElement>('[data-search]')!;
   const stock = catalog.querySelector<HTMLInputElement>('[data-stock-filter]')!;
+  const origin = catalog.querySelector<HTMLSelectElement>('[data-origin-filter]')!;
   const count = catalog.querySelector<HTMLElement>('[data-result-count]')!;
   const empty = catalog.querySelector<HTMLElement>('[data-empty]')!;
   const items = [...catalog.querySelectorAll<HTMLElement>('[data-catalog-item]')];
@@ -12,7 +13,9 @@ if (catalog) {
     const words = normalize(search.value).split(' ').filter(Boolean);
     let visible = 0;
     for (const item of items) {
-      const matches = words.every(word => item.dataset.searchText!.includes(word)) && (!stock.checked || item.dataset.stock === 'listed');
+      const matches = words.every(word => item.dataset.searchText!.includes(word))
+        && (!stock.checked || item.dataset.stock === 'listed')
+        && (origin.value === 'all' || item.dataset.origin === origin.value);
       item.hidden = !matches;
       if (matches) visible++;
     }
@@ -23,5 +26,7 @@ if (catalog) {
   controls.addEventListener('submit', event => { event.preventDefault(); filter(); });
   search.addEventListener('input', () => { clearTimeout(timeout); timeout = setTimeout(filter, 100); });
   stock.addEventListener('change', filter);
+  origin.addEventListener('change', filter);
   window.addEventListener('pageshow', filter);
+  filter();
 }

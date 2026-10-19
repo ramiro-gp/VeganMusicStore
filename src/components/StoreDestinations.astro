@@ -1,0 +1,22 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import { products } from '../lib/catalog-data';
+import { routes, recordsStoreUrl } from '../config/variant';
+import DecorativeMark from './DecorativeMark.astro';
+import BrandLogo from './BrandLogo.astro';
+---
+<section class="store-destinations section-space shell" id="catalogo" aria-labelledby="destinations-title">
+  <div class="section-meta"><span class="eyebrow">01 / EXPLORÁ LA MÚSICA</span><span class="eyebrow">LA TIENDA & EL SELLO</span></div>
+  <div class="section-heading"><h2 class="section-title" id="destinations-title">SEGUÍ<br /><span class="accent">BUSCANDO.</span></h2><p>El catálogo de la tienda.<br />Los discos de nuestro sello.</p></div>
+  <div class="destinations-grid">
+    <article class="destination destination-catalog">
+      <div class="destination-art destination-catalog-art" aria-hidden="true"><span class="destination-art-index">VMS / CATÁLOGO GENERAL</span><strong>{products.length}<span>TÍTULOS PARA EXPLORAR</span></strong><div class="destination-formats"><span>VINILOS</span><span>CDS</span><span>IMPORTADOS</span></div><DecorativeMark class="destination-art-mark" shape="arrow" /></div>
+      <div class="destination-copy"><p class="eyebrow">A / VEGAN MUSIC STORE</p><h3>EL CATÁLOGO<br />DE LA TIENDA.</h3><p>Vinilos y CDs de artistas de acá y de todo el mundo. Buscá por título, elegí tus discos y armá tu consulta.</p><a class="button button-dark" href={routes.catalog}>Explorar catálogo <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a></div>
+    </article>
+    <article class="destination destination-records" id="vegan-records">
+      <div class="destination-art destination-records-art"><BrandLogo brand="records" placement="records" /></div>
+      <div class="destination-copy"><p class="eyebrow">B / VEGAN RECORDS</p><h3>NUESTRO SELLO.<br />SU PROPIA TIENDA.</h3><p>Conocé las ediciones de Vegan Records. El catálogo del sello tiene su tienda y su compra independiente en Empretienda.</p><a class="button button-dark" href={recordsStoreUrl} target="_blank" rel="noopener noreferrer">Ir a la tienda del sello <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a></div>
+    </article>
+  </div>
+  <div class="catalog-note"><p>El catálogo de Vegan Music Store y la tienda de Vegan Records tienen consultas y compras independientes.</p><a class="text-link" href={routes.catalog}>Los {products.length} títulos <ArrowUpRight size={18} aria-hidden="true" /></a></div>
+</section>

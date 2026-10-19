@@ -1,14 +1,53 @@
-# Vegan Store Music
+# Vegan Music Store
 
-Demo comercial editorial, mobile-first, con Astro estático. La hoja es la fuente de precios y stock; el navegador nunca consulta Google Sheets.
+Dos demos comerciales con la misma identidad editorial, Astro estático y catálogo/carrito compartidos. Google Sheets es la fuente de precios y stock; el navegador nunca consulta la hoja.
 
-Demo temporal: [vegan-store-music.vercel.app](https://vegan-store-music.vercel.app/). Validaciones y métricas reales en [docs/verification.md](docs/verification.md).
+V1: [vegan-store-music.vercel.app](https://vegan-store-music.vercel.app/). V2 se publica en el proyecto independiente `vegan-store-music-v2`. Validaciones y métricas reales en [docs/verification.md](docs/verification.md).
 
 ## Desarrollo
 
 Node 24.12+ y pnpm 11.7. `pnpm install`, `pnpm dev`.
 
-`pnpm test` prueba importación, errores y mensajes. `pnpm check` comprueba tipos. `pnpm build` genera `dist` usando el snapshot versionado, sin acceso a Google. `pnpm preview` sirve ese build.
+`pnpm test` prueba importación, carrito, almacenamiento y mensajes. `pnpm check` comprueba tipos. `pnpm build` genera `dist` usando el snapshot versionado, sin acceso a Google. `pnpm preview` sirve ese build.
+
+### Variantes y rutas
+
+`SITE_VARIANT=v1|v2` selecciona la propuesta al iniciar o construir. Si se omite, se utiliza V1; cualquier otro valor produce un error. No es un selector para visitantes: cada despliegue tiene una variante y un dominio propios.
+
+| Ruta | V1 | V2 |
+|---|---|---|
+| `/` | Landing con hero de scroll y accesos a tienda y sello | Hero compacto y catálogo completo |
+| `/catalogo/` | Catálogo completo | Redirección a `/#catalogo` |
+| `/nosotros/` | Contenido en `/#tienda` | Página institucional |
+| `/contacto/` | Contenido en `/#contacto` | Contacto y mapa |
+| `/vegan-records/` | Bloque en `/#vegan-records` | Presentación del sello |
+| `/carrito/` | Carrito de consulta | Carrito de consulta |
+
+En V1 las tres páginas institucionales de V2 no se generan; la navegación utiliza las anclas indicadas. `src/config/variant.ts` centraliza los destinos internos y la URL de Empretienda.
+
+Ejemplo en PowerShell para construir y revisar cada variante con salidas separadas:
+
+```powershell
+$env:SITE_MODE = 'demo'
+$env:SITE_VARIANT = 'v1'
+$env:SITE_URL = 'http://localhost:4321'
+pnpm check
+pnpm build --outDir dist-v1
+pnpm preview --outDir dist-v1 --port 4321
+```
+
+En otra terminal, para V2:
+
+```powershell
+$env:SITE_MODE = 'demo'
+$env:SITE_VARIANT = 'v2'
+$env:SITE_URL = 'http://localhost:4322'
+pnpm check
+pnpm build --outDir dist-v2
+pnpm preview --outDir dist-v2 --port 4322
+```
+
+Para desarrollo, configurar las mismas variables y ejecutar `pnpm dev`; para despliegue, utilizar `pnpm build` sin `--outDir`, conservando `dist` como directorio de salida.
 
 ## Catálogo
 
@@ -18,7 +57,28 @@ La URL del CSV está en `src/config/site.ts`, con override opcional `CATALOG_CSV
 
 Los IDs dependen de título, origen y sello, nunca de precio, stock o orden. Cambiar esos datos de identidad exige revisar el enriquecimiento editorial. `10+` indica stock positivo, no una cantidad exacta. Los duplicados exactos se colapsan, sin sumar stock. Los datos contradictorios y precios inválidos bloquean la sincronización.
 
-`src/data/catalog.editorial.ts` contiene la selección y la separación manual de artista/álbum. La cuota informada se importa de `Valor cuota` y se muestra como tres pagos cuando existe. Las fundas de catálogo actuales son ilustraciones tipográficas identificadas como tales, no portadas oficiales. Reemplazarlas por imágenes verificadas cuando las entregue el negocio; importarlas desde `src/assets/covers` con `astro:assets` y conservar dimensiones explícitas.
+El snapshot utiliza `schemaVersion: 3`. Importa `PRECIO EFT/TRAN` para efectivo/transferencia, `TARJETA 1 PAGO` para tarjeta en un pago y `Valor cuota` para cada una de las tres cuotas. El total en tres cuotas es **3 × Valor cuota**; no se utiliza `TARJETA 3 PAGOS` para ese cálculo. Puede existir una diferencia por redondeo respecto de esa columna. Los importes cero o vacíos se tratan como precio no informado; los valores inválidos bloquean la importación.
+
+La búsqueda se combina con “Con stock informado”, marcado inicialmente, y con el filtro de origen, inicialmente en Todas. `Argentina`, normalizada sin distinguir mayúsculas, es Nacional; otro origen informado es Internacional. Un origen vacío se identifica como “Origen sin informar” y aparece únicamente en Todas. El filtro describe el origen de la edición, no la nacionalidad del artista.
+
+Todo el catálogo está presente en el HTML inicial; el JavaScript mejora la búsqueda, los filtros y el carrito. Los enlaces de consulta directa siguen siendo utilizables sin JavaScript. `src/data/catalog.editorial.ts` conserva el enriquecimiento manual de artista/álbum; la landing ya no presenta una selección destacada de ocho títulos.
+
+### Vegan Records
+
+El catálogo de Vegan Music Store y la [Empretienda de Vegan Records](https://veganrecords.empretienda.com.ar/) son destinos independientes. La tienda del sello se abre en otra pestaña y gestiona sus propios productos y compras. No se copian productos ni se sincroniza inventario desde Empretienda. Los títulos del sello que ya figuren en Sheets permanecen en el catálogo general.
+
+## Carrito de consulta
+
+`/carrito/` reúne los discos elegidos y genera una sola consulta por WhatsApp. Cada producto mantiene también “Consultar ya” para preguntar por ese título sin modificar el carrito.
+
+- Efectivo/transferencia es el medio inicial. Los radios permiten elegir tarjeta en un pago o tres cuotas y recalculan precios unitarios, subtotales y total en centavos.
+- El resumen y el mensaje comparten el mismo cálculo. En tres cuotas se muestra y envía el importe de cada cuota y su total. Un medio se deshabilita si falta su precio en algún producto.
+- Sólo se agregan discos con stock positivo y precio informado. La cantidad máxima es el entero de stock; para `10+` el carrito permite hasta diez unidades y una cantidad mayor se coordina por consulta directa.
+- El navegador guarda IDs, cantidades, medio y fecha del catálogo en `localStorage`. Al recuperar la selección se resuelven precios actuales, se ajustan cantidades que superen el stock y se informa el cambio. Un producto retirado, sin stock o sin precio bloquea el envío hasta quitarlo.
+- Los carritos de V1 y V2 son independientes por origen/dominio. Si el navegador impide guardar, se muestra un aviso; la selección puede perderse al navegar y las consultas directas siguen disponibles.
+- “Enviar consulta por WhatsApp” y “Copiar consulta” incluyen títulos, cantidades, medio elegido y total. Abrir WhatsApp no vacía el carrito ni descuenta inventario. El envío o retiro se coordina con el negocio.
+
+El carrito no reserva productos ni cobra. El dueño confirma disponibilidad y precio, envía alias/CVU o link de pago, concreta la venta y actualiza el stock en Google Sheets.
 
 ## WhatsApp y marca
 
@@ -26,28 +86,45 @@ El número activo se configura en `siteConfig.contact.whatsappNumber`, dentro de
 
 La ubicación incorpora un mapa de Google Maps con carga diferida al llegar a esa sección.
 
+Las estrellas y figuras de las fundas se dibujan como SVG originales para que Safari/iOS, Android y desktop compartan la misma forma y color. Evitar reemplazarlas por glifos tipográficos en `src/components` o en la portada Open Graph.
+
 La identidad y el copy son provisionales. No se afirman horarios, antigüedad ni condiciones comerciales desconocidas.
 
 ## Entornos y SEO
 
-Por defecto `SITE_MODE=demo`: `noindex, follow`, sin sitemap. `SITE_URL` define canonical, Open Graph y Schema; en Vercel se utiliza el dominio estable del proyecto cuando no se define. En producción configurar `SITE_MODE=production` y `SITE_URL=https://DOMINIO-REAL`. El build rechaza producción sin una URL HTTPS real. La página 404 siempre lleva noindex.
+Por defecto `SITE_MODE=demo`: `noindex, follow`, sin sitemap. `SITE_URL` define canonical, Open Graph y Schema; configurar la URL propia de cada variante. En Vercel se utiliza el dominio estable del proyecto cuando no se define. En producción configurar `SITE_MODE=production` y `SITE_URL=https://DOMINIO-REAL`. El build rechaza producción sin una URL HTTPS real. La página 404 y el carrito siempre llevan noindex; ambos se excluyen del sitemap, al igual que la redirección `/catalogo/` de V2.
 
 La demo con noindex no puede obtener 100 en la auditoría de indexación de Lighthouse. Auditar la configuración de producción localmente y publicar la demo nuevamente con el perfil de demo.
 
 ## Hero
 
-Scroll real, CSS sticky y un script pequeño. No se interceptan wheel ni touch. El movimiento afecta transformaciones y opacidad. Reduced motion y pantallas muy bajas utilizan una escena estática. Todo el contenido existe sin JS.
+V1 conserva scroll real, CSS sticky y un script pequeño. No se interceptan wheel ni touch. El movimiento afecta transformaciones y opacidad. Reduced motion y pantallas muy bajas utilizan una escena estática.
+
+V2 utiliza una composición propia de aproximadamente `40svh`, sin sticky ni recorrido adicional, para mostrar el comienzo del catálogo en la primera pantalla. La extracción breve al cargar se realiza con CSS; con movimiento reducido la escena permanece estática. En pantallas muy bajas se prioriza la legibilidad. Todo el contenido existe sin JavaScript.
 
 ## Despliegue
 
-- **Demo Vercel:** framework Astro, comando `pnpm build`, salida `dist`, sin adaptador. Mantener el modo demo. Por decisión del propietario, esta presentación es temporal y se retirará manualmente en menos de 48 horas.
+- **Demos Vercel:** framework Astro, comando `pnpm build`, salida `dist`, sin adaptador. Proyecto existente `vegan-store-music` con `SITE_VARIANT=v1`; segundo proyecto `vegan-store-music-v2` con `SITE_VARIANT=v2`. Mantener `SITE_MODE=demo` y `SITE_URL` propio en cada proyecto. Ambas propuestas se presentan mediante enlaces independientes.
 - **Cloudflare Pages:** repositorio GitHub, comando `pnpm build`, salida `dist`. No añadir adaptador ni Functions.
 - **Hostinger:** conectar en hPanel la rama `deploy-static` a `public_html`; contiene únicamente el resultado del build y no necesita Node en el servidor. El workflow preparado publica esa rama al activar `DEPLOY_TARGET=hostinger`.
 
-Después de confirmar la venta, crear el repositorio GitHub y activar la variable de repositorio `CATALOG_AUTOMATION_ENABLED=true`. El workflow preparado ejecuta diariamente a las 12:17 UTC (09:17 Buenos Aires) y permite ejecución manual. Configurar `SITE_MODE`, `SITE_URL` y opcionalmente `CATALOG_CSV_URL`. Para Vercel/Cloudflare vincular el repositorio al proveedor y verificar el primer despliegue del bot. La programación de Actions puede demorarse; no es inventario en tiempo real.
+El repositorio es `ramiro-gp/VeganMusicStore`, rama `main`, conectado al proyecto existente `vegan-store-music`. GitHub Actions comprueba el CSV a las **09:00, 11:00, 14:00, 17:00 y 22:00 de Argentina**: `0 1,12,14,17,20 * * *` en UTC. La ejecución de las 01:00 UTC corresponde a las 22:00 del día anterior en Argentina. Se habilita con la variable de repositorio `CATALOG_AUTOMATION_ENABLED=true`. También puede ejecutarse desde Actions → Sincronizar catálogo → Run workflow. El botón de Sheets queda para una etapa posterior.
 
-Los fallos se reflejan en el workflow de GitHub y no reemplazan el sitio vigente. No guardar credenciales en este repositorio. La automatización permanece desactivada hasta la confirmación comercial.
+Se compara el catálogo normalizado sin considerar fecha ni orden de filas. Sin cambios se conserva el archivo y su fecha; no se genera commit, build ni despliegue. Con cambios se valida el candidato con pruebas, tipos y build, y sólo entonces se reemplaza y versiona el snapshot. La integración Git de Vercel publica el commit en V1, con `SITE_MODE=demo`. La fecha visible indica la última actualización de datos, no el último chequeo. La programación puede demorarse y la publicación requiere completar el build; no es inventario en tiempo real. Las visitas al sitio no generan consultas a Sheets.
+
+Los fallos se reflejan en el workflow de GitHub y no reemplazan el sitio vigente. No guardar credenciales en este repositorio. GitHub puede deshabilitar horarios en repositorios públicos tras 60 días sin actividad; revisar Actions si ocurre.
 
 ## Alcance
 
-No incluye cuentas, administración, base de datos, carrito, pagos, fichas individuales ni stock en tiempo real.
+Incluye catálogo, filtros y carrito de consulta por WhatsApp. No incluye cuentas, administración, base de datos, cobro online, reservas, fichas individuales ni stock en tiempo real.
+
+## Demos publicadas
+
+- V1: https://vegan-store-music.vercel.app/
+- V2: https://vegan-store-music-v2.vercel.app/
+
+La configuración de cada proyecto contiene SITE_VARIANT, SITE_MODE=demo y su propio SITE_URL. El enlace local .vercel/project.json sigue apuntando a V1. Para desplegar V2 desde el mismo código se usaron VERCEL_PROJECT_ID=prj_hPRKV4G07q7y95mAxYvefnEzHSwz y VERCEL_ORG_ID=team_R1YVYDstAQFiKxZ8jPg5mo8A en el entorno del comando, sin cambiar el enlace local. Los IDs de proyecto/equipo no son credenciales. SITE_VARIANT se configura como variable del proceso de build, consistente entre Astro y las páginas.
+
+## Identidad y sliders — 18 de octubre de 2026
+
+V1 elegida por el cliente. Logos originales en `img/`, copias recortadas verificadas en `src/assets/brand/`. Ver `docs/brand-assets.md`. La interfaz usa el lila de VMS y el nombre Vegan Music Store. El slider del inicio y el del carrito comparten `RecordSlider.astro` y la lógica central de agregado al carrito. El segundo no enlaza al catálogo.

@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: 'Vegan Store Music',
+  name: 'Vegan Music Store',
   description: 'Compra, venta e importación de discos y vinilos en Almagro, Buenos Aires. Catálogo y pedidos a medida, con envíos nacionales e internacionales.',
   locale: 'es-AR',
   contact: {
     // Único lugar para el número. Usar código internacional, sin + ni espacios.
-    whatsappNumber: '5491151354489' as string | null,
+    whatsappNumber: '5491158974298' as string | null,
   },
   address: {
     street: 'Medrano 529',
@@ -22,9 +22,9 @@ export const siteConfig = {
     timeoutMs: 15000,
   },
   messages: {
-    general: 'Hola Vegan Store Music, quería hacerles una consulta.',
-    order: 'Hola Vegan Store Music, estoy buscando un disco. ¿Me ayudan a conseguirlo?',
-    import: 'Hola Vegan Store Music, quería consultar por un pedido o una importación.',
-    sell: 'Hola Vegan Store Music, quería consultarles por la venta de unos discos.',
+    general: 'Hola Vegan Music Store, quería hacerles una consulta.',
+    order: 'Hola Vegan Music Store, estoy buscando un disco. ¿Me ayudan a conseguirlo?',
+    import: 'Hola Vegan Music Store, me gustaría consultar el costo y la disponibilidad de un disco a pedido. ¿Me ayudan a conseguirlo?',
+    sell: 'Hola Vegan Music Store, quería consultarles por la venta de unos discos.',
   },
 } as const;

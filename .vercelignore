@@ -2,9 +2,11 @@
 .agents/
 .cache/
 reports/
+img/
 docs/
 node_modules/
 dist/
+dist-*/
 .astro/
 .env*
 .github/

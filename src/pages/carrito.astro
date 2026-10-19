@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RecordSlider from '../components/RecordSlider.astro';
+import { products } from '../lib/catalog-data';
+import { routes } from '../config/variant';
+import { siteConfig } from '../config/site';
+import { paymentLabels } from '../lib/cart';
+import { ArrowUpRight, Minus, Plus, Trash } from '@lucide/astro';
+const lookup = products.map(({ id, sourceTitle, priceCashArs, priceCardOneArs, installment3Ars, stockStatus, stockRaw }) => ({ id, sourceTitle, priceCashArs, priceCardOneArs, installment3Ars, stockStatus, stockRaw }));
+---
+<BaseLayout title="Tu carrito — Vegan Music Store" description="Revisá tu selección de discos, elegí el medio de pago y consultá disponibilidad por WhatsApp." noindex>
+  <section class="cart-page shell" data-cart data-whatsapp-number={siteConfig.contact.whatsappNumber} data-contact-url={routes.contact}>
+    <nav class="breadcrumbs" aria-label="Ruta de navegación"><a href={routes.catalog}>Catálogo</a><span aria-hidden="true">/</span><span aria-current="page">Carrito</span></nav>
+    <div class="section-heading"><h1 class="section-title">TU<br /><span class="accent">SELECCIÓN.</span></h1></div>
+    <noscript><p class="cart-notice">El carrito necesita JavaScript para guardar tu selección y calcular el total. Podés <a class="text-link" href={routes.catalog}>volver al catálogo</a> y consultar cada disco por WhatsApp.</p></noscript>
+    <div data-cart-content hidden>
+      <p class="cart-notice" data-cart-notices role="status" hidden></p>
+      <div class="cart-empty" data-cart-empty hidden><p class="large-copy">Tu próximo disco todavía no está acá.</p><p>Explorá la lista y sumá los títulos que te interesan.</p><a class="button button-dark" href={routes.catalog}>Explorar catálogo <ArrowUpRight size={18} aria-hidden="true" /></a></div>
+      <div class="cart-grid" data-cart-filled>
+        <div>
+          <section data-cart-stock-section><h2 class="cart-group-title">CON STOCK EN LISTA</h2><ul class="cart-lines" data-cart-lines></ul></section>
+          <section class="cart-request-section" data-cart-request-section hidden><h2 class="cart-group-title">A PEDIDO</h2><p class="cart-request-note">Consultamos disponibilidad y costo. Estos títulos no se incluyen en el total.</p><ul class="cart-lines" data-cart-request-lines></ul></section>
+        </div>
+        <aside class="cart-summary" aria-labelledby="summary-title">
+          <p class="eyebrow">EL RESUMEN</p><h2 id="summary-title" data-summary-title>¿CÓMO QUERÉS PAGAR?</h2>
+          <fieldset class="payment-options"><legend class="sr-only">Elegí el medio de pago</legend>{Object.entries(paymentLabels).map(([value, label]) => <label><input type="radio" name="payment" value={value} checked={value === 'cash-transfer'} /><span>{label}</span></label>)}</fieldset>
+          <div class="cart-totals"><p><span>Unidades</span><span data-cart-units>0</span></p><p class="cart-total"><span data-cart-total-label>Total</span><output data-cart-total aria-live="polite"></output></p><p class="cart-installments" data-cart-installments hidden></p><p class="cart-request-summary" data-request-summary hidden></p><p class="cart-shipping">Envío a coordinar.</p></div>
+          <p class="cart-terms">Es una solicitud de compra. Confirmaremos edición, stock y precio antes de coordinar el pago y la entrega.</p>
+          <p class="cart-error" data-cart-error hidden>Revisá los productos señalados para continuar.</p>
+          <a class="button button-dark cart-send" data-cart-send href={routes.contact} target="_blank" rel="noopener noreferrer" aria-disabled="true" tabindex="-1">Enviar consulta por WhatsApp <ArrowUpRight size={18} aria-hidden="true" /></a>
+          <button class="text-link cart-copy" type="button" data-cart-copy disabled>Copiar consulta completa</button>
+          <label class="copy-fallback" data-copy-fallback hidden>Copiá este mensaje y pegalo en WhatsApp<textarea readonly rows="8"></textarea></label>
+          <p class="cart-feedback" data-cart-feedback role="status" aria-live="polite"></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <RecordSlider context="cart" />
+  <template id="cart-line-template"><li class="cart-line" data-cart-line><div class="cart-line-heading"><h3 data-line-title></h3><button class="cart-remove" type="button" data-cart-action="remove"><Trash size={17} aria-hidden="true" /><span>Quitar</span></button></div><p class="cart-unit" data-line-unit></p><div class="cart-line-bottom"><div class="quantity-control" role="group" aria-label="Cantidad"><button type="button" data-cart-action="decrement"><Minus size={16} aria-hidden="true" /></button><output data-line-quantity></output><button type="button" data-cart-action="increment"><Plus size={16} aria-hidden="true" /></button></div><p class="cart-line-subtotal" data-line-subtotal></p></div><p class="cart-limit" data-line-limit></p><p class="cart-error" data-line-error hidden></p></li></template>
+  <script id="cart-products" type="application/json" set:html={JSON.stringify(lookup).replace(/</g, '\\u003c')} />
+</BaseLayout>
+<script>import '../scripts/cart-page';</script>
+

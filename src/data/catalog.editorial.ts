@@ -7,4 +7,7 @@ export const editorial = [
   { sourceTitle: 'Babasonicos Pasto', artist: 'Babasónicos', album: 'Pasto', format: 'Vinilo', coverKey: 'pasto', featuredOrder: 6 },
   { sourceTitle: 'Airbag Airbag', artist: 'Airbag', album: 'Airbag', format: 'Vinilo', coverKey: 'airbag-debut', featuredOrder: 7 },
   { sourceTitle: 'Babasonicos Mucho', artist: 'Babasónicos', album: 'Mucho', format: 'Vinilo', coverKey: 'mucho', featuredOrder: 8 },
+  { sourceTitle: 'Nirvana Greatest Hits', artist: 'Nirvana', album: 'Greatest Hits', coverKey: 'nirvana', featuredOrder: 9 },
+  { sourceTitle: 'The Beatles Please Please Me', artist: 'The Beatles', album: 'Please Please Me', coverKey: 'please-please-me', featuredOrder: 10 },
+  { sourceTitle: 'Bad Brains Live at CBGB 1982', artist: 'Bad Brains', album: 'Live at CBGB 1982', coverKey: 'cbgb', featuredOrder: 11 },
 ] as const;

@@ -1,0 +1,31 @@
+[
+  {
+    "source": "img\\logo vegan alta.jpeg",
+    "sha256": "e3501dbd8ad0ca5d67a994edc7cbef65bf4433e11d80f1b935c63239ffd623f6",
+    "output": "src\\assets\\brand\\vegan-records.png",
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "width": 997,
+      "height": 1210
+    },
+    "paddingBottom": 0,
+    "retainedPixelsIdentical": true
+  },
+  {
+    "source": "img\\Póster texturizado de tienda vegana (1).png",
+    "sha256": "3d905ac00615dade59d50bfbacc2a56d4825cc6fb128db1403090d33060c22d0",
+    "output": "src\\assets\\brand\\vegan-music-store.png",
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "width": 5016,
+      "height": 3200
+    },
+    "paddingBottom": 975,
+    "cleanBackgroundSourceY": 4300,
+    "textTopMargin": 1095,
+    "textBottomMargin": 1095,
+    "retainedPixelsIdentical": true
+  }
+]

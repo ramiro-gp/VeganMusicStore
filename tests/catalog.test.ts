@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { importCatalog, fetchCsv } from '../scripts/catalog-import.ts';
 import { assertSnapshot, normalizeText, enrichCatalog } from '../src/lib/catalog.ts';
-import { promoteCatalog } from '../scripts/catalog-sync.ts';
+import { promoteCatalog, sameCatalog } from '../scripts/catalog-sync.ts';
 import { mkdtemp, readFile, writeFile, rm, access } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -42,6 +42,30 @@ test('stock desconocido no se convierte en disponible y el precio decimal se con
   assert.equal(item.stockStatus, 'unknown');
   assert.equal(item.priceCashArs, 100.5);
   assert.equal(item.origin, null);
+});
+
+test('schema 3 importa precios explícitos de tarjeta y cuota, sin derivar recargos', () => {
+  const source = `${header},TARJETA 1 PAGO,TARJETA 3 PAGOS,Valor cuota\nDisco,100,1,ARGENTINA,SELLO,"$ 125,50",999,"$ 50,33"`;
+  const snapshot = importCatalog(source);
+  assertSnapshot(snapshot);
+  assert.equal(snapshot.schemaVersion, 3);
+  assert.equal(snapshot.products[0].priceCardOneArs, 125.5);
+  assert.equal(snapshot.products[0].installment3Ars, 50.33);
+  assert.equal(importCatalog(csv('Otro,100,1,,')).products[0].priceCardOneArs, null);
+});
+
+test('precios cero o vacíos se consideran sin informar; importes inválidos se rechazan', () => {
+  const source = `${header},TARJETA 1 PAGO,Valor cuota\nDisco,0,1,,,0,0\nOtro,,1,,,,`;
+  for (const product of importCatalog(source).products) {
+    assert.equal(product.priceCashArs, null);
+    assert.equal(product.priceCardOneArs, null);
+    assert.equal(product.installment3Ars, null);
+  }
+  assert.throws(() => importCatalog(`${header},TARJETA 1 PAGO\nDisco,100,1,,,sin precio`), /tarjeta en un pago inválido/);
+  assert.throws(() => importCatalog(`${header},Valor cuota\nDisco,100,1,,,-1`), /cuota inválido/);
+  const snapshot = importCatalog(csv('Disco,100,1,, set'));
+  snapshot.products[0].priceCardOneArs = Number.NaN;
+  assert.throws(() => assertSnapshot(snapshot), /inválido/);
 });
 test('el enriquecimiento editorial nunca reemplaza precio ni stock', () => {
   const item = enrichCatalog(importCatalog(csv('Babasonicos Jessico,999,0,ARGENTINA,SONY')))[0];
@@ -91,4 +115,42 @@ test('un CSV o build fallido conserva byte por byte el snapshot anterior', async
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
+});
+
+test('sin cambios no se escribe candidato, no se valida un build y se conserva la fecha y el archivo original', async () => {
+  const directory = await mkdtemp(join(tmpdir(), 'vegan-catalog-unchanged-'));
+  const target = join(directory, 'snapshot.json');
+  const candidate = join(directory, 'candidate.json');
+  const source = csv('Anterior,100,1,USA,SELLO', 'Otro,200,10+,ARGENTINA,OTRO');
+  const before = importCatalog(source, '2026-10-17T12:00:00.000Z');
+  const bytes = JSON.stringify(before, null, 4) + '\n';
+  try {
+    await writeFile(target, bytes);
+    const result = await promoteCatalog(source, target, candidate, async () => { assert.fail('No debe construir sin cambios'); }, '2026-10-19T12:00:00.000Z');
+    assert.equal(result.changed, false);
+    assert.equal(result.snapshot.syncedAt, before.syncedAt);
+    assert.equal(await readFile(target, 'utf8'), bytes);
+    await assert.rejects(access(candidate));
+    assert.equal(sameCatalog(before, { ...before, syncedAt: '2026-10-19T14:00:00.000Z', products: [...before.products].reverse() }), true);
+  } finally { await rm(directory, { recursive: true, force: true }); }
+});
+
+test('un cambio comercial se valida y promueve con su nueva fecha', async () => {
+  const directory = await mkdtemp(join(tmpdir(), 'vegan-catalog-changed-'));
+  const target = join(directory, 'snapshot.json');
+  const candidate = join(directory, 'candidate.json');
+  const before = importCatalog(csv('Disco,100,1,USA,SELLO'), '2026-10-17T12:00:00.000Z');
+  let validations = 0;
+  try {
+    await writeFile(target, JSON.stringify(before));
+    const result = await promoteCatalog(csv('Disco,120,0,USA,SELLO'), target, candidate, async path => {
+      validations++;
+      assert.equal(JSON.parse(await readFile(path, 'utf8')).products[0].priceCashArs, 120);
+      assert.equal(JSON.parse(await readFile(target, 'utf8')).products[0].priceCashArs, 100);
+    }, '2026-10-19T12:00:00.000Z');
+    assert.equal(result.changed, true);
+    assert.equal(validations, 1);
+    assert.equal(result.snapshot.syncedAt, '2026-10-19T12:00:00.000Z');
+    assert.equal(JSON.parse(await readFile(target, 'utf8')).products[0].stockRaw, '0');
+  } finally { await rm(directory, { recursive: true, force: true }); }
 });

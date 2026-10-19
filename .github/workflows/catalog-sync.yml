@@ -1,7 +1,7 @@
 name: Sincronizar catálogo
 on:
   schedule:
-    - cron: '17 12 * * *' # 09:17 Buenos Aires (UTC-3)
+    - cron: '0 1,12,14,17,20 * * *' # Argentina: 22:00, 09:00, 11:00, 14:00, 17:00 (UTC-3)
   workflow_dispatch:
 permissions:
   contents: write
@@ -13,21 +13,27 @@ jobs:
     if: vars.CATALOG_AUTOMATION_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      SITE_VARIANT: v1
+      SITE_MODE: demo
+      SITE_URL: https://vegan-store-music.vercel.app
     steps:
-      - uses: actions/checkout@v5
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '24.12.0'
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Descargar, validar y construir antes de promover
+        id: catalog
         run: pnpm catalog:sync --verify
         env:
           CATALOG_CSV_URL: ${{ vars.CATALOG_CSV_URL }}
-          SITE_MODE: ${{ vars.SITE_MODE || 'demo' }}
-          SITE_URL: ${{ vars.SITE_URL }}
       - name: Versionar el snapshot validado
+        if: steps.catalog.outputs.changed == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -37,7 +43,7 @@ jobs:
             git push
           fi
       - name: Archivos estáticos para Hostinger
-        if: vars.DEPLOY_TARGET == 'hostinger'
+        if: steps.catalog.outputs.changed == 'true' && vars.DEPLOY_TARGET == 'hostinger'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

@@ -1,14 +1,16 @@
 ---
 import { ArrowDown, ArrowUpRight } from '@lucide/astro';
 import VinylScene from './VinylScene.astro';
+import BrandLogo from './BrandLogo.astro';
+import { routes } from '../config/variant';
 ---
 <section class="hero" data-hero aria-labelledby="hero-title">
   <div class="hero-pin" data-hero-pin>
     <div class="hero-grid shell" data-hero-content>
-      <div class="hero-intro"><p class="eyebrow hero-eyebrow"><span class="status-dot"></span> DISCOS / VINILOS / IMPORTACIÓN</p><h1 id="hero-title" class="hero-title"><span>VEGAN</span><span>STORE</span><span>MUSIC<span class="title-asterisk" aria-hidden="true">✳</span></span></h1></div>
+      <div class="hero-intro"><p class="eyebrow hero-eyebrow"><span class="status-dot"></span> DISCOS / VINILOS / IMPORTACIÓN</p><h1 id="hero-title" class="hero-logo-title"><BrandLogo placement="hero" /></h1></div>
       <div class="hero-art"><VinylScene /></div>
-      <div class="hero-details"><p class="hero-tagline">Ese disco que venís buscando.</p><p class="hero-description">Compra, venta y pedidos de discos y vinilos.<br class="desktop-break" /> Desde Almagro, con envíos a todo el mundo.</p><a class="button button-dark" href="#catalogo">Explorar los discos <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a></div>
-      <div class="hero-foot"><span>BUENOS AIRES, ARGENTINA</span><a class="hero-scroll" href="#catalogo">SEGUÍ BAJANDO <ArrowDown size={14} aria-hidden="true" /></a></div>
+      <div class="hero-details"><p class="hero-tagline">Ese disco que venís buscando.</p><p class="hero-description">Compra, venta y pedidos de discos y vinilos.<br class="desktop-break" /> Desde Almagro, con envíos a todo el mundo.</p><a class="button button-dark" href={routes.catalog}>Explorar los discos <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a></div>
+      <div class="hero-foot"><span>BUENOS AIRES, ARGENTINA</span><a class="hero-scroll" href="#record-slider-home-title">SEGUÍ BAJANDO <ArrowDown size={14} aria-hidden="true" /></a></div>
     </div>
   </div>
 </section>

@@ -1,0 +1,14 @@
+---
+type Shape = 'spark' | 'arrow' | 'crescent' | 'rings' | 'wave' | 'asterisk' | 'target';
+interface Props { shape: Shape; class?: string; }
+const { shape, class: className = '' } = Astro.props;
+---
+<svg class:list={['decorative-mark', className]} viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false">
+  {shape === 'spark' && <path d="M50 2 59 37 88 12 65 42 98 50 65 58 88 88 59 63 50 98 41 63 12 88 35 58 2 50 35 42 12 12 41 37Z" fill="currentColor" />}
+  {shape === 'arrow' && <path d="M21.5 73.5 67.5 27.5H36v-7h43.5V64h-7V32.5l-46 46Z" fill="currentColor" />}
+  {shape === 'crescent' && <><circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="4" /><path d="M50 8a42 42 0 0 0 0 84V8Z" fill="currentColor" /></>}
+  {shape === 'rings' && <><circle cx="50" cy="50" r="39" stroke="currentColor" stroke-width="5" /><circle cx="50" cy="50" r="22" stroke="currentColor" stroke-width="5" /></>}
+  {shape === 'wave' && <path d="M8 37c14-16 28-16 42 0s28 16 42 0M8 63c14-16 28-16 42 0s28 16 42 0" stroke="currentColor" stroke-width="6" stroke-linecap="round" />}
+  {shape === 'asterisk' && <path d="M50 8v84M8 50h84M20 20l60 60m0-60L20 80" stroke="currentColor" stroke-width="7" stroke-linecap="round" />}
+  {shape === 'target' && <><circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="6" /><circle cx="50" cy="50" r="24" stroke="currentColor" stroke-width="6" /><circle cx="50" cy="50" r="8" fill="currentColor" /></>}
+</svg>

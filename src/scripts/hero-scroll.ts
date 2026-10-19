@@ -28,21 +28,20 @@ if (hero && pin && content && header) {
     if (measuring) return;
     measuring = true;
     document.documentElement.style.setProperty('--header-height', `${header!.getBoundingClientRect().height}px`);
-    const allow = !motion.matches && window.innerHeight >= 550;
+    hero!.dataset.enhanced = 'false';
+    const headerHeight = header!.getBoundingClientRect().height;
+    const sceneHeight = content!.offsetHeight;
+    const allow = !motion.matches && window.innerHeight >= 550 && sceneHeight <= window.innerHeight - headerHeight + 1;
+    hero!.style.setProperty('--hero-scene-height', `${sceneHeight}px`);
     hero!.dataset.enhanced = String(allow);
     if (allow) {
-      const headerHeight = header!.getBoundingClientRect().height;
-      // CSS svh keeps mobile address-bar changes out of the scroll distance.
+      // Keep the scene pinned through the complete extraction, with a short final hold.
       start = window.scrollY + hero!.getBoundingClientRect().top - headerHeight;
       distance = Math.max(1, hero!.offsetHeight - pin!.offsetHeight);
-      const style = getComputedStyle(content!);
-      const available = pin!.offsetHeight;
-      const naturalHeight = [...content!.children].reduce((height, child) => Math.max(height, (child as HTMLElement).offsetTop + (child as HTMLElement).offsetHeight), 0) + Number.parseFloat(style.paddingBottom);
-      if (naturalHeight > available + 2 && window.innerWidth < 768) hero!.dataset.enhanced = 'false';
     }
     if (hero!.dataset.enhanced === 'true') render();
     else {
-      hero!.style.setProperty('--record-progress', '1');
+      hero!.style.setProperty('--record-progress', motion.matches ? '1' : '0');
       hero!.dataset.active = 'false';
     }
     measuring = false;

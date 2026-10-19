@@ -4,7 +4,7 @@ interface Props { title: string; description?: string; schema?: unknown[]; noind
 const { title, description = siteConfig.description, schema = [], noindex = false } = Astro.props;
 const production = process.env.SITE_MODE === 'production';
 const origin = Astro.site ?? new URL('http://localhost:4321');
-const canonical = new URL(Astro.url.pathname, origin);
+const canonical = new URL(Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname, origin);
 const og = new URL('/og-cover.png', origin);
 const businessId = new URL('/#negocio', origin).href;
 const business = {
@@ -24,7 +24,7 @@ const structured = { '@context': 'https://schema.org', '@graph': [business, { '@
 <meta property="og:site_name" content={siteConfig.name} /><meta property="og:title" content={title} />
 <meta property="og:description" content={description} /><meta property="og:url" content={canonical.href} />
 <meta property="og:image" content={og.href} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Vegan Store Music. Discos, vinilos e importación en Almagro." />
+<meta property="og:image:alt" content="Vegan Music Store. Discos, vinilos e importación en Almagro." />
 <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} /><meta name="twitter:image" content={og.href} />
 <script type="application/ld+json" set:html={JSON.stringify(structured).replace(/</g, '\\u003c')} />

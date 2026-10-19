@@ -1,0 +1,9 @@
+---
+import { products } from '../lib/catalog-data';
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<div class:list={['catalog-intro', 'shell', { 'catalog-intro-compact': compact }]}>
+  {!compact && <nav class="breadcrumbs" aria-label="Ruta de navegación"><a href="/">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Catálogo</span></nav>}
+  <div class="section-heading">{compact ? <h2 class="section-title" id="catalog-heading">BUSCÁ. <span class="accent">ENCONTRÁ.</span></h2> : <h1 class="section-title">BUSCÁ.<br /><span class="accent">ENCONTRÁ.</span></h1>}<p>{products.length} títulos en la lista.<span class="catalog-intro-hint">Armá tu carrito y consultá por todos juntos.</span></p></div>
+</div>

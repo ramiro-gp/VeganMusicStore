@@ -40,3 +40,64 @@ Reduced motion, JavaScript deshabilitado, enlace para saltar al contenido y foco
 Acceso anónimo confirmado: inicio y catálogo HTTP 200; robots HTTP 200; imagen Open Graph HTTP 200; ruta inexistente HTTP 404 con navegación. Canonical, Open Graph y Schema usan `https://vegan-store-music.vercel.app`. El catálogo contiene 255 filas y 255 productos en JSON-LD, con precios ARS y sin disponibilidad garantizada.
 
 WhatsApp pendiente de confirmar, con fallback a la ubicación. La automatización diaria de GitHub está preparada y desactivada hasta la confirmación comercial. El propietario retirará manualmente esta demo temporal en menos de 48 horas.
+
+## Actualización del 14 de octubre de 2026
+
+Se corrigió la medición del hero móvil para excluir el indicador inferior absoluto y reservar su espacio. El disco comienza cerrado; las pantallas que requieren una escena estática también comienzan cerradas, salvo la preferencia de movimiento reducido. Se conserva el recorrido acortado de 45svh en móvil y 60svh en escritorio.
+
+Revisión visual en 320 × 568, 375 × 667, 390 × 844 y 1366 × 900: sin overflow horizontal, progreso inicial 0 y extracción reversible en móvil. El header muestra «Nosotros» y «Catálogo» abre `/catalogo/`. «Ver catálogo completo» tiene fondo, «Los 255 títulos» conserva el subrayado y Babasónicos mantiene la información debajo de la portada grande.
+
+Sincronización manual correcta: 255 productos, con fecha del 14 de octubre. Los datos comerciales coinciden con el snapshot anterior. Tipos y build correctos, sin errores de consola durante la revisión. La automatización sigue desactivada por decisión del propietario hasta confirmar la venta; no se creó ni conectó un repositorio.
+
+## 17 de octubre de 2026 — Dos demos y carrito de consulta
+
+- V1 publicada READY: https://vegan-store-music.vercel.app/ (dpl_BRrT61ygrf2nroRHXEqC5SryRWfD).
+- V2 publicada READY: https://vegan-store-music-v2.vercel.app/ (dpl_9ZkUwJnEwUgv9mc1iQWvX132dMPX).
+- Ambas URLs respondieron HTTP 200 sin cookies ni autenticación; variante y noindex comprobados.
+- Sheets sincronizado: schemaVersion 3, 255 productos, 194 con stock informado. Fecha UTC del snapshot: 2026-10-17T20:47:25.980Z. Tres precios cero se normalizaron a null.
+- 24 pruebas aprobadas: parser, recuperación del snapshot, precios, cantidades, stock, origen, reconciliación, mensaje y fallo de escritura del almacenamiento.
+- Tipos: 0 errores, 0 advertencias, 0 hints. Builds V1 y V2 correctos.
+- Validación de HTML generado: 79 enlaces internos V1 y 113 V2 válidos, canonical/noindex y JSON-LD revisados. Cuatro HTML V1 y siete V2, incluyendo 404 y redirección.
+- Todos los módulos JS del build suman 5878 bytes gzip, una cota superior al JavaScript de cualquier página individual.
+- Navegador: V1 y V2 sin desbordes en 320, 390, 768 y 1366 px. V1 comienza con progreso 0 y conserva el recorrido previo; V2 permite ver el comienzo del catálogo en la primera pantalla. Carrito adicionalmente revisado en 320, 768 y 1366 px.
+- Flujo comprobado: búsqueda y origen combinados, origen vacío sólo en Todas, stock marcado inicialmente, agregar, incrementar, límite 1/10, persistencia tras recarga, radios y totales, cierre del menú con Escape, páginas de V2 y redirección inmediata /catalogo/.
+- Demo pública V2: dos Airbag generaron 3 cuotas de $40.426 y total $121.278, idénticos al texto codificado para WhatsApp. No se enviaron mensajes. Los productos de prueba se quitaron al terminar. Consola sin errores.
+- Captura de V2 publicada: reports/v2-desktop.jpg (artefacto local ignorado por Git).
+- HTML sin JS: los 255 registros y consultas directas están presentes. Las reglas CSS de movimiento reducido fueron revisadas; no se realizó una prueba en un iPhone/Safari físico ni una nueva auditoría Lighthouse.
+- El WhatsApp sigue siendo el número temporal de Ramiro. No se creó GitHub ni se activó automatización.
+
+## 17 de octubre de 2026 — Contacto, mensajes y estabilidad del header
+
+- WhatsApp reemplazado por 5491158974298 en la configuración central. Ambas portadas y /carrito/ publicados responden HTTP 200 y usan ese número; no quedan referencias al anterior en src ni en los builds.
+- Normalización de teléfono: formato internacional, string de dígitos, separadores conocidos opcionales, validación de longitud; letras, extensiones, URLs y entradas inválidas se rechazan. Mensajes normalizados con espacios legibles, NFC, saltos LF y codificación URL una sola vez.
+- 27 pruebas aprobadas; tipos sin errores, advertencias ni hints; builds y validación de enlaces/canonical/JSON-LD correctos para V1/V2.
+- El mensaje de una sola unidad se comprobó como: 1 × Airbag Airbag — $ 49.220. Sin c/u ni subtotal repetido en esa línea. Las cantidades mayores conservan unitario y subtotal, consistentes con cuotas/total.
+- Carrito: una unidad muestra el medio de pago y un único precio de línea; disponibilidad como 1 disponible o X disponibles, con 10+ preservado cuando corresponde.
+- Hover real comprobado sobre el botón de Asunto: el signo más queda con transform none. Las flechas diagonales mantienen su transición.
+- Header: no se observó variación de geometría previa, por lo que se aplicó una corrección de composición al sticky (translateZ(0), backface-visibility). En escritorio, header top=0 y logo top=14 permanecen estables en V1 y V2 durante scroll por teclado; ninguna animación del hero fue cambiada.
+- V1 READY: dpl_9zfb1yEvu5kUkW6KFPw13G6E2YdY. V2 READY: dpl_CrnHFjwQvEfiQ6DDW7DsVrAatLVw. Ambas conservan noindex.
+- Captura: reports/cart-whatsapp-update.jpg. No se enviaron mensajes de WhatsApp.
+
+## 18 de octubre de 2026 — Marca VMS y sliders de V1
+
+- Originales de img intactos. Copias PNG recortadas en src/assets/brand, comprobadas byte por byte en píxeles decodificados dentro del recorte. Coordenadas y hashes en provenance.json. Sin retoque generativo.
+- Nombre público Vegan Music Store, sigla VMS. Lila #9c84c3 con tinta #211c27 y violeta de texto #694784. Logos en header, hero y footer; el logo de Vegan Records sólo en su apartado. OG y favicon actualizados.
+- Hero en flujo normal, aproximadamente 80svh en escritorio, adaptado en móvil. Extracción reversible con scroll, sin distancia sticky adicional. Movimiento reducido conservado.
+- Dos sliders compartidos: cuatro ediciones nacionales y cuatro internacionales, fundas tipográficas ilustrativas, precios y cuotas del snapshot. Agregado con límites de stock mediante lógica única para catálogo y sliders; aviso accesible y contador. Slider del carrito sin enlaces al catálogo y eliminado Seguir explorando junto a las líneas de compra.
+- Tipos: 0 errores/advertencias/hints. 27 pruebas aprobadas. El directorio temporal de tests se estableció dentro de reports para evitar EPERM del aislamiento de Windows; no se modificó código por ese fallo del entorno. Builds V1 y V2 correctos. JS total de módulos del build V1: 5496 bytes gzip (cota superior por página).
+- Navegador integrado: 320×568, 390×844, 768×1024, 1366×768 y 1366×900 sin desbordes del documento. Primer viewport muestra comienzo del slider; a 390px también asoman fundas. No se realizó auditoría Lighthouse ni prueba física en iPhone.
+- Flujo local y online: Jessico desde inicio + Bad Brains desde carrito = $110.210; tres cuotas de $45.260, total $135.780, coincidentes con WhatsApp. Productos de prueba quitados. Consulta no enviada. Búsqueda Virus online devuelve 2 títulos. Consola sin errores en la revisión publicada.
+- V1 READY y promovida: dpl_EtpZxXtp6i5512Ksrgde5Yxvm8jn, https://vegan-store-music.vercel.app/. Despliegue construido con SITE_VARIANT=v1, URL definitiva de demo y noindex. Comprobado HTTP 200 en despliegue preparado. Conector Vercel dio 403; se usó sesión válida de CLI oficial 64.5.0 en el mismo equipo/proyecto. V2 no se publicó en esta actualización.
+- Capturas en reports/brand-refresh/.
+
+## Correcciones de hero, identidad y consultas a pedido
+
+- V1 READY y promovida: dpl_33uMYKJa1eoJmmseffvKdUdtgFsE, https://vegan-store-music.vercel.app/. Build preparado consultado por CLI autenticada: catálogo HTTP 200, noindex/canonical/CTA y campos a pedido verificados.
+- Hero sticky restaurado: top 93px estable en escritorio durante la extracción. Progreso 0 al entrar, 0.136 a scroll 40, 0.624 a scroll 81 y 0.984 a scroll 121, manteniendo la escena visible. Recorrido breve con permanencia final, sin bloquear wheel/touch/teclado. A 320×568 y 390×844 se mantiene la mejora; fallback natural para pantallas demasiado bajas y movimiento reducido.
+- Logo VMS ampliado sólo por abajo con fondo limpio del original: márgenes del texto de 1095px arriba/abajo, tamaño final 5016×4175. Región conservada idéntica, hashes originales iguales. Vegan Records no cambió.
+- Ambos paneles de la sección 01 comparten altura: 382.46875px a 1366px y 250px en móvil. Sin desbordes en 320 y 390px. Flecha decorativa construida como una sola silueta, sin líneas ni remates superpuestos; cambia también en Airbag.
+- Copys: Tapas ilustrativas; En el carrito después del primer agregado, cantidades desde carrito; CATÁLOGO en header; enlace A pedido con mensaje específico; retirada la frase Varios discos / Una sola consulta.
+- Agotados de stock cero: Sin stock · Pedir; precio A cotizar, sin cuotas ni Offer con precio histórico. El filtro de stock conserva su estado inicial marcado; al desmarcarlo se ven también los agotados.
+- Carrito separa Con stock en lista y A pedido. Sólo los productos con stock aportan al total, a las cuotas y a la validación de medios. Pedido exclusivo sin precio puede enviarse, sin medio de pago ficticio ni total cero en WhatsApp. Recuperación conserva tipo de línea, notifica cambios de stock y permite pasar entre pedido y stock con validación vigente; retirados/desconocidos siguen bloqueados.
+- Navegador local: un Depeche Mode Violator sin stock pudo agregarse a pedido, incrementar a dos y persistir tras recarga; junto con Jessico dio $40.660 total con stock, con los Depeche separados del importe en WhatsApp. Consultas directas agotadas omiten precio histórico. No se enviaron mensajes. Datos locales de prueba quitados; la selección existente del usuario en la demo pública se conservó.
+- 31 pruebas aprobadas, tipos sin errores/advertencias/hints, builds V1 y V2 correctos. JS total de módulos: 6302 bytes gzip. Catálogo con 255 registros en HTML. Revisión pública sin errores de consola; header/menú y frase retirada comprobados. Captura: reports/corrections/hero-desktop.jpg.

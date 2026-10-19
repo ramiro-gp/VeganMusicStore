@@ -2,10 +2,11 @@
 import { ArrowUpRight } from '@lucide/astro';
 import { siteConfig } from '../config/site';
 import { whatsappUrl } from '../lib/whatsapp';
+import { routes } from '../config/variant';
 interface Props { message?: string; class?: string; label?: string; compact?: boolean; }
 const { message = siteConfig.messages.general, class: className = '', label, compact = false } = Astro.props;
 const url = whatsappUrl(message);
-const fallback = Astro.url.pathname === '/' ? '#contacto' : '/#contacto';
+const fallback = routes.contact;
 ---
 <a href={url ?? fallback} class:list={['contact-link', className]} target={url ? '_blank' : undefined} rel={url ? 'noopener noreferrer' : undefined} aria-label={label}>
   <span><slot /></span><ArrowUpRight size={compact ? 16 : 19} stroke-width={1.7} aria-hidden="true" />
