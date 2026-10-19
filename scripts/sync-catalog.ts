@@ -22,7 +22,7 @@ try {
   const result = changed ? 'Catálogo actualizado' : 'Sin cambios en el catálogo';
   console.log(`${result}: ${snapshot.products.length} productos únicos. Última actualización de datos: ${snapshot.syncedAt}`);
   if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `changed=${changed}\n`);
-  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `### ${result}\n\n${snapshot.products.length} productos. Última actualización de datos publicada: ${snapshot.syncedAt}.\n${changed ? 'Snapshot validado; listo para versionar y publicar.' : 'Se conserva el snapshot anterior. No se genera commit ni despliegue.'}\n`);
+  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `### ${result}\n\n${snapshot.products.length} productos. Fecha del snapshot: ${snapshot.syncedAt}.\n${changed ? 'Snapshot validado; listo para versionar y publicar.' : 'Se conserva el snapshot anterior. No se genera commit ni despliegue.'}\n`);
 } catch (error) {
   console.error((error as Error).message);
   process.exitCode = 1;

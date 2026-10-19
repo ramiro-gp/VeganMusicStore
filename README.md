@@ -73,8 +73,8 @@ El catálogo de Vegan Music Store y la [Empretienda de Vegan Records](https://ve
 
 - Efectivo/transferencia es el medio inicial. Los radios permiten elegir tarjeta en un pago o tres cuotas y recalculan precios unitarios, subtotales y total en centavos.
 - El resumen y el mensaje comparten el mismo cálculo. En tres cuotas se muestra y envía el importe de cada cuota y su total. Un medio se deshabilita si falta su precio en algún producto.
-- Sólo se agregan discos con stock positivo y precio informado. La cantidad máxima es el entero de stock; para `10+` el carrito permite hasta diez unidades y una cantidad mayor se coordina por consulta directa.
-- El navegador guarda IDs, cantidades, medio y fecha del catálogo en `localStorage`. Al recuperar la selección se resuelven precios actuales, se ajustan cantidades que superen el stock y se informa el cambio. Un producto retirado, sin stock o sin precio bloquea el envío hasta quitarlo.
+- Los discos con stock positivo y precio informado aportan al total. La cantidad máxima es el entero de stock; para `10+` el carrito permite hasta diez unidades. Los agotados pueden sumarse como consultas a pedido, separados del total y con costo a confirmar.
+- El navegador guarda IDs, cantidades, tipo de línea, medio y fecha del catálogo en `localStorage`. Al recuperar la selección se resuelven precios actuales, se ajustan cantidades que superen el stock y se informa el cambio. Un producto agotado pasa a pedido; uno retirado, de stock desconocido o sin precio válido para una compra con stock bloquea el envío hasta quitarlo.
 - Los carritos de V1 y V2 son independientes por origen/dominio. Si el navegador impide guardar, se muestra un aviso; la selección puede perderse al navegar y las consultas directas siguen disponibles.
 - “Enviar consulta por WhatsApp” y “Copiar consulta” incluyen títulos, cantidades, medio elegido y total. Abrir WhatsApp no vacía el carrito ni descuenta inventario. El envío o retiro se coordina con el negocio.
 
