@@ -1,4 +1,4 @@
-# Identidad de Vegan Music Store
+# Identidad de Vegan Store Music
 
 Los originales permanecen intactos en `img/`. No se movieron ni se sobrescribieron.
 
@@ -10,7 +10,7 @@ Para reproducir y verificar: `node scripts/prepare-brand.mjs`. No hay retoque ge
 
 Color principal `#9c84c3`, tomado de la franja lila del original; texto violeta oscuro `#694784`, papel `#f5f1f7`, tinta `#211c27`, superficies `#eee7f2`. Los tonos de contraste pertenecen a la interfaz, no alteran el arte de los logos.
 
-El nombre público es Vegan Music Store (VMS). Se conservan los dominios de las demos y la clave histórica del carrito para no perder selecciones existentes.
+El nombre público es Vegan Store Music. Se conserva la sigla gráfica VMS del arte existente, sin modificar los archivos del logo. Se conservan los dominios de las demos y la clave histórica del carrito para no perder selecciones existentes.
 
 Los sliders usan el mismo componente y el mismo estado del carrito que el catálogo. Las fundas son composiciones tipográficas identificadas como ilustrativas. Los precios y límites proceden del snapshot; sólo se seleccionan títulos con stock y precio válido. La selección combina cuatro ediciones argentinas y cuatro de otros orígenes. No representa popularidad ni ventas.
 

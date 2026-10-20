@@ -1,6 +1,8 @@
-# Vegan Music Store
+# Vegan Store Music
 
-Dos demos comerciales con la misma identidad editorial, Astro estático y catálogo/carrito compartidos. Google Sheets es la fuente de precios y stock; el navegador nunca consulta la hoja.
+Web de Vegan Store Music, con Astro estático y catálogo/carrito de consulta. V1 es la propuesta elegida. Google Sheets es la fuente de precios y stock; el navegador nunca consulta la hoja. Desarrollo local en `C:\Codigo\vegan-store-music`.
+
+Vercel se conserva para revisión de cambios por el dueño, con `SITE_MODE=demo` y noindex. El hosting final será Hostinger; el dominio sigue pendiente. La venta de la web no activa la indexación ni cambia el hosting por sí sola.
 
 V1: [vegan-store-music.vercel.app](https://vegan-store-music.vercel.app/). V2 se publica en el proyecto independiente `vegan-store-music-v2`. Validaciones y métricas reales en [docs/verification.md](docs/verification.md).
 
@@ -61,11 +63,11 @@ El snapshot utiliza `schemaVersion: 3`. Importa `PRECIO EFT/TRAN` para efectivo/
 
 La búsqueda se combina con “Con stock informado”, marcado inicialmente, y con el filtro de origen, inicialmente en Todas. `Argentina`, normalizada sin distinguir mayúsculas, es Nacional; otro origen informado es Internacional. Un origen vacío se identifica como “Origen sin informar” y aparece únicamente en Todas. El filtro describe el origen de la edición, no la nacionalidad del artista.
 
-Todo el catálogo está presente en el HTML inicial; el JavaScript mejora la búsqueda, los filtros y el carrito. Los enlaces de consulta directa siguen siendo utilizables sin JavaScript. `src/data/catalog.editorial.ts` conserva el enriquecimiento manual de artista/álbum; la landing ya no presenta una selección destacada de ocho títulos.
+Todo el catálogo está presente en el HTML inicial; el JavaScript mejora la búsqueda, los filtros y el carrito, y presenta hasta 50 resultados por página. Buscar o cambiar un filtro vuelve a la primera página; la búsqueda abarca todos los títulos. Sin JavaScript se muestra la lista completa y siguen disponibles las consultas directas. El importador no tiene un límite de 255 ni 1500 filas; se prueba con 2000 productos, incluyendo cambios al final de la lista. `src/data/catalog.editorial.ts` conserva el enriquecimiento manual de artista/álbum.
 
 ### Vegan Records
 
-El catálogo de Vegan Music Store y la [Empretienda de Vegan Records](https://veganrecords.empretienda.com.ar/) son destinos independientes. La tienda del sello se abre en otra pestaña y gestiona sus propios productos y compras. No se copian productos ni se sincroniza inventario desde Empretienda. Los títulos del sello que ya figuren en Sheets permanecen en el catálogo general.
+El catálogo de Vegan Store Music y la [Empretienda de Vegan Records](https://veganrecords.empretienda.com.ar/) son destinos independientes. La tienda del sello se abre en otra pestaña y gestiona sus propios productos y compras. No se copian productos ni se sincroniza inventario desde Empretienda. Los títulos del sello que ya figuren en Sheets permanecen en el catálogo general.
 
 ## Carrito de consulta
 
@@ -85,6 +87,10 @@ El carrito no reserva productos ni cobra. El dueño confirma disponibilidad y pr
 El número activo se configura en `siteConfig.contact.whatsappNumber`, dentro de `src/config/site.ts`, con código internacional y sólo dígitos. Actualizarlo ahí si cambia; los CTA generan mensajes según el contexto.
 
 La ubicación incorpora un mapa de Google Maps con carga diferida al llegar a esa sección.
+
+El nombre textual es **Vegan Store Music**. Los archivos del logo se conservan tal como los entregó el dueño. Las redes se centralizan en `siteConfig.social`, con tienda y sello separados; sólo el Instagram de la tienda se incluye en el `sameAs` del negocio.
+
+Los enlaces externos públicos conservan `noopener` y permiten enviar únicamente el origen mediante `strict-origin-when-cross-origin`, también declarado en un meta para el futuro hosting estático. Empretienda y el crédito del portfolio llevan `utm_source=vegan_store_music`, `utm_medium=referral`, `utm_campaign=website` y una ubicación en `utm_content`. La fuente estable funciona mientras se decide el dominio; no se usa ramita.dev como fuente del tráfico de la tienda. Las URLs de redes permanecen limpias. Los parámetros sólo permiten atribuir visitas si el destino los conserva y dispone de analítica; no crean estadísticas propias ni garantizan medición en Instagram/Facebook.
 
 Las estrellas y figuras de las fundas se dibujan como SVG originales para que Safari/iOS, Android y desktop compartan la misma forma y color. Evitar reemplazarlas por glifos tipográficos en `src/components` o en la portada Open Graph.
 
@@ -127,4 +133,4 @@ La configuración de cada proyecto contiene SITE_VARIANT, SITE_MODE=demo y su pr
 
 ## Identidad y sliders — 18 de octubre de 2026
 
-V1 elegida por el cliente. Logos originales en `img/`, copias recortadas verificadas en `src/assets/brand/`. Ver `docs/brand-assets.md`. La interfaz usa el lila de VMS y el nombre Vegan Music Store. El slider del inicio y el del carrito comparten `RecordSlider.astro` y la lógica central de agregado al carrito. El segundo no enlaza al catálogo.
+V1 elegida por el cliente. Logos originales en `img/`, copias recortadas verificadas en `src/assets/brand/`. Ver `docs/brand-assets.md`. La interfaz usa el lila de VMS y el nombre Vegan Store Music. El slider del inicio y el del carrito comparten `RecordSlider.astro` y la lógica central de agregado al carrito. El segundo no enlaza al catálogo.

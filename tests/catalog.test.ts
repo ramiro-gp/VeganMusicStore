@@ -154,3 +154,20 @@ test('un cambio comercial se valida y promueve con su nueva fecha', async () => 
     assert.equal(JSON.parse(await readFile(target, 'utf8')).products[0].stockRaw, '0');
   } finally { await rm(directory, { recursive: true, force: true }); }
 });
+
+test('admite 2000 títulos sin truncar y detecta cambios al final del catálogo', () => {
+  const rows = Array.from({ length: 2000 }, (_, index) => `Disco ${String(index + 1).padStart(4, '0')},100,1,${index % 2 ? 'ARGENTINA' : 'USA'},SELLO`);
+  const before = importCatalog(csv(...rows), '2026-10-17T12:00:00.000Z');
+  assertSnapshot(before);
+  assert.equal(before.products.length, 2000);
+  assert.equal(new Set(before.products.map(item => item.id)).size, 2000);
+  assert.equal(before.products.at(-1)?.sourceTitle, 'Disco 2000');
+  assert.equal(sameCatalog(before, importCatalog(csv(...rows.toReversed()))), true);
+  rows[1999] = 'Disco 2000,250,0,ARGENTINA,SELLO';
+  const after = importCatalog(csv(...rows));
+  assertSnapshot(after);
+  assert.equal(sameCatalog(before, after), false);
+  assert.equal(after.products.at(-1)?.id, before.products.at(-1)?.id);
+  assert.equal(after.products.at(-1)?.priceCashArs, 250);
+  assert.equal(after.products.at(-1)?.stockStatus, 'out');
+});

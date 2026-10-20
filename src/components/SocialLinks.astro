@@ -1,0 +1,13 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import { siteConfig } from '../config/site';
+interface Props { brand: 'store' | 'records'; }
+const { brand } = Astro.props;
+const brandName = brand === 'store' ? siteConfig.name : 'Vegan Records';
+const links = siteConfig.social.filter(link => link.brand === brand);
+---
+<nav class="social-links" aria-label={`Redes de ${brandName}`}>
+  {links.map(link => <a href={link.url} target="_blank" rel="noopener" referrerpolicy="strict-origin-when-cross-origin" aria-label={`${link.label} de ${brandName} (abre en otra pestaña)`}>
+    <span>{link.label}</span><ArrowUpRight size={14} aria-hidden="true" />
+  </a>)}
+</nav>

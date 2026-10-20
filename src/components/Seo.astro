@@ -12,19 +12,20 @@ const business = {
   url: origin.href, description: siteConfig.description,
   address: { '@type': 'PostalAddress', streetAddress: siteConfig.address.street, addressLocality: siteConfig.address.city, addressRegion: siteConfig.address.region, addressCountry: siteConfig.address.country },
   ...(siteConfig.contact.whatsappNumber ? { telephone: `+${siteConfig.contact.whatsappNumber}` } : {}),
-  ...(siteConfig.social.length ? { sameAs: siteConfig.social.map(s => s.url) } : {}),
+  sameAs: siteConfig.social.filter(s => s.brand === 'store').map(s => s.url),
 };
 const structured = { '@context': 'https://schema.org', '@graph': [business, { '@type': 'WebSite', '@id': new URL('/#sitio', origin).href, name: siteConfig.name, url: origin.href, inLanguage: 'es-AR', publisher: { '@id': businessId } }, ...schema] };
 ---
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta name="robots" content={production && !noindex ? 'index, follow' : 'noindex, follow'} />
 <link rel="canonical" href={canonical.href} />
 <meta property="og:type" content="website" /><meta property="og:locale" content="es_AR" />
 <meta property="og:site_name" content={siteConfig.name} /><meta property="og:title" content={title} />
 <meta property="og:description" content={description} /><meta property="og:url" content={canonical.href} />
 <meta property="og:image" content={og.href} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Vegan Music Store. Discos, vinilos e importación en Almagro." />
+<meta property="og:image:alt" content="Vegan Store Music. Discos, vinilos e importación en Almagro." />
 <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} /><meta name="twitter:image" content={og.href} />
 <script type="application/ld+json" set:html={JSON.stringify(structured).replace(/</g, '\\u003c')} />

@@ -161,7 +161,7 @@ export function buildCartMessage(state: CartState, products: readonly CartProduc
     : `• ${line.quantity} × ${line.product!.sourceTitle} — ${money.format(line.unitCents! / 100)} c/u — Subtotal: ${money.format(line.subtotalCents! / 100)}`);
   const requested = summary.lines.filter(line => line.onRequest).map(line => `• ${line.quantity} × ${line.product!.sourceTitle} — Costo a consultar`);
   return normalizeWhatsappMessage([
-    'Hola Vegan Music Store, quería consultar por estos discos:',
+    'Hola Vegan Store Music, quería consultar por estos discos:',
     ...(summary.hasPricedItems ? ['', 'CON STOCK EN LISTA', ...lines, '',
       `Medio de pago: ${paymentLabels[state.paymentMethod]}.`,
       ...(summary.installmentCents !== null ? [`3 cuotas de ${money.format(summary.installmentCents / 100)}.`] : []),

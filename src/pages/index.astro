@@ -16,6 +16,6 @@ import { catalogSchema } from '../lib/catalog-schema';
 const variantTwo = siteVariant === 'v2';
 const origin = Astro.site ?? new URL('http://localhost:4321');
 ---
-<BaseLayout title={variantTwo ? 'Catálogo de discos y vinilos — Vegan Music Store' : 'Vegan Music Store — Discos, vinilos e importación en Almagro'} schema={variantTwo ? catalogSchema(origin, false) : []}>
+<BaseLayout title={variantTwo ? 'Catálogo de discos y vinilos — Vegan Store Music' : 'Vegan Store Music — Discos, vinilos e importación en Almagro'} schema={variantTwo ? catalogSchema(origin, false) : []}>
   {variantTwo ? <><CompactHero /><CatalogIntro compact /><CatalogList /><RecordsCallout /></> : <><Hero /><RecordSlider /><StoreDestinations /><ImportCallout /><About /><Process /><Location /></>}
 </BaseLayout>

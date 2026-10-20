@@ -22,9 +22,9 @@ export function whatsappUrl(message: string, number: string | null = siteConfig.
 }
 
 export function productMessage(item: Pick<CatalogItem, 'sourceTitle' | 'priceCashArs'> & Partial<Pick<CatalogItem, 'stockStatus'>>): string {
-  if (item.stockStatus === 'out') return normalizeWhatsappMessage(`Hola Vegan Music Store, me interesa ${item.sourceTitle}. Figura sin stock. ¿Se puede conseguir a pedido? Quisiera consultar el costo y la disponibilidad.`);
+  if (item.stockStatus === 'out') return normalizeWhatsappMessage(`Hola Vegan Store Music, me interesa ${item.sourceTitle}. Figura sin stock. ¿Se puede conseguir a pedido? Quisiera consultar el costo y la disponibilidad.`);
   const price = item.priceCashArs === null ? '' : ` Vi el precio de lista de ${formatPrice(item.priceCashArs)} en efectivo/transferencia.`;
-  return normalizeWhatsappMessage(`Hola Vegan Music Store, estoy buscando ${item.sourceTitle}.${price} ¿Me confirman la edición, el stock y el precio?`);
+  return normalizeWhatsappMessage(`Hola Vegan Store Music, estoy buscando ${item.sourceTitle}.${price} ¿Me confirman la edición, el stock y el precio?`);
 }
 
 export function formatPrice(price: number | null): string {

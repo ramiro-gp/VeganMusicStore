@@ -2,12 +2,13 @@
 import { ArrowUpRight } from '@lucide/astro';
 import { recordsStoreUrl } from '../config/variant';
 import BrandLogo from './BrandLogo.astro';
+import SocialLinks from './SocialLinks.astro';
 interface Props { headingTag?: 'h1' | 'h2'; }
 const { headingTag: Heading = 'h2' } = Astro.props;
 ---
 <section class="records-callout" aria-labelledby="records-title">
   <div class="shell section-space records-callout-grid">
     <div class="records-callout-brand"><p class="eyebrow">VEGAN RECORDS / SELLO DISCOGRÁFICO</p><Heading id="records-title" class="sr-only">Vegan Records, nuestro sello</Heading><BrandLogo brand="records" placement="records" /></div>
-    <div class="records-callout-copy"><p class="large-copy">La misma pasión.<br />Una identidad propia.</p><p>Además de la tienda de discos, tenemos un sello: Vegan Records. Sus ediciones tienen un espacio propio para explorar y comprar.</p><p>Conocé el catálogo del sello en su Empretienda. Los productos y la compra se gestionan directamente allí.</p><a class="button button-paper" href={recordsStoreUrl} target="_blank" rel="noopener noreferrer">Ir a la tienda de Vegan Records <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a><p class="records-external-note">Vas a la tienda del sello en Empretienda.</p></div>
+    <div class="records-callout-copy"><p class="large-copy">La misma pasión.<br />Una identidad propia.</p><p>Además de la tienda de discos, tenemos un sello: Vegan Records. Sus ediciones tienen un espacio propio para explorar y comprar.</p><p>Conocé el catálogo del sello en su Empretienda. Los productos y la compra se gestionan directamente allí.</p><a class="button button-paper" href={recordsStoreUrl} target="_blank" rel="noopener">Ir a la tienda de Vegan Records <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a><SocialLinks brand="records" /><p class="records-external-note">Vas a la tienda del sello en Empretienda.</p></div>
   </div>
 </section>

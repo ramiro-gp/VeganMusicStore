@@ -17,7 +17,7 @@ const status = { listed: 'Stock en lista · confirmar', out: 'Sin stock en lista
     <label class="stock-filter"><input type="checkbox" data-stock-filter checked /> Con stock informado</label>
     <p class="catalog-count" aria-live="polite" aria-atomic="true" data-result-count>{products.length} títulos</p>
   </form>
-  <p class="catalog-disclaimer">Precios en efectivo / transferencia. Confirmá edición, precio y disponibilidad.<br />Catálogo sincronizado el {syncDate(snapshot)}.</p>
+  <p class="catalog-disclaimer">Precios en efectivo / transferencia. Confirmá edición, precio y disponibilidad.<br />Última actualización del catálogo: <time datetime={snapshot.syncedAt}>{syncDate(snapshot)}</time>. La fecha cambia cuando se actualizan los datos.</p>
   <div class="catalog-feedback" role="status" aria-live="polite" aria-atomic="true"><span data-catalog-feedback></span><a href={routes.cart} data-cart-shortcut hidden>Ver carrito <ArrowUpRight size={14} aria-hidden="true" /></a></div>
   <div class="catalog-column-labels" aria-hidden="true"><span>ARTISTA / ÁLBUM / EDICIÓN</span><span>PRECIO DE LISTA</span><span>ARMÁ TU SELECCIÓN / HABLANOS</span></div>
   <ul class="catalog-list">
@@ -36,6 +36,11 @@ const status = { listed: 'Stock en lista · confirmar', out: 'Sin stock en lista
       </li>;
     })}
   </ul>
+  <nav class="catalog-pagination" aria-label="Páginas del catálogo" data-pagination hidden>
+    <button class="button" type="button" data-page-previous>Anterior</button>
+    <p aria-live="polite" aria-atomic="true" data-page-status></p>
+    <button class="button" type="button" data-page-next>Siguiente</button>
+  </nav>
   <div class="catalog-empty" data-empty hidden><p class="large-copy">Ese disco todavía no aparece acá.</p><p>Probá con otra palabra o contanos qué estás buscando.</p><ContactLink class="button button-dark" message={siteConfig.messages.order}>Pedir un álbum</ContactLink></div>
 </section>
 <script>import '../scripts/catalog-search';</script>

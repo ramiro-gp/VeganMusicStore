@@ -12,21 +12,21 @@
 .site-header .main-nav a[aria-current="page"] { color: var(--accent-ink); }
 
 /* Two destinations, with a clear boundary between store and label. */
-.destinations-grid { display: grid; gap: 48px; }
+.destinations-grid { display: grid; gap: 32px; }
 .destination { min-width: 0; }
-.destination-art { position: relative; aspect-ratio: 1.6; padding: clamp(20px, 3.3vw, 48px); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; isolation: isolate; }
+.destination-art { position: relative; aspect-ratio: 1.6; padding: clamp(18px, 2vw, 28px); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; isolation: isolate; }
 .destination-art-index, .destination-art-caption { position: relative; z-index: 1; font-size: 9px; letter-spacing: .05em; font-weight: 500; line-height: 1.5; }
 .destination-art-index { border-top: 1px solid currentColor; padding-top: 8px; }
 .destination-catalog-art { background: var(--accent-soft); color: var(--ink); }
-.destination-catalog-art strong { font-family: var(--font-display); font-size: clamp(72px, 16vw, 210px); font-weight: 400; line-height: .9; letter-spacing: -.03em; position: relative; z-index: 1; }
+.destination-catalog-art strong { font-family: var(--font-display); font-size: clamp(76px, 10vw, 136px); font-weight: 400; line-height: .9; letter-spacing: -.03em; position: relative; z-index: 1; }
 .destination-catalog-art strong span { display: block; font-family: var(--font-body); font-size: 8px; line-height: 1.5; letter-spacing: .08em; margin-top: 9px; }
 .destination-formats { display: flex; gap: 12px; position: relative; z-index: 1; }
 .destination-formats span { border: 1px solid currentColor; padding: 3px 7px; font-size: 8px; }
-.destination-art-mark { position: absolute; width: 43%; height: auto; right: 3%; bottom: 12%; color: var(--accent-ink); }
-.destination-copy { padding-top: 24px; }
-.destination-copy h3 { font-family: var(--font-display); font-size: clamp(32px, 4.2vw, 56px); font-weight: 400; line-height: 1.02; letter-spacing: -.02em; margin-top: 12px; }
-.destination-copy > p:not(.eyebrow) { font-size: 14px; line-height: 1.7; max-width: 48ch; color: var(--muted); margin-top: 18px; }
-.destination-copy .button { margin-top: 24px; }
+.destination-art-mark { position: absolute; width: 30%; height: auto; right: 3%; bottom: 12%; color: var(--accent-ink); opacity: .45; }
+.destination-copy { padding-top: 20px; }
+.destination-copy h3 { font-family: var(--font-display); font-size: clamp(28px, 3vw, 40px); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; margin-top: 10px; }
+.destination-copy > p:not(.eyebrow) { font-size: 14px; line-height: 1.65; max-width: 48ch; color: var(--muted); margin-top: 12px; }
+.destination-copy .button { margin-top: 16px; }
 .destination-records-art { background: var(--ink); color: var(--paper); }
 .destination-records-art .destination-art-mark { width: 26%; color: var(--accent-ink); bottom: 18%; right: 7%; }
 .records-monogram { position: absolute; display: flex; align-items: center; justify-content: center; gap: .05em; width: 51%; aspect-ratio: 1; top: 50%; left: 43%; transform: translate(-50%, -50%) rotate(-8deg); border: 1px solid #f5f1f770; border-radius: 50%; font-family: var(--font-display); font-size: clamp(74px, 15vw, 195px); line-height: 1; }
@@ -94,10 +94,9 @@
 }
 @media (min-width: 768px) {
   .destinations-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
-  .destination-copy { padding-top: 28px; }
-  .destination-copy > p:not(.eyebrow) { min-height: 72px; }
+  .destination-copy { padding-top: 20px; }
   .destination-art-index, .destination-art-caption { font-size: 10px; }
-  .destination-catalog-art strong { font-size: clamp(90px, 13vw, 210px); }
+  .destination-catalog-art strong { font-size: clamp(90px, 10vw, 136px); }
   .destination-catalog-art strong span { font-size: 10px; }
   .destination-formats span { font-size: 9px; }
   .records-monogram { font-size: clamp(90px, 13vw, 195px); }

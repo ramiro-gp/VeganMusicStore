@@ -1,3 +1,5 @@
+import { referralUrl } from '../lib/external-links';
+
 const configuredVariant = process.env.SITE_VARIANT ?? 'v1';
 
 if (configuredVariant !== 'v1' && configuredVariant !== 'v2') {
@@ -13,4 +15,4 @@ export const routes = {
   cart: '/carrito/',
 } as const;
 
-export const recordsStoreUrl = 'https://veganrecords.empretienda.com.ar/';
+export const recordsStoreUrl = referralUrl('https://veganrecords.empretienda.com.ar/', 'vegan_records');

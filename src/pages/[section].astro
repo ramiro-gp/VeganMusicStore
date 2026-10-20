@@ -11,8 +11,8 @@ export function getStaticPaths() {
 }
 const { section } = Astro.params;
 const title = section === 'nosotros' ? 'Nosotros' : section === 'contacto' ? 'Contacto y ubicación' : 'Vegan Records';
-const description = section === 'nosotros' ? 'Conocé Vegan Music Store, tienda de discos y vinilos en Almagro: compra, venta, búsquedas e importaciones.' : section === 'contacto' ? 'Encontranos en Medrano 529, Almagro, CABA. Contacto por WhatsApp y ubicación de Vegan Music Store.' : 'Conocé Vegan Records, nuestro sello discográfico, y explorá sus ediciones en su tienda independiente.';
+const description = section === 'nosotros' ? 'Conocé Vegan Store Music, tienda de discos y vinilos en Almagro: compra, venta, búsquedas e importaciones.' : section === 'contacto' ? 'Encontranos en Medrano 529, Almagro, CABA. Contacto por WhatsApp y ubicación de Vegan Store Music.' : 'Conocé Vegan Records, nuestro sello discográfico, y explorá sus ediciones en su tienda independiente.';
 ---
-<BaseLayout title={`${title} — Vegan Music Store`} description={description}>
+<BaseLayout title={`${title} — Vegan Store Music`} description={description}>
   {section === 'vegan-records' ? <RecordsCallout headingTag="h1" /> : <><h1 class="sr-only">{title}</h1>{section === 'nosotros' ? <><About /><Process /></> : <Location />}</>}
 </BaseLayout>

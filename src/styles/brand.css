@@ -7,7 +7,7 @@
 .hero-logo-title { margin: 0; width: min(100%, 320px); line-height: 1; }
 .brand-logo-hero { width: 100%; }
 .brand-logo-footer { width: clamp(150px, 26vw, 300px); }
-.destinations-grid { --destination-height: clamp(250px, 28vw, 450px); }
+.destinations-grid { --destination-height: clamp(190px, 19vw, 280px); }
 .destinations-grid .destination-art { width: 100%; min-width: 0; height: var(--destination-height); aspect-ratio: auto; }
 .destination-records-art { background: #000; align-items: center; justify-content: center; padding: 20px; }
 .destination-records-art .brand-logo-records { width: auto; max-width: 100%; height: 100%; }

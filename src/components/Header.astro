@@ -14,7 +14,7 @@ const navItems = [
 ---
 <header class="site-header" data-header>
   <div class="header-inner shell">
-    <a class="wordmark" href="/" aria-label="Vegan Music Store, inicio"><BrandLogo /></a>
+    <a class="wordmark" href="/" aria-label="Vegan Store Music, inicio"><BrandLogo /></a>
     <nav class="main-nav" id="main-navigation" aria-label="Navegación principal" data-main-nav>
       {navItems.map(item => <a href={item.href} aria-current={Astro.url.pathname !== '/' && Astro.url.pathname === item.href ? 'page' : undefined}>{item.label}</a>)}
       <a href={importUrl ?? routes.contact} target={importUrl ? '_blank' : undefined} rel={importUrl ? 'noopener noreferrer' : undefined}>A pedido</a>

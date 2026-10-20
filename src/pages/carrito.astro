@@ -8,7 +8,7 @@ import { paymentLabels } from '../lib/cart';
 import { ArrowUpRight, Minus, Plus, Trash } from '@lucide/astro';
 const lookup = products.map(({ id, sourceTitle, priceCashArs, priceCardOneArs, installment3Ars, stockStatus, stockRaw }) => ({ id, sourceTitle, priceCashArs, priceCardOneArs, installment3Ars, stockStatus, stockRaw }));
 ---
-<BaseLayout title="Tu carrito — Vegan Music Store" description="Revisá tu selección de discos, elegí el medio de pago y consultá disponibilidad por WhatsApp." noindex>
+<BaseLayout title="Tu carrito — Vegan Store Music" description="Revisá tu selección de discos, elegí el medio de pago y consultá disponibilidad por WhatsApp." noindex>
   <section class="cart-page shell" data-cart data-whatsapp-number={siteConfig.contact.whatsappNumber} data-contact-url={routes.contact}>
     <nav class="breadcrumbs" aria-label="Ruta de navegación"><a href={routes.catalog}>Catálogo</a><span aria-hidden="true">/</span><span aria-current="page">Carrito</span></nav>
     <div class="section-heading"><h1 class="section-title">TU<br /><span class="accent">SELECCIÓN.</span></h1></div>

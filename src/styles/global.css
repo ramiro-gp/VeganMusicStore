@@ -56,6 +56,11 @@ main:focus { outline: none; }
 .section-heading { display: flex; justify-content: space-between; gap: 32px; align-items: flex-end; margin-bottom: 36px; }
 .section-heading > div, .section-heading > p { font-size: 14px; line-height: 1.65; }
 .section-heading .text-link, .section-heading .button { margin-top: 12px; }
+/* Keep these secondary sections compact while retaining the display type. */
+.store-destinations.section-space, .process-section .section-space { padding-block: clamp(48px, 5.5vw, 80px); }
+.store-destinations .section-title, .process-section .section-title { font-size: clamp(38px, 5.4vw, 78px); line-height: 1.04; }
+.store-destinations .section-meta, .process-section .section-meta { margin-bottom: 24px; }
+.store-destinations .section-heading { margin-bottom: 28px; }
 .button, .contact-link, .text-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; font-size: 13px; font-weight: 500; }
 .button { padding: 13px 18px; border: 1px solid currentColor; }
 .button-dark { background: var(--accent); color: var(--ink); border-color: var(--accent); }
@@ -163,11 +168,11 @@ html.has-js .hero:not([data-enhanced="false"]) { --record-progress: 0; }
 .about-copy .text-link { margin-top: 22px; font-size: 12px; }
 .about-bottom { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 14px; display: flex; justify-content: space-between; gap: 18px; font-size: 9px; letter-spacing: .05em; }
 .process-section { background: var(--surface); }
-.process-list { list-style: none; margin: 36px 0 0; padding: 0; display: grid; }
-.process-list li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; border-top: 1px solid var(--line); padding: 24px 0; }
+.process-list { list-style: none; margin: 28px 0 0; padding: 0; display: grid; }
+.process-list li { display: grid; grid-template-columns: 36px 1fr; gap: 14px; border-top: 1px solid var(--line); padding: 18px 0; }
 .process-number { font-family: "Anton", sans-serif; font-size: 35px; line-height: 1; color: var(--accent-ink); }
 .process-list h3 { font-size: 18px; font-weight: 500; line-height: 1.3; }
-.process-list p { font-size: 13px; line-height: 1.7; color: var(--muted); margin-top: 10px; max-width: 40ch; }
+.process-list p { font-size: 13px; line-height: 1.65; color: var(--muted); margin-top: 8px; max-width: 40ch; }
 .location-grid { display: grid; gap: 36px; }
 .location-grid h2 { font-size: clamp(58px, 10vw, 145px); }
 .location-address { display: flex; align-items: center; gap: 8px; font-size: 14px; margin-top: 16px; }
@@ -183,8 +188,28 @@ html.has-js .hero:not([data-enhanced="false"]) { --record-progress: 0; }
 .footer-top { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; }
 .footer-brand { font-family: "Anton", sans-serif; font-size: clamp(27px, 5vw, 70px); line-height: 1; position: relative; letter-spacing: -.02em; }
 .footer-brand-mark { display: inline-block; width: clamp(18px, 3vw, 42px); height: clamp(18px, 3vw, 42px); color: var(--accent); margin-left: 8px; vertical-align: top; }
-.footer-top nav { display: flex; flex-direction: column; font-size: 12px; min-width: 78px; }
-.footer-top nav a { min-height: 44px; display: flex; justify-content: space-between; gap: 14px; align-items: center; }
+.footer-top .footer-navigation { display: flex; flex-direction: column; font-size: 12px; min-width: 78px; }
+.footer-navigation a { min-height: 44px; display: flex; justify-content: space-between; gap: 14px; align-items: center; }
+.social-links { display: flex; flex-wrap: wrap; gap: 0 18px; margin-top: 10px; }
+.social-links a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; font-size: 12px; }
+.social-links a:hover { color: var(--accent-ink); }
+.footer-networks { display: grid; gap: 20px; }
+.footer-networks .social-links { margin-top: 4px; }
+.footer-store-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 12px; }
+.site-footer .social-links a:hover, .footer-store-link:hover { color: var(--accent); }
+.records-callout .social-links a:hover { color: var(--accent); }
+.catalog-controls { scroll-margin-top: calc(var(--header-height) + 16px); }
+.catalog-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-block: 24px; }
+.catalog-pagination p { font-size: 11px; text-align: center; color: var(--muted); }
+.catalog-pagination .button { background: transparent; color: var(--ink); cursor: pointer; }
+.catalog-pagination .button:disabled { opacity: .4; cursor: default; }
+.catalog-pagination .button:not(:disabled):hover { background: var(--accent-soft); }
+@media (max-width: 767px) {
+  .footer-top { flex-wrap: wrap; gap: 28px; }
+  .footer-networks { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .store-destinations .section-heading { gap: 20px; }
+  .store-destinations .section-heading > p { font-size: 12px; }
+}
 .footer-bottom { border-top: 1px solid #f5f1f738; margin-top: 40px; padding-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 24px; font-size: 9px; color: #d9d0e1; letter-spacing: .03em; }
 .footer-credit { display: inline-flex; align-items: center; gap: 5px; }
 .footer-credit-icon, .footer-credit a { color: var(--accent); }
@@ -264,13 +289,13 @@ html.has-js .hero:not([data-enhanced="false"]) { --record-progress: 0; }
   .import-asterisk { width: 430px; height: 430px; right: 28%; top: -35px; }
   .about-grid, .location-grid { grid-template-columns: 6fr 5fr; gap: clamp(40px, 8vw, 150px); align-items: center; }
   .about-bottom { margin-top: 64px; font-size: 10px; }
-  .process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 64px; margin-top: 48px; }
-  .process-list li { padding-block: 30px; grid-template-columns: 54px 1fr; }
-  .process-number { font-size: 44px; }
-  .process-list h3 { font-size: 21px; }
+  .process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 48px; margin-top: 28px; }
+  .process-list li { padding-block: 22px; grid-template-columns: 44px 1fr; }
+  .process-number { font-size: 36px; }
+  .process-list h3 { font-size: 19px; }
   .process-list p { font-size: 14px; }
   .site-footer { padding-block: 56px 28px; }
-  .footer-top nav { min-width: 160px; font-size: 14px; }
+  .footer-top .footer-navigation { min-width: 160px; font-size: 14px; }
   .footer-bottom { font-size: 10px; }
   .catalog-intro { padding-block: 36px 60px; }
   .catalog-controls { grid-template-columns: minmax(260px, 1fr) auto auto; gap: 40px; align-items: end; padding-block: 28px; }

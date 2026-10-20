@@ -10,4 +10,4 @@ if (siteVariant === 'v2') return Astro.redirect('/#catalogo', 301);
 const origin = Astro.site ?? new URL('http://localhost:4321');
 const schema = catalogSchema(origin);
 ---
-<BaseLayout title="Catálogo de discos y vinilos — Vegan Music Store" description="Explorá el catálogo de Vegan Music Store: discos y vinilos, precios por medio de pago y carrito de consulta por WhatsApp." schema={schema}><CatalogIntro /><CatalogList /><ImportCallout /><Location /></BaseLayout>
+<BaseLayout title="Catálogo de discos y vinilos — Vegan Store Music" description="Explorá el catálogo de Vegan Store Music: discos y vinilos, precios por medio de pago y carrito de consulta por WhatsApp." schema={schema}><CatalogIntro /><CatalogList /><ImportCallout /><Location /></BaseLayout>

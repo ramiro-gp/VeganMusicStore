@@ -1,7 +1,30 @@
 ---
 import { ArrowUpRight, Headphones } from '@lucide/astro';
 import { siteConfig } from '../config/site';
-import { routes } from '../config/variant';
+import { routes, recordsStoreUrl } from '../config/variant';
+import { referralUrl } from '../lib/external-links';
 import BrandLogo from './BrandLogo.astro';
+import SocialLinks from './SocialLinks.astro';
 ---
-<footer class="site-footer"><div class="shell"><div class="footer-top"><a href="/" class="footer-brand" aria-label="Vegan Music Store, inicio"><BrandLogo placement="footer" /></a><nav aria-label="Navegación del pie de página"><a href={routes.catalog}>Catálogo <ArrowUpRight size={15} aria-hidden="true" /></a><a href={routes.about}>Nosotros <ArrowUpRight size={15} aria-hidden="true" /></a><a href={routes.records}>Vegan Records <ArrowUpRight size={15} aria-hidden="true" /></a><a href={routes.contact}>Contacto <ArrowUpRight size={15} aria-hidden="true" /></a><a href={routes.cart}>Carrito de consulta <ArrowUpRight size={15} aria-hidden="true" /></a></nav></div><div class="footer-bottom"><p>{siteConfig.address.display}</p><p>DISCOS / VINILOS / IMPORTACIÓN</p><p>HECHO PARA ESCUCHAR.</p><p class="footer-credit">Hecho con <Headphones class="footer-credit-icon" size={15} aria-hidden="true" /> por <a href="https://ramita.dev" target="_blank" rel="noopener noreferrer">Ramiro Garcia</a></p></div></div></footer>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-top">
+      <a href="/" class="footer-brand" aria-label="Vegan Store Music, inicio"><BrandLogo placement="footer" /></a>
+      <nav class="footer-navigation" aria-label="Navegación del pie de página">
+        <a href={routes.catalog}>Catálogo <ArrowUpRight size={15} aria-hidden="true" /></a>
+        <a href={routes.about}>Nosotros <ArrowUpRight size={15} aria-hidden="true" /></a>
+        <a href={routes.records}>Vegan Records <ArrowUpRight size={15} aria-hidden="true" /></a>
+        <a href={routes.contact}>Contacto <ArrowUpRight size={15} aria-hidden="true" /></a>
+        <a href={routes.cart}>Carrito de consulta <ArrowUpRight size={15} aria-hidden="true" /></a>
+      </nav>
+      <div class="footer-networks">
+        <div><p class="eyebrow">VEGAN STORE MUSIC</p><SocialLinks brand="store" /></div>
+        <div><p class="eyebrow">VEGAN RECORDS</p><SocialLinks brand="records" /><a class="footer-store-link" href={recordsStoreUrl} target="_blank" rel="noopener">Tienda en Empretienda <ArrowUpRight size={14} aria-hidden="true" /></a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>{siteConfig.address.display}</p><p>DISCOS / VINILOS / IMPORTACIÓN</p><p>HECHO PARA ESCUCHAR.</p>
+      <p class="footer-credit">Hecho con <Headphones class="footer-credit-icon" size={15} aria-hidden="true" /> por <a href={referralUrl('https://ramita.dev', 'footer_credit')} target="_blank" rel="noopener">Ramiro Garcia</a></p>
+    </div>
+  </div>
+</footer>
