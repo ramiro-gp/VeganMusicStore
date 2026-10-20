@@ -18,6 +18,7 @@ a[aria-disabled="true"] { pointer-events: none; }
 .catalog-controls .catalog-count { grid-column: 1 / -1; min-height: 18px; }
 .cart-page { padding-block: 24px 72px; min-height: 70svh; }
 .cart-page > .section-heading { margin-bottom: 32px; }
+.cart-title { font-size: clamp(36px, 8.4vw, 104px); white-space: nowrap; }
 .cart-empty { padding-block: 24px 60px; }
 .cart-empty > p { margin-bottom: 20px; }
 .cart-grid { display: grid; gap: 40px; align-items: start; }

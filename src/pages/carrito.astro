@@ -11,7 +11,7 @@ const lookup = products.map(({ id, sourceTitle, priceCashArs, priceCardOneArs, i
 <BaseLayout title="Tu carrito — Vegan Store Music" description="Revisá tu selección de discos, elegí el medio de pago y consultá disponibilidad por WhatsApp." noindex>
   <section class="cart-page shell" data-cart data-whatsapp-number={siteConfig.contact.whatsappNumber} data-contact-url={routes.contact}>
     <nav class="breadcrumbs" aria-label="Ruta de navegación"><a href={routes.catalog}>Catálogo</a><span aria-hidden="true">/</span><span aria-current="page">Carrito</span></nav>
-    <div class="section-heading"><h1 class="section-title">TU<br /><span class="accent">SELECCIÓN.</span></h1></div>
+    <div class="section-heading"><h1 class="section-title cart-title">TU <span class="accent">SELECCIÓN.</span></h1></div>
     <noscript><p class="cart-notice">El carrito necesita JavaScript para guardar tu selección y calcular el total. Podés <a class="text-link" href={routes.catalog}>volver al catálogo</a> y consultar cada disco por WhatsApp.</p></noscript>
     <div data-cart-content hidden>
       <p class="cart-notice" data-cart-notices role="status" hidden></p>

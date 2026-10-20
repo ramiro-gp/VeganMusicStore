@@ -125,3 +125,10 @@ Sincronización manual correcta: 255 productos, con fecha del 14 de octubre. Los
 - Catálogo con páginas de 50 resultados, búsqueda/filtros sobre todos los registros y enlaces directos que revelan la página correspondiente. Sin JavaScript siguen presentes los 2000 registros y enlaces de consulta. HTML de catálogo de prueba: 4,282,069 bytes, 158,754 bytes gzip; se transfiere completo, la paginación limita lo visible y no descarga páginas desde una API.
 - Navegador local en 320, 390, 768 y 1366 px: sin desbordes, paginación, búsqueda, origen, estado vacío, agregado desde segunda página, persistencia y generación de WhatsApp correctos. Copia de 2000: búsqueda del último registro, enlace directo y carrito correctos. Sin errores JavaScript. V2 comprobada como regresión; sólo V1 se publica para revisión. No se enviaron mensajes de WhatsApp.
 - Evidencia local ignorada por Git en `reports/customer-update/`: capturas y `qa.json`. La prueba no sustituye una medición de rendimiento en un teléfono físico ni comprueba entrega automática de un cambio real futuro de Sheets.
+
+## 20 de octubre de 2026 — Encabezados del carrito y catálogo
+
+- `TU SELECCIÓN.` sin salto forzado y con tipografía adaptable para conservar un solo renglón entre 320 y 1920 px. No se modificó la lógica del carrito.
+- Ilustración vectorial original de un vinilo y su funda a la derecha de `BUSCÁ. ENCONTRÁ.` en V1. Usa la paleta existente, es decorativa y no requiere JavaScript ni imágenes externas. En celular se presenta pequeña junto al título. La composición compacta de V2 conserva su encabezado.
+- Tipos sin errores, advertencias ni hints; builds V1/V2 y enlaces internos correctos. Navegador en 320, 390, 768, 1024, 1366 y 1920 px: título del carrito en una línea, sin desbordes ni superposiciones con la ilustración. Búsqueda y lista paginada comprobadas, sin errores JavaScript. Capturas y mediciones en `reports/heading-update/` (ignorado por Git).
+- Sin cambios en los logos, archivos de marca, snapshot, dependencias o configuración del hosting. Vercel continúa como entorno de revisión.
