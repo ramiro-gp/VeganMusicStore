@@ -11,10 +11,12 @@ export function catalogSchema(origin: URL, withBreadcrumb = siteVariant === 'v1'
         '@type': 'ListItem', position: index + 1,
         item: {
           '@type': 'Product', '@id': `${url}#disco-${item.id}`, url: `${url}#disco-${item.id}`, name: item.sourceTitle,
+          ...(item.imageUrl ? { image: item.imageUrl } : {}),
           ...(item.stockStatus !== 'out' && item.priceCashArs !== null && item.priceCashArs > 0 ? { offers: {
             '@type': 'Offer', price: item.priceCashArs, priceCurrency: 'ARS',
             description: 'Precio en efectivo o transferencia. Confirmar stock y precio.',
-            seller: { '@id': new URL('/#negocio', origin).href },
+            ...(item.purchaseUrl ? { url: item.purchaseUrl, ...(item.isPresale ? { availability: 'https://schema.org/PreOrder' } : {}) } : {}),
+            seller: item.purchaseUrl ? { '@type': 'Organization', name: 'Vegan Records', url: new URL(item.purchaseUrl).origin } : { '@id': new URL('/#negocio', origin).href },
           } } : {}),
         },
       })),

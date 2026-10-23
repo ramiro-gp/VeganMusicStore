@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import RecordSlider from '../components/RecordSlider.astro';
+import PresaleShowcase from '../components/PresaleShowcase.astro';
+import { presaleProducts } from '../lib/catalog-data';
 import StoreDestinations from '../components/StoreDestinations.astro';
 import CompactHero from '../components/CompactHero.astro';
 import CatalogIntro from '../components/CatalogIntro.astro';
@@ -17,5 +19,5 @@ const variantTwo = siteVariant === 'v2';
 const origin = Astro.site ?? new URL('http://localhost:4321');
 ---
 <BaseLayout title={variantTwo ? 'Catálogo de discos y vinilos — Vegan Store Music' : 'Vegan Store Music — Discos, vinilos e importación en Almagro'} schema={variantTwo ? catalogSchema(origin, false) : []}>
-  {variantTwo ? <><CompactHero /><CatalogIntro compact /><CatalogList /><RecordsCallout /></> : <><Hero /><RecordSlider /><StoreDestinations /><ImportCallout /><About /><Process /><Location /></>}
+  {variantTwo ? <><CompactHero /><CatalogIntro compact /><CatalogList /><RecordsCallout /></> : <><Hero />{presaleProducts.length ? <PresaleShowcase items={presaleProducts} /> : <RecordSlider />}<StoreDestinations /><ImportCallout /><About /><Process /><Location /></>}
 </BaseLayout>

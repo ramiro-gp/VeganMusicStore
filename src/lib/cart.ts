@@ -3,7 +3,7 @@ import { normalizeText } from './catalog.ts';
 import { normalizeWhatsappMessage } from './whatsapp.ts';
 
 export type PaymentMethod = 'cash-transfer' | 'card-one' | 'card-three';
-export type CartProduct = Pick<CatalogItem, 'id' | 'sourceTitle' | 'priceCashArs' | 'priceCardOneArs' | 'installment3Ars' | 'stockStatus' | 'stockRaw'>;
+export type CartProduct = Pick<CatalogItem, 'id' | 'sourceTitle' | 'priceCashArs' | 'priceCardOneArs' | 'installment3Ars' | 'stockStatus' | 'stockRaw'> & Partial<Pick<CatalogItem, 'purchaseUrl'>>;
 export interface CartLine { productId: string; quantity: number; kind?: 'request' }
 export interface CartState {
   schemaVersion: 1;
@@ -87,6 +87,10 @@ export function reconcileCart(state: CartState, products: readonly CartProduct[]
       notices.push('Un disco ya no figura en el catálogo. Quitalo del carrito para continuar.');
       return { ...line };
     }
+    if (product.purchaseUrl) {
+      notices.push(`${product.sourceTitle}: ahora se compra en Empretienda. Quitalo del carrito para continuar con la consulta.`);
+      return { ...line };
+    }
     const limit = stockLimit(product);
     if (isOnRequest(product)) {
       if (line.kind !== 'request') notices.push(`${product.sourceTitle}: pasó a pedido, sin incluir su costo en el total.`);
@@ -122,14 +126,16 @@ export function summarizeCart(state: CartState, products: readonly CartProduct[]
   const byId = new Map(products.map(product => [product.id, product]));
   const lines = state.lines.map(line => {
     const product = byId.get(line.productId) ?? null;
-    const onRequest = product !== null && isOnRequest(product);
-    const limit = onRequest ? REQUEST_LIMIT : product ? stockLimit(product) : 0;
-    const unitCents = product && !onRequest ? unitPrice(product, state.paymentMethod) : null;
+    const external = Boolean(product?.purchaseUrl);
+    const onRequest = !external && product !== null && isOnRequest(product);
+    const limit = external ? 0 : onRequest ? REQUEST_LIMIT : product ? stockLimit(product) : 0;
+    const unitCents = product && !onRequest && !external ? unitPrice(product, state.paymentMethod) : null;
     const validQuantity = Number.isSafeInteger(line.quantity) && line.quantity > 0;
     const subtotal = unitCents !== null && validQuantity ? unitCents * line.quantity : null;
     const subtotalCents = subtotal !== null && Number.isSafeInteger(subtotal) ? subtotal : null;
     let error: string | null = null;
     if (!product) error = 'Este disco ya no figura en el catálogo.';
+    else if (external) error = 'Este disco se compra en Empretienda. Quitalo del carrito para enviar tu consulta.';
     else if (!limit) error = 'Sin stock informado. Quitalo del carrito para continuar.';
     else if (!onRequest && cents(product.priceCashArs) === null) error = 'Sin precio informado. Quitalo del carrito para continuar.';
     else if (!validQuantity || line.quantity > limit) error = `Elegí una cantidad entre 1 y ${limit}.`;
@@ -137,7 +143,7 @@ export function summarizeCart(state: CartState, products: readonly CartProduct[]
     else if (!onRequest && subtotalCents === null) error = 'El importe está fuera de rango.';
     return { ...line, product, limit, onRequest, unitCents, subtotalCents, error };
   });
-  const priced = lines.filter(line => !line.onRequest);
+  const priced = lines.filter(line => !line.onRequest && !line.product?.purchaseUrl);
   const hasPricedItems = priced.length > 0;
   const baseValid = lines.length > 0 && lines.every(line => line.product && line.limit > 0 && (line.onRequest || cents(line.product.priceCashArs) !== null) && Number.isSafeInteger(line.quantity) && line.quantity > 0 && line.quantity <= line.limit);
   const availableMethods = Object.fromEntries(methods.map(method => [method, baseValid && hasPricedItems && priced.every(line => {

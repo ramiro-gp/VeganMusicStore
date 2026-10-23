@@ -6,9 +6,8 @@ import { whatsappUrl } from '../lib/whatsapp';
 import { routes, siteVariant } from '../config/variant';
 const importUrl = whatsappUrl(siteConfig.messages.import);
 const navItems = [
-  { href: routes.catalog, label: 'Catálogo' },
-  { href: routes.about, label: 'Nosotros' },
   { href: routes.records, label: 'Vegan Records' },
+  { href: routes.about, label: 'Nosotros' },
   ...(siteVariant === 'v2' ? [{ href: routes.contact, label: 'Contacto' }] : []),
 ];
 ---

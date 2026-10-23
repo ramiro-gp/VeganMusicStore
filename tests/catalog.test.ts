@@ -44,11 +44,11 @@ test('stock desconocido no se convierte en disponible y el precio decimal se con
   assert.equal(item.origin, null);
 });
 
-test('schema 3 importa precios explícitos de tarjeta y cuota, sin derivar recargos', () => {
+test('schema 4 importa precios explícitos de tarjeta y cuota, sin derivar recargos', () => {
   const source = `${header},TARJETA 1 PAGO,TARJETA 3 PAGOS,Valor cuota\nDisco,100,1,ARGENTINA,SELLO,"$ 125,50",999,"$ 50,33"`;
   const snapshot = importCatalog(source);
   assertSnapshot(snapshot);
-  assert.equal(snapshot.schemaVersion, 3);
+  assert.equal(snapshot.schemaVersion, 4);
   assert.equal(snapshot.products[0].priceCardOneArs, 125.5);
   assert.equal(snapshot.products[0].installment3Ars, 50.33);
   assert.equal(importCatalog(csv('Otro,100,1,,')).products[0].priceCardOneArs, null);

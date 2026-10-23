@@ -59,11 +59,23 @@ La URL del CSV está en `src/config/site.ts`, con override opcional `CATALOG_CSV
 
 Los IDs dependen de título, origen y sello, nunca de precio, stock o orden. Cambiar esos datos de identidad exige revisar el enriquecimiento editorial. `10+` indica stock positivo, no una cantidad exacta. Los duplicados exactos se colapsan, sin sumar stock. Los datos contradictorios y precios inválidos bloquean la sincronización.
 
-El snapshot utiliza `schemaVersion: 3`. Importa `PRECIO EFT/TRAN` para efectivo/transferencia, `TARJETA 1 PAGO` para tarjeta en un pago y `Valor cuota` para cada una de las tres cuotas. El total en tres cuotas es **3 × Valor cuota**; no se utiliza `TARJETA 3 PAGOS` para ese cálculo. Puede existir una diferencia por redondeo respecto de esa columna. Los importes cero o vacíos se tratan como precio no informado; los valores inválidos bloquean la importación.
+El snapshot utiliza `schemaVersion: 4`; los lectores aceptan y migran en memoria la versión 3 durante la transición. Importa `PRECIO EFT/TRAN` para efectivo/transferencia, `TARJETA 1 PAGO` para tarjeta en un pago y `Valor cuota` para cada una de las tres cuotas. El total en tres cuotas es **3 × Valor cuota**; no se utiliza `TARJETA 3 PAGOS` para ese cálculo. Puede existir una diferencia por redondeo respecto de esa columna. Los importes cero o vacíos se tratan como precio no informado; los valores inválidos bloquean la importación.
 
 La búsqueda se combina con “Con stock informado”, marcado inicialmente, y con el filtro de origen, inicialmente en Todas. `Argentina`, normalizada sin distinguir mayúsculas, es Nacional; otro origen informado es Internacional. Un origen vacío se identifica como “Origen sin informar” y aparece únicamente en Todas. El filtro describe el origen de la edición, no la nacionalidad del artista.
 
 Todo el catálogo está presente en el HTML inicial; el JavaScript mejora la búsqueda, los filtros y el carrito, y presenta hasta 50 resultados por página. Buscar o cambiar un filtro vuelve a la primera página; la búsqueda abarca todos los títulos. Sin JavaScript se muestra la lista completa y siguen disponibles las consultas directas. El importador no tiene un límite de 255 ni 1500 filas; se prueba con 2000 productos, incluyendo cambios al final de la lista. `src/data/catalog.editorial.ts` conserva el enriquecimiento manual de artista/álbum.
+
+### Preventa y compras en Empretienda
+
+La columna **I** activa una edición cuando contiene `PREVENTA` (sin distinguir mayúsculas). La columna **P** contiene su URL HTTPS de producto en Empretienda. Las columnas se leen por posición: los encabezados vacíos intermedios no desplazan ni sobrescriben datos. No mover I ni P sin actualizar el importador.
+
+Una columna opcional con encabezado **`IMAGEN_URL`**, por ejemplo Q, permite elegir una imagen HTTPS directamente desde Sheets y tiene prioridad. Si falta esa URL, la sincronización lee `og:image` de la página de Empretienda y guarda la URL en el snapshot. No se consultan páginas de productos durante visitas ni builds normales. Si Empretienda falla, se conserva la imagen anterior sólo para el mismo ID y destino; sin imagen previa válida se rechaza el candidato. No se publica una preventa sin enlace ni imagen.
+
+En el inicio de V1, los productos marcados sustituyen temporalmente “DALE UNA VUELTA” por “PREVENTA”. La misma campaña reemplaza “UNO MÁS Y YA ESTÁ…” en el carrito. Para terminarla, quitar `PREVENTA` de **todas** las filas correspondientes: la próxima sincronización y publicación restaura ambos sliders originales. “SEGUÍ BAJANDO” apunta a la preventa mientras está activa y al slider habitual cuando termina. Los enlaces de compra pueden conservarse después del cierre, y continúan abriendo Empretienda. No hay fecha automática de finalización.
+
+Todos los productos con enlace de Empretienda muestran “COMPRAR AHORA”, también en el catálogo, sin depender de JavaScript. No se agregan al carrito de consulta. Si ya estaban guardados, no totalizan y bloquean el envío por WhatsApp hasta quitarlos; se muestra el enlace de compra externo.
+
+**Corrección temporal del 22/10/2026:** las filas de Sexcalextric LP violeta y Modelo 96 LP blanco traían sus URLs cruzadas. `scripts/catalog-presale.ts` corrige sólo las dos identidades y valores erróneos verificados, sin modificar Sheets. Cuando la hoja tenga el enlace correcto u otro nuevo, ese dato prevalece. Las imágenes y los precios de los cuatro productos no están asociados manualmente en el código.
 
 ### Vegan Records
 

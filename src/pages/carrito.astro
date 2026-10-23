@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RecordSlider from '../components/RecordSlider.astro';
-import { products } from '../lib/catalog-data';
+import PresaleShowcase from '../components/PresaleShowcase.astro';
+import { products, presaleProducts } from '../lib/catalog-data';
 import { routes } from '../config/variant';
 import { siteConfig } from '../config/site';
 import { paymentLabels } from '../lib/cart';
 import { ArrowUpRight, Minus, Plus, Trash } from '@lucide/astro';
-const lookup = products.map(({ id, sourceTitle, priceCashArs, priceCardOneArs, installment3Ars, stockStatus, stockRaw }) => ({ id, sourceTitle, priceCashArs, priceCardOneArs, installment3Ars, stockStatus, stockRaw }));
+const lookup = products.map(({ id, sourceTitle, priceCashArs, priceCardOneArs, installment3Ars, stockStatus, stockRaw, purchaseUrl }) => ({ id, sourceTitle, priceCashArs, priceCardOneArs, installment3Ars, stockStatus, stockRaw, purchaseUrl }));
 ---
 <BaseLayout title="Tu carrito — Vegan Store Music" description="Revisá tu selección de discos, elegí el medio de pago y consultá disponibilidad por WhatsApp." noindex>
   <section class="cart-page shell" data-cart data-whatsapp-number={siteConfig.contact.whatsappNumber} data-contact-url={routes.contact}>
@@ -35,8 +36,8 @@ const lookup = products.map(({ id, sourceTitle, priceCashArs, priceCardOneArs, i
       </div>
     </div>
   </section>
-  <RecordSlider context="cart" />
-  <template id="cart-line-template"><li class="cart-line" data-cart-line><div class="cart-line-heading"><h3 data-line-title></h3><button class="cart-remove" type="button" data-cart-action="remove"><Trash size={17} aria-hidden="true" /><span>Quitar</span></button></div><p class="cart-unit" data-line-unit></p><div class="cart-line-bottom"><div class="quantity-control" role="group" aria-label="Cantidad"><button type="button" data-cart-action="decrement"><Minus size={16} aria-hidden="true" /></button><output data-line-quantity></output><button type="button" data-cart-action="increment"><Plus size={16} aria-hidden="true" /></button></div><p class="cart-line-subtotal" data-line-subtotal></p></div><p class="cart-limit" data-line-limit></p><p class="cart-error" data-line-error hidden></p></li></template>
+  {presaleProducts.length ? <PresaleShowcase items={presaleProducts} context="cart" /> : <RecordSlider context="cart" />}
+  <template id="cart-line-template"><li class="cart-line" data-cart-line><div class="cart-line-heading"><h3 data-line-title></h3><button class="cart-remove" type="button" data-cart-action="remove"><Trash size={17} aria-hidden="true" /><span>Quitar</span></button></div><p class="cart-unit" data-line-unit></p><div class="cart-line-bottom"><div class="quantity-control" role="group" aria-label="Cantidad"><button type="button" data-cart-action="decrement"><Minus size={16} aria-hidden="true" /></button><output data-line-quantity></output><button type="button" data-cart-action="increment"><Plus size={16} aria-hidden="true" /></button></div><p class="cart-line-subtotal" data-line-subtotal></p></div><p class="cart-limit" data-line-limit></p><p class="cart-error" data-line-error hidden></p><a class="button catalog-add" data-line-buy target="_blank" rel="noopener" hidden>COMPRAR AHORA <ArrowUpRight size={17} aria-hidden="true" /></a></li></template>
   <script id="cart-products" type="application/json" set:html={JSON.stringify(lookup).replace(/</g, '\\u003c')} />
 </BaseLayout>
 <script>import '../scripts/cart-page';</script>

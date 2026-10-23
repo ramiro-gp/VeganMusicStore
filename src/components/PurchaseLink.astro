@@ -1,0 +1,8 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import { referralUrl } from '../lib/external-links';
+import type { CatalogItem } from '../types/catalog';
+interface Props { item: Pick<CatalogItem, 'sourceTitle' | 'purchaseUrl'>; placement: string; class?: string; }
+const { item, placement, class: className = '' } = Astro.props;
+---
+{item.purchaseUrl && <a class:list={['button purchase-link', className]} href={referralUrl(item.purchaseUrl, placement)} target="_blank" rel="noopener" aria-label={`Comprar ahora ${item.sourceTitle} en Empretienda (abre en otra pestaña)`}>COMPRAR AHORA <ArrowUpRight size={18} aria-hidden="true" /></a>}

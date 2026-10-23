@@ -1,0 +1,41 @@
+---
+import { ArrowRight, ArrowUpRight } from '@lucide/astro';
+import type { CatalogItem } from '../types/catalog';
+import { formatPrice } from '../lib/whatsapp';
+import { routes } from '../config/variant';
+import PurchaseLink from './PurchaseLink.astro';
+import DecorativeMark from './DecorativeMark.astro';
+import '../styles/presale.css';
+interface Props { items: CatalogItem[]; context?: 'home' | 'cart'; }
+const { items, context = 'home' } = Astro.props;
+const edition = (item: CatalogItem) => {
+  const match = item.sourceTitle.match(/\s+(CD|LP)(?:\s+(blanco|violeta))?$/i);
+  return { title: item.sourceTitle.replace(/\s+/g, ' ').replace(/\s+(CD|LP)(?:\s+(blanco|violeta))?$/i, ''), format: match?.[1].toUpperCase() === 'LP' ? `Vinilo${match[2] ? ` ${match[2]}` : ''}` : item.format ?? match?.[1].toUpperCase() ?? 'Edición' };
+};
+const titles = items.map(item => edition(item).title.split(' '));
+const common = titles[0]?.filter((_word, index) => titles.every(title => title.slice(0, index + 1).join(' ') === titles[0].slice(0, index + 1).join(' '))) ?? [];
+const artist = titles.length > 1 && common.length >= 2 ? common.join(' ') : '';
+// Group formats while retaining the title ordering supplied by the catalog.
+const records = [...items].sort((a, b) => Number(edition(a).format === 'CD') - Number(edition(b).format === 'CD'));
+---
+<section class:list={['presale', { 'presale-cart': context === 'cart' }]} id="preventa" aria-labelledby="presale-title" data-presale>
+  <div class="shell presale-topline"><span class="presale-badge"><span aria-hidden="true"></span> PREVENTA ABIERTA</span><span class="presale-counter">{String(items.length).padStart(2, '0')} EDICIONES / VEGAN RECORDS</span></div>
+  <div class="shell presale-heading">
+    <h2 id="presale-title"><span>PREVENTA</span><DecorativeMark class="presale-heading-star" shape="spark" /></h2>
+    <div class="presale-intro">{artist && <p class="presale-artist">{artist}</p>}<p>Hay discos que no se esperan.<br />Elegí tu próxima edición.</p>{context === 'home' && <a class="presale-catalog-link" href={routes.catalog}>Todo el catálogo <ArrowUpRight size={16} aria-hidden="true" /></a>}</div>
+  </div>
+  <div class="presale-track" tabindex="0" role="region" aria-label="Ediciones en preventa. En celular, deslizá o usá las flechas del teclado para explorar.">
+    <ul class="presale-grid">
+      {records.map((item, index) => {
+        const info = edition(item);
+        const title = artist && info.title !== artist ? info.title.slice(artist.length).trim() : info.title;
+        return <li class="presale-card" data-presale-item={item.id}>
+          <div class="presale-card-top"><span>{info.format}</span><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span></div>
+          <div class="presale-art"><img src={item.imageUrl!} alt={`${item.sourceTitle}: imagen de la edición en preventa`} width="600" height="400" loading="lazy" decoding="async" referrerpolicy="strict-origin-when-cross-origin" /></div>
+          <div class="presale-card-info"><p class="presale-card-label">{artist || item.artist || item.label}</p><h3>{title}</h3><p class="presale-card-price">{formatPrice(item.priceCashArs)}<span>Efectivo / transferencia</span></p><PurchaseLink item={item} placement={context === 'cart' ? 'presale_cart' : 'presale'} class="presale-buy" /></div>
+        </li>;
+      })}
+    </ul>
+  </div>
+  <div class="shell presale-footer"><p>Tu próxima escucha empieza acá. <span>La compra continúa en la Empretienda de Vegan Records.</span></p><span class="presale-swipe" aria-hidden="true">DESLIZÁ PARA EXPLORAR <ArrowRight size={18} /></span><span class="presale-footer-mark" aria-hidden="true">EL LADO QUE VIENE ↗</span></div>
+</section>

@@ -1,6 +1,7 @@
 import { buildCartMessage, paymentLabels, reconcileCart, summarizeCart, type CartProduct, type CartState, type PaymentMethod } from '../lib/cart';
 import { formatPrice, whatsappUrl } from '../lib/whatsapp';
 import { catalogDate, readCart, saveCart } from './cart-store';
+import { referralUrl } from '../lib/external-links';
 
 const page = document.querySelector<HTMLElement>('[data-cart]');
 if (page) {
@@ -49,10 +50,18 @@ if (page) {
       const row = template.content.firstElementChild!.cloneNode(true) as HTMLElement;
       row.dataset.productId = line.productId;
       const title = line.product?.sourceTitle ?? 'Este título ya no figura en el catálogo';
+      const external = Boolean(line.product?.purchaseUrl);
       row.querySelector('[data-line-title]')!.textContent = title;
-      row.querySelector('[data-line-unit]')!.textContent = line.onRequest ? 'Sin stock en lista' : line.unitCents === null ? 'Precio pendiente de confirmar' : line.quantity === 1 ? paymentLabels[state.paymentMethod] : `${money(line.unitCents)} por unidad · ${paymentLabels[state.paymentMethod]}`;
+      row.querySelector('[data-line-unit]')!.textContent = external ? 'La compra continúa en la Empretienda de Vegan Records.' : line.onRequest ? 'Sin stock en lista' : line.unitCents === null ? 'Precio pendiente de confirmar' : line.quantity === 1 ? paymentLabels[state.paymentMethod] : `${money(line.unitCents)} por unidad · ${paymentLabels[state.paymentMethod]}`;
+      row.querySelector<HTMLElement>('.quantity-control')!.hidden = external;
       row.querySelector('[data-line-quantity]')!.textContent = String(line.quantity);
-      row.querySelector('[data-line-subtotal]')!.textContent = line.onRequest ? 'A cotizar' : line.subtotalCents === null ? 'Consultar precio' : money(line.subtotalCents);
+      row.querySelector('[data-line-subtotal]')!.textContent = external ? 'Fuera del total' : line.onRequest ? 'A cotizar' : line.subtotalCents === null ? 'Consultar precio' : money(line.subtotalCents);
+      const buy = row.querySelector<HTMLAnchorElement>('[data-line-buy]')!;
+      buy.hidden = !external;
+      if (line.product?.purchaseUrl) {
+        buy.href = referralUrl(line.product.purchaseUrl, 'saved_cart');
+        buy.setAttribute('aria-label', `Comprar ahora ${title} en Empretienda (abre en otra pestaña)`);
+      }
       const limit = row.querySelector<HTMLElement>('[data-line-limit]')!;
       const tenPlus = line.product?.stockRaw.trim() === '10+';
       limit.textContent = line.onRequest ? 'Disponibilidad y costo a confirmar.' : line.limit ? `${tenPlus ? '10+' : line.limit} ${line.limit === 1 ? 'disponible' : 'disponibles'}. Stock a confirmar.${tenPlus ? ' Para más de diez, consultanos directamente.' : ''}` : '';
@@ -69,7 +78,8 @@ if (page) {
     }
     list.replaceChildren(fragment);
     requestList.replaceChildren(requestFragment);
-    page!.querySelector<HTMLElement>('[data-cart-stock-section]')!.hidden = !summary.hasPricedItems;
+    page!.querySelector<HTMLElement>('[data-cart-stock-section]')!.hidden = !summary.lines.some(line => !line.onRequest);
+    page!.querySelector<HTMLElement>('[data-cart-stock-section] h2')!.textContent = summary.lines.some(line => line.product?.purchaseUrl) ? 'REVISÁ TU SELECCIÓN' : 'CON STOCK EN LISTA';
     page!.querySelector<HTMLElement>('[data-cart-request-section]')!.hidden = !summary.requestedUnits;
     page!.querySelector<HTMLElement>('.payment-options')!.hidden = !summary.hasPricedItems;
     page!.querySelector<HTMLElement>('[data-summary-title]')!.textContent = summary.hasPricedItems ? '¿CÓMO QUERÉS PAGAR?' : 'TU CONSULTA';

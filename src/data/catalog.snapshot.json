@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 3,
-  "syncedAt": "2026-10-22T16:22:58.955Z",
+  "schemaVersion": 4,
+  "syncedAt": "2026-10-22T19:19:00.406Z",
   "products": [
     {
       "id": "42f1459f15e2b64e",
@@ -16,7 +16,10 @@
       "origin": "USA",
       "label": "REVELATION RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "632758ce3fd722a5",
@@ -32,7 +35,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "9eed7bae36f71344",
@@ -48,7 +54,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "7e3fccd23ed88e20",
@@ -64,7 +73,10 @@
       "origin": "ARGENTINA",
       "label": "2M PRODUCCIONES",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "3b05b2f52c438f37",
@@ -80,7 +92,10 @@
       "origin": "CANADA",
       "label": "DINE ALONE MUSIC",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "80f81c7aacb439e2",
@@ -96,7 +111,10 @@
       "origin": "HOLANDA",
       "label": "MUSIC ON VINYL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "06f0f6806e917f79",
@@ -112,7 +130,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ad73699608264c4b",
@@ -128,7 +149,10 @@
       "origin": "IMPORTADO",
       "label": null,
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c9a22df0706f0e50",
@@ -144,7 +168,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "5ab5923fa0d94144",
@@ -160,7 +187,10 @@
       "origin": "EUROPA",
       "label": "MUNSTER",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a8f28282f405dc75",
@@ -176,7 +206,10 @@
       "origin": "REPUBLICA CHECA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "adbab30b1a430d88",
@@ -192,7 +225,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "0023da1038deb32b",
@@ -208,7 +244,10 @@
       "origin": "CHILE",
       "label": "SENDERO RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "631a2b3f44d6acf5",
@@ -224,7 +263,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "64b97e8df5f6362b",
@@ -240,7 +282,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "44c05fb68de9fd34",
@@ -256,7 +301,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "04d846991befe961",
@@ -272,7 +320,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "28cc47561aa9d07c",
@@ -288,7 +339,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "060660a82f25f6a8",
@@ -304,7 +358,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ffbb99df2406479f",
@@ -320,7 +377,10 @@
       "origin": "REPUBLICA CHECA",
       "label": "MEGAFORCE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "5378badd1e1ca87f",
@@ -336,7 +396,10 @@
       "origin": "USA",
       "label": "MVD AUDIO",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "4f687b0464a72418",
@@ -352,7 +415,10 @@
       "origin": "USA",
       "label": "EPITAPH",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ed5073e46758a86b",
@@ -368,7 +434,10 @@
       "origin": "USA",
       "label": "EPITAPH",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c345ccb77f8a2e10",
@@ -384,7 +453,10 @@
       "origin": "REPUBLICA CHECA",
       "label": "INHUMANO DISCOS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "fafac59416ac8147",
@@ -400,7 +472,10 @@
       "origin": "USA",
       "label": "ROUGH TRADE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "bbe3ba3875f324ed",
@@ -416,7 +491,10 @@
       "origin": "BRASIL",
       "label": "PREJUIZO RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "dfaabdf1bf529b6e",
@@ -432,7 +510,10 @@
       "origin": "USA",
       "label": "OBER ENTERTAINMENT",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ce8846c47be7ef5d",
@@ -448,7 +529,10 @@
       "origin": "USA",
       "label": "COLUMBIA",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "69253b69de7f82d4",
@@ -464,7 +548,10 @@
       "origin": "ALEMANIA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "54477844874e5c8b",
@@ -480,7 +567,10 @@
       "origin": "ARGENTINA",
       "label": "PINHEAD RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "1472dd063c2e8e05",
@@ -496,7 +586,10 @@
       "origin": "ARGENTINA",
       "label": "PINHEAD RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "0fabd9694d874072",
@@ -512,7 +605,10 @@
       "origin": "CHILE",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c5348e154b7e8f98",
@@ -528,7 +624,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "8c39312183289852",
@@ -544,7 +643,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "dae19e5b6bc86ffd",
@@ -560,7 +662,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "1c7358af772c8f91",
@@ -576,7 +681,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "893f49a5937997f3",
@@ -592,7 +700,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "cfae135cae0fcb96",
@@ -608,7 +719,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "30569fa5a1112a54",
@@ -624,7 +738,10 @@
       "origin": "ARGENTINA",
       "label": "EMY UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "709a339ab5df39b9",
@@ -640,7 +757,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "31a6164f0286f4d6",
@@ -656,7 +776,10 @@
       "origin": "USA",
       "label": "MERCURY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f7db0a9c76cd7f0f",
@@ -672,7 +795,10 @@
       "origin": "EUROPA",
       "label": "NONE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "35b500de5626d822",
@@ -688,7 +814,10 @@
       "origin": "ARGENTINA",
       "label": "BEACH HOUSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "3f842f4d8e29f7d6",
@@ -704,7 +833,10 @@
       "origin": "EUROPA",
       "label": "BEAT GENERATION",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e214b5d993067613",
@@ -720,7 +852,10 @@
       "origin": "ARGENTINA",
       "label": null,
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a95a1e8fc5946357",
@@ -736,7 +871,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "563d3511caf9be48",
@@ -752,7 +890,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ebfffeb7e0c7914a",
@@ -768,7 +909,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "eae9b1a4ec407ab4",
@@ -784,7 +928,10 @@
       "origin": "USA",
       "label": "COLUMBIA",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "62afe86faa434f8e",
@@ -800,7 +947,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e2f81a5a2c4322e5",
@@ -816,7 +966,10 @@
       "origin": "ARGENTINA",
       "label": "X EL CAMBIO",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "9b2795c4ee4fbbc8",
@@ -832,7 +985,10 @@
       "origin": "ARGENTINA",
       "label": "X EL CAMBIO RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "1483e8945ff153bc",
@@ -848,7 +1004,10 @@
       "origin": "ARGENTINA",
       "label": "X EL CAMBIO",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "aaef5e0de12b7104",
@@ -864,7 +1023,10 @@
       "origin": "EUROPA",
       "label": "DAFT LIFE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "69def83000222b5e",
@@ -880,7 +1042,10 @@
       "origin": "FRANCIA",
       "label": "PARLOPHONE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "98bc7ba22d41760b",
@@ -896,7 +1061,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "148979efbd14494a",
@@ -912,7 +1080,10 @@
       "origin": "EUROPA",
       "label": "PARLOPHONE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e0ce8c76e6b2f4da",
@@ -928,7 +1099,10 @@
       "origin": "USA",
       "label": "MAVERICK",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6eb68ac74b1902e3",
@@ -944,7 +1118,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": true,
+      "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/cds/demonios-de-tasmania-modelo-96-cd",
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/901f2ecfeedf79acd8d7002cc6104f6bc53bce9b1ae779c99f01db09fd381060369298.jpg"
     },
     {
       "id": "244053f6ff0315c8",
@@ -960,7 +1137,10 @@
       "origin": "EUROPA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": true,
+      "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/vinilos/preventa/demonios-de-tasmania-modelo-96-vinilo-blanco",
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/c180aa15c5fb64e3b4009a2159abdbc60c0bed1a96566b919d52c8bb4c8e04cd369298.jpg"
     },
     {
       "id": "b37054c7ba142adf",
@@ -976,7 +1156,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": true,
+      "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/cds/demonios-de-tasmania-sexcalextric-cd",
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/139b2e0df14cbed8c5ce6dce35e0505892592933d71941b22176b5b6e7909692369298.png"
     },
     {
       "id": "c9c8f61955b91665",
@@ -992,7 +1175,10 @@
       "origin": "EUROPA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": true,
+      "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/vinilos/demonios-de-tasmania-sexcalextric-vinilo-violeta",
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/45cf089099f8860a854307e9682a97a0ae5ed912621d3b71bcb4bcbad52fdd67369298.jpg"
     },
     {
       "id": "3df2af6650a4c777",
@@ -1008,7 +1194,10 @@
       "origin": null,
       "label": null,
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "24f114ddb23c40cc",
@@ -1024,7 +1213,10 @@
       "origin": "USA",
       "label": "EPITAPH",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "92fa8146970c87ac",
@@ -1040,7 +1232,10 @@
       "origin": "ARGENTINA",
       "label": "DISEMBODIED",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6f47b89cd1041bc3",
@@ -1056,7 +1251,10 @@
       "origin": "ARGENTINA",
       "label": "DISEMBODIED",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a9d5f5e15d656912",
@@ -1072,7 +1270,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "d0176d3886b313ef",
@@ -1088,7 +1289,10 @@
       "origin": "EUROPA",
       "label": "UGLY AND PROUD",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6c2c2978ad6cd17b",
@@ -1104,7 +1308,10 @@
       "origin": "UK",
       "label": "RADIATION",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e51d6a80ce2e6ea2",
@@ -1120,7 +1327,10 @@
       "origin": "EUROPA",
       "label": "REPRISE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "68d367578ae4596b",
@@ -1136,7 +1346,10 @@
       "origin": null,
       "label": null,
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "62aa590016322752",
@@ -1152,7 +1365,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "270157c883893de1",
@@ -1168,7 +1384,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "dc9bb0b8f896953e",
@@ -1184,7 +1403,10 @@
       "origin": "ALEMANIA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "8d813ba9cad9c381",
@@ -1200,7 +1422,10 @@
       "origin": "EUROPA",
       "label": "PIAS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "31e5750fef213378",
@@ -1216,7 +1441,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "1ddd5eea98352ec8",
@@ -1232,7 +1460,10 @@
       "origin": "ARGENTINA",
       "label": "X EL CAMBIO RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ec44c7296c90b3fe",
@@ -1248,7 +1479,10 @@
       "origin": "ITALIA",
       "label": "RADIATION",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f79bd531504958ee",
@@ -1264,7 +1498,10 @@
       "origin": "ARGENTINA",
       "label": "DISEMBODIED",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6d53932fdac80ff4",
@@ -1280,7 +1517,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "b662ad2ab6ba0728",
@@ -1296,7 +1536,10 @@
       "origin": "EUROPA",
       "label": "LITTLE BUTTERFLY RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c1d2b4391cf218d5",
@@ -1312,7 +1555,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e80d35849a843923",
@@ -1328,7 +1574,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "b13860068ee2dac9",
@@ -1344,7 +1593,10 @@
       "origin": "ARGENTINA",
       "label": "EMY UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "0da46b82e217140a",
@@ -1360,7 +1612,10 @@
       "origin": "USA",
       "label": "INDECISION RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "4b1eef1f1fed3a02",
@@ -1376,7 +1631,10 @@
       "origin": "ARGENTINA",
       "label": "BEACH HOUSE MUSIC",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "42f1d5006abcea7d",
@@ -1392,7 +1650,10 @@
       "origin": "ARGENTINA",
       "label": "BEACH HOUSE MUSIC",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "90b685fa2d54b8cf",
@@ -1408,7 +1669,10 @@
       "origin": "CHILE",
       "label": "OPCION REAL RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f05e4394ec7ba453",
@@ -1424,7 +1688,10 @@
       "origin": "USA",
       "label": "UGLY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "cf4ec515a4b713ab",
@@ -1440,7 +1707,10 @@
       "origin": "USA",
       "label": "UGLY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f0ce9dad6beaf556",
@@ -1456,7 +1726,10 @@
       "origin": "BRASIL",
       "label": null,
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "1f9ed89d36221ede",
@@ -1472,7 +1745,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c7c2c50b3a4240c8",
@@ -1488,7 +1764,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "b6ca1df0efae4e12",
@@ -1504,7 +1783,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "b28bd23d7d2f8e91",
@@ -1520,7 +1802,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "028fe17add68f645",
@@ -1536,7 +1821,10 @@
       "origin": "REPUBLICA CHECA",
       "label": "ROADRUNNER",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ad39fb19e6944844",
@@ -1552,7 +1840,10 @@
       "origin": null,
       "label": null,
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "b7ee65d532ad3f49",
@@ -1568,7 +1859,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "26ce2dd57e856a37",
@@ -1584,7 +1878,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ab8b48bf27c62ea0",
@@ -1600,7 +1897,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "2f1f55541c6f0cb4",
@@ -1616,7 +1916,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ce3ecffef9b6b663",
@@ -1632,7 +1935,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f2b725033385f670",
@@ -1648,7 +1954,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c08e40c4a8b23943",
@@ -1664,7 +1973,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "9fb3af26bf42a0a4",
@@ -1680,7 +1992,10 @@
       "origin": "REPUBLICA CHECA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "7a38578df033b4a1",
@@ -1696,7 +2011,10 @@
       "origin": "REPUBLICA CHECA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "1decfcce1d8b415f",
@@ -1712,7 +2030,10 @@
       "origin": "REPUBLICA CHECA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a71f420c2a50d2f1",
@@ -1728,7 +2049,10 @@
       "origin": "EUROPA",
       "label": "PETROLELECTRIC",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "cc94d3c2d20d7ef2",
@@ -1744,7 +2068,10 @@
       "origin": "CHILE",
       "label": null,
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "75ae57f6cba8781c",
@@ -1760,7 +2087,10 @@
       "origin": "ALEMANIA",
       "label": "COLUMBIA",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "18b7e2eef406071c",
@@ -1776,7 +2106,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "fcd3d1239b1e0bbc",
@@ -1792,7 +2125,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "0019e1936cf101da",
@@ -1808,7 +2144,10 @@
       "origin": "ALEMANIA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f066c57fbbcc00e8",
@@ -1824,7 +2163,10 @@
       "origin": "USA",
       "label": "REVELATION RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a2b1cac879890914",
@@ -1840,7 +2182,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "340976449211e687",
@@ -1856,7 +2201,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "76eafb45f4a4661f",
@@ -1872,7 +2220,10 @@
       "origin": "USA",
       "label": "KORN PARTNERTSHIP",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "bb45143c1735ddb4",
@@ -1888,7 +2239,10 @@
       "origin": "EUROPA",
       "label": "OIHUKA",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "d77199b40b3fcaae",
@@ -1904,7 +2258,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a03f9cf3a4d47f14",
@@ -1920,7 +2277,10 @@
       "origin": "ARGENTINA",
       "label": "POPART",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "0cef600d8cf59efb",
@@ -1936,7 +2296,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "79efa6ff6956e818",
@@ -1952,7 +2315,10 @@
       "origin": "EUROPA",
       "label": "GUERSSEN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ed02aa36777bc8b1",
@@ -1968,7 +2334,10 @@
       "origin": "EUROPA",
       "label": "SWAN SONG",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "4fab2504b131b36c",
@@ -1984,7 +2353,10 @@
       "origin": "ARGENTINA",
       "label": "LEADER MUSIC",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6cff85731ac31056",
@@ -2000,7 +2372,10 @@
       "origin": "EUROPA",
       "label": "WARNER",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "bdaded9e8527c009",
@@ -2016,7 +2391,10 @@
       "origin": "ARGENTINA",
       "label": "X EL CAMBIO",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "5c2616ae6624059c",
@@ -2032,7 +2410,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "40a2ead9f9b9de47",
@@ -2048,7 +2429,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "0cff8c92fa7bb6d9",
@@ -2064,7 +2448,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6c1ca2fe26b97fcb",
@@ -2080,7 +2467,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e62685e05af252ea",
@@ -2096,7 +2486,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a726eeae45ae7e5c",
@@ -2112,7 +2505,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "924cbe3d26c07869",
@@ -2128,7 +2524,10 @@
       "origin": "EUROPA",
       "label": "PLASTILINA RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "29fe568f37bdd96b",
@@ -2144,7 +2543,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c7b118ec3eaddd9e",
@@ -2160,7 +2562,10 @@
       "origin": "ESPAÑA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f46d4baed2356a58",
@@ -2176,7 +2581,10 @@
       "origin": "FRANCIA",
       "label": "MUSIC BROKERS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c7308bb5f82cfbc5",
@@ -2192,7 +2600,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6c0f2bfb9d41c716",
@@ -2208,7 +2619,10 @@
       "origin": "ARGENTINA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "891b5d5173734bac",
@@ -2224,7 +2638,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e1ebc683660c2bc0",
@@ -2240,7 +2657,10 @@
       "origin": "ARGENTINA",
       "label": "ZOOOUHH RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6e7d9ffb1a455999",
@@ -2256,7 +2676,10 @@
       "origin": "ARGENTINA",
       "label": "ICARUS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "fe24fc123e9d237b",
@@ -2272,7 +2695,10 @@
       "origin": "ARGENTINA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "87fc45ebf40c61d6",
@@ -2288,7 +2714,10 @@
       "origin": "ALEMANIA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "91bf29739908d351",
@@ -2304,7 +2733,10 @@
       "origin": "FRANCIA",
       "label": "BECAUSE MUSIC",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "835abf65f184acad",
@@ -2320,7 +2752,10 @@
       "origin": "ARGENTINA",
       "label": "MARIA BECERRA",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "481d1a5f7fdf7861",
@@ -2336,7 +2771,10 @@
       "origin": "EUROPA",
       "label": "NUCLEAR BLAST",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "df579058e54f1968",
@@ -2352,7 +2790,10 @@
       "origin": "ARGENTINA",
       "label": "PINHEAD RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "94434f882e1d42c7",
@@ -2368,7 +2809,10 @@
       "origin": "ARGENTINA",
       "label": "PINHEAD RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e12f7f14692aea2d",
@@ -2384,7 +2828,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "64542c1a61ff8247",
@@ -2400,7 +2847,10 @@
       "origin": "USA",
       "label": "REPRISE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "caacee5ba994507a",
@@ -2416,7 +2866,10 @@
       "origin": "ARGENTINA",
       "label": "2M PRODUCCIONES",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "51f15ff7a2999a85",
@@ -2432,7 +2885,10 @@
       "origin": "ARGENTINA",
       "label": "2M PRODUCCIONES",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "8bd3e780dde3207d",
@@ -2448,7 +2904,10 @@
       "origin": "ARGENTINA",
       "label": "X EL CAMBIO",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "7ab8451b5a2c1dff",
@@ -2464,7 +2923,10 @@
       "origin": "USA",
       "label": "BLACKENED",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "84fc87f00339012e",
@@ -2480,7 +2942,10 @@
       "origin": "USA",
       "label": "BLACKENED",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "99567a9842c2ef69",
@@ -2496,7 +2961,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "fc9bb0bc1aa0f350",
@@ -2512,7 +2980,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "936dba69916d2237",
@@ -2528,7 +2999,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "45e856a4cc1da908",
@@ -2544,7 +3018,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "5d250690eccce7f9",
@@ -2560,7 +3037,10 @@
       "origin": "USA",
       "label": "PLAN 9",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a8f4bc82307a3425",
@@ -2576,7 +3056,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "2ee723d51084ecbd",
@@ -2592,7 +3075,10 @@
       "origin": "REPUBLICA CHECA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "d746191d2f2b2be7",
@@ -2608,7 +3094,10 @@
       "origin": "EUROPA",
       "label": "ETIENNE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "3da2fc82f03730ab",
@@ -2624,7 +3113,10 @@
       "origin": "ALEMANIA",
       "label": "NO BRAINS RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "bbdf627ef5806162",
@@ -2640,7 +3132,10 @@
       "origin": "EUROPA",
       "label": "LITTLE BUTTERFLY RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "005d0f7e533cc92b",
@@ -2656,7 +3151,10 @@
       "origin": "ARGENTINA",
       "label": "LEADER MUSIC",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "1b2f4e19d2760ce4",
@@ -2672,7 +3170,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f287b3827192b50a",
@@ -2688,7 +3189,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "2c50e09d0d0c567c",
@@ -2704,7 +3208,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "7b69a725595ddfa8",
@@ -2720,7 +3227,10 @@
       "origin": "HOLANDA",
       "label": "GEFFEN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "4242179fd63ebbfb",
@@ -2736,7 +3246,10 @@
       "origin": "ARGENTINA",
       "label": "X EL CAMBIO",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "09d7c1f37d0c64bc",
@@ -2752,7 +3265,10 @@
       "origin": "ARGENTINA",
       "label": "X EL CAMBIO",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "bd342f7ca08064ed",
@@ -2768,7 +3284,10 @@
       "origin": "ALEMANIA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "bd0214b0f1d780d3",
@@ -2784,7 +3303,10 @@
       "origin": "USA",
       "label": "FAT WRECK CHORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "59bb93252fa02b51",
@@ -2800,7 +3322,10 @@
       "origin": "ESPAÑA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "5d150bb2ae24b734",
@@ -2816,7 +3341,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ade8522ac6181653",
@@ -2832,7 +3360,10 @@
       "origin": "USA",
       "label": "SPREADING THE HC",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f7cf0c5093bdd09f",
@@ -2848,7 +3379,10 @@
       "origin": "BRASIL",
       "label": "HEARTS BLEED BLUE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "bef4eb9cd9812f85",
@@ -2864,7 +3398,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "4590ad56202cf52d",
@@ -2880,7 +3417,10 @@
       "origin": "ARGENTINA",
       "label": "BULTACO",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "475259e929f2c940",
@@ -2896,7 +3436,10 @@
       "origin": "USA",
       "label": "X RAY RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "5f4cff0e23e02f7f",
@@ -2912,7 +3455,10 @@
       "origin": "USA",
       "label": "POLYVINYL RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "3f8115c072d5ae70",
@@ -2928,7 +3474,10 @@
       "origin": "EUROPA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "19b150d6120f5fb7",
@@ -2944,7 +3493,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "b3d4af4ce2e07f50",
@@ -2960,7 +3512,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c952153bb12eb5f4",
@@ -2976,7 +3531,10 @@
       "origin": "ARGENTINA",
       "label": "PR DISCOS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "af1ea061f921e366",
@@ -2992,7 +3550,10 @@
       "origin": "ARGENTINA",
       "label": "PR DISCOS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "caeb8124d04ff36c",
@@ -3008,7 +3569,10 @@
       "origin": "ARGENTINA",
       "label": "PR DISCOS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "83ac34532acc21cb",
@@ -3024,7 +3588,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "3fe16d4e42a0fcf4",
@@ -3040,7 +3607,10 @@
       "origin": "REPUBLICA CHECA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ce358d3f5108c792",
@@ -3056,7 +3626,10 @@
       "origin": "USA",
       "label": "ELEVATOR LADY LTD",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "003d8c6008fb5eb4",
@@ -3072,7 +3645,10 @@
       "origin": null,
       "label": null,
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6fdf72384d57d003",
@@ -3088,7 +3664,10 @@
       "origin": "USA",
       "label": "REVELATION RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "186326a378b1a52a",
@@ -3104,7 +3683,10 @@
       "origin": "ARGENTINA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ae3ab4590013e57e",
@@ -3120,7 +3702,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "eab6fbd218e4bf7d",
@@ -3136,7 +3721,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "4a0fbb26057950c4",
@@ -3152,7 +3740,10 @@
       "origin": "ARGENTINA",
       "label": "PINHEAD RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "4286718bd7eec6cb",
@@ -3168,7 +3759,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "8e0a722cc04b15c7",
@@ -3184,7 +3778,10 @@
       "origin": "CANADA",
       "label": "WARNER",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c1e91e411294ebb3",
@@ -3200,7 +3797,10 @@
       "origin": "EUROPA",
       "label": "SPINEFARM RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e59954122a490fcd",
@@ -3216,7 +3816,10 @@
       "origin": "IMPORTADO",
       "label": null,
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f01c583b7d1da090",
@@ -3232,7 +3835,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e587131db4484907",
@@ -3248,7 +3854,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6f48afef34453eab",
@@ -3264,7 +3873,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a98e0939983cbfa8",
@@ -3280,7 +3892,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ece5f34f3b3d8672",
@@ -3296,7 +3911,10 @@
       "origin": "EUROPA",
       "label": "PROPER RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "2f0d0b2c1218eb6f",
@@ -3312,7 +3930,10 @@
       "origin": "ARGENTINA",
       "label": "ICARUS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6d12714482655d12",
@@ -3328,7 +3949,10 @@
       "origin": "EUROPA",
       "label": "NONE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "40de32515aa370ac",
@@ -3344,7 +3968,10 @@
       "origin": "EUROPA",
       "label": "NONE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "515a27c09285d676",
@@ -3360,7 +3987,10 @@
       "origin": "EUROPA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "298a0bfc33325c2e",
@@ -3376,7 +4006,10 @@
       "origin": "USA",
       "label": "REVELATION RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "48a1399eb7889312",
@@ -3392,7 +4025,10 @@
       "origin": "ARGENTINA",
       "label": "ICARUS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "1b4cc1adff146829",
@@ -3408,7 +4044,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a7bde0c61bb929fa",
@@ -3424,7 +4063,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "2ce12cec87d6b7cd",
@@ -3440,7 +4082,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "3aa79be827c17b12",
@@ -3456,7 +4101,10 @@
       "origin": "USA",
       "label": "NEW AGE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "0af4eecff32093f2",
@@ -3472,7 +4120,10 @@
       "origin": "USA",
       "label": "REVELATION RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "18df4a777e906b9d",
@@ -3488,7 +4139,10 @@
       "origin": "USA",
       "label": "RELAYER",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "45e6aa020a2d330e",
@@ -3504,7 +4158,10 @@
       "origin": "CANADA",
       "label": "ATLANTIC",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "9afc313925b3a95f",
@@ -3520,7 +4177,10 @@
       "origin": "ALEMANIA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "fb64c40b02f0701e",
@@ -3536,7 +4196,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "9bb8a684d2539e76",
@@ -3552,7 +4215,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e387160065c08395",
@@ -3568,7 +4234,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "b37a1db06afa1cc6",
@@ -3584,7 +4253,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f691a5c0523d59dd",
@@ -3600,7 +4272,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "8295bf4972160b66",
@@ -3616,7 +4291,10 @@
       "origin": "USA",
       "label": "NUCLEAR BLAST",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "7baf6ceb4be5a836",
@@ -3632,7 +4310,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "8c9aa7e4040be4c4",
@@ -3648,7 +4329,10 @@
       "origin": "EUROPA",
       "label": "SIRE",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "dfbc44d1c8fbd736",
@@ -3664,7 +4348,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "e0e4b662bc466d67",
@@ -3680,7 +4367,10 @@
       "origin": "EUROPA",
       "label": "EMI",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "47f9bc99d96d9bc3",
@@ -3696,7 +4386,10 @@
       "origin": "EUROPA",
       "label": "EMI",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ff1bd52e289679b1",
@@ -3712,7 +4405,10 @@
       "origin": "EUROPA",
       "label": "EMI",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "3a123fd5f79988de",
@@ -3728,7 +4424,10 @@
       "origin": "ESPAÑA",
       "label": "MUNSTER",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "1fa1808b96bc1429",
@@ -3744,7 +4443,10 @@
       "origin": "EUROPA",
       "label": "POLYDOR",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "282e93b7e5e50780",
@@ -3760,7 +4462,10 @@
       "origin": "ALEMANIA",
       "label": "ISLAND",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "b01dd47963f02c73",
@@ -3776,7 +4481,10 @@
       "origin": "UK",
       "label": "MAD BUTCHER",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "98c87b0eee804022",
@@ -3792,7 +4500,10 @@
       "origin": "USA",
       "label": "VIRGIN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "311a07b61a9c5047",
@@ -3808,7 +4519,10 @@
       "origin": "UK",
       "label": "WARNER",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a4f217f46925178e",
@@ -3824,7 +4538,10 @@
       "origin": "UK",
       "label": "RADIATION",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "259da074489071ac",
@@ -3840,7 +4557,10 @@
       "origin": "UK",
       "label": "PAPAGAJUV HLASATEL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f3f119ad8645f13b",
@@ -3856,7 +4576,10 @@
       "origin": "ARGENTINA",
       "label": "X EL CAMBIO",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c4b2fab2e3b2047c",
@@ -3872,7 +4595,10 @@
       "origin": "ARGENTINA",
       "label": "DBN",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "b9c424c45ed3c03b",
@@ -3888,7 +4614,10 @@
       "origin": "ARGENTINA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6cfadffc59dfe294",
@@ -3904,7 +4633,10 @@
       "origin": "USA",
       "label": "RELAPSE RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "7adeb60288b5adb1",
@@ -3920,7 +4652,10 @@
       "origin": "ARGENTINA",
       "label": "DEL IMAGINARIO DISCOS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "393d8ddeef7864c2",
@@ -3936,7 +4671,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "d44fbfc2b5a1051d",
@@ -3952,7 +4690,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "ce0cbc78c9689336",
@@ -3968,7 +4709,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "c4ec8368c3ecb737",
@@ -3984,7 +4728,10 @@
       "origin": "ARGENTINA",
       "label": "ROADRUNNER",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "6b18d9f48516b139",
@@ -4000,7 +4747,10 @@
       "origin": "EUROPA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "dbd37c6e9f9d5fc3",
@@ -4016,7 +4766,10 @@
       "origin": "ARGENTINA",
       "label": "VEGAN RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "0d79b0b5b7cd6da7",
@@ -4032,7 +4785,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f287895414cab325",
@@ -4048,7 +4804,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "a1747c8f15e1bc77",
@@ -4064,7 +4823,10 @@
       "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "bc80d173053c2190",
@@ -4080,7 +4842,10 @@
       "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "609d6f6f9bd44e3d",
@@ -4096,7 +4861,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "8c583932a0c1b0fb",
@@ -4112,7 +4880,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "f811795d75a250ca",
@@ -4128,7 +4899,10 @@
       "origin": "ARGENTINA",
       "label": "RGS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     },
     {
       "id": "2bc2d6e7c84ba657",
@@ -4144,7 +4918,10 @@
       "origin": "USA",
       "label": "REVELATION RECORDS",
       "coverKey": null,
-      "featuredOrder": null
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
     }
   ]
 }

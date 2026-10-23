@@ -5,6 +5,7 @@ import { stockLimit, originCategory, isOnRequest, REQUEST_LIMIT } from '../lib/c
 import { formatPrice } from '../lib/whatsapp';
 import { routes } from '../config/variant';
 import DecorativeMark from './DecorativeMark.astro';
+import PurchaseLink from './PurchaseLink.astro';
 interface Props { context?: 'home' | 'cart'; }
 const { context = 'home' } = Astro.props;
 const isCart = context === 'cart';
@@ -12,7 +13,7 @@ const id = `record-slider-${context}`;
 const selection = ['Babasonicos Jessico', 'Bad Brains Into The Future', 'Virus Superficies De Placer', 'Nirvana Greatest Hits', 'Airbag Blanco y Negro', 'The Beatles Please Please Me', 'Astor Piazzolla Adios Nonino', 'Bad Brains Live at CBGB 1982'];
 const records = selection.flatMap(title => {
   const item = products.find(item => item.sourceTitle === title);
-  return item && (isOnRequest(item) || stockLimit(item) > 0 && item.priceCashArs !== null && item.priceCashArs > 0) ? [item] : [];
+  return item && (item.purchaseUrl || isOnRequest(item) || stockLimit(item) > 0 && item.priceCashArs !== null && item.priceCashArs > 0) ? [item] : [];
 });
 const motifs = ['spark', 'rings', 'wave', 'target', 'arrow', 'crescent', 'asterisk', 'rings'] as const;
 ---
@@ -31,7 +32,7 @@ const motifs = ['spark', 'rings', 'wave', 'target', 'arrow', 'crescent', 'asteri
           <span class="cover-caption">VMS / SELECCIÓN DE LA TIENDA</span><span class="cover-artist">{item.artist}</span><DecorativeMark class="cover-symbol" shape={motifs[index] ?? 'spark'} /><span class="cover-album">{item.album}</span><span class="cover-reference">IMAGEN ILUSTRATIVA / 0{index + 1}</span>
         </div>
         <div class="slider-record-info"><p class="slider-origin">{originCategory(item.origin) === 'national' ? 'EDICIÓN NACIONAL' : 'EDICIÓN INTERNACIONAL'}</p><h3>{item.artist}<span>{item.album}</span></h3><p class="slider-edition">{[item.origin, item.label].filter(Boolean).join(' · ')}</p><p class="slider-price">{isOnRequest(item) ? 'A cotizar' : formatPrice(item.priceCashArs)}<span>{isOnRequest(item) ? 'Sin stock · A pedido' : 'Efectivo / transferencia'}</span></p>{!isOnRequest(item) && item.installment3Ars !== null && <p class="slider-installments">3 cuotas de {formatPrice(item.installment3Ars)}</p>}
-        <button class="button slider-add" type="button" data-add-cart={item.id} data-limit={isOnRequest(item) ? REQUEST_LIMIT : stockLimit(item)} data-on-request={isOnRequest(item)} data-title={item.sourceTitle} aria-label={`Sumar ${item.sourceTitle} al carrito`} hidden><span data-add-label>{isOnRequest(item) ? 'Sin stock · Pedir' : 'Sumar al carrito'}</span><Plus size={17} aria-hidden="true" /></button></div>
+        {item.purchaseUrl ? <PurchaseLink item={item} placement={`slider_${context}`} class="slider-add" /> : <button class="button slider-add" type="button" data-add-cart={item.id} data-limit={isOnRequest(item) ? REQUEST_LIMIT : stockLimit(item)} data-on-request={isOnRequest(item)} data-title={item.sourceTitle} aria-label={`Sumar ${item.sourceTitle} al carrito`} hidden><span data-add-label>{isOnRequest(item) ? 'Sin stock · Pedir' : 'Sumar al carrito'}</span><Plus size={17} aria-hidden="true" /></button>}</div>
       </li>)}
     </ul>
   </div>

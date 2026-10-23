@@ -132,3 +132,21 @@ Sincronización manual correcta: 255 productos, con fecha del 14 de octubre. Los
 - Ilustración vectorial original de un vinilo y su funda a la derecha de `BUSCÁ. ENCONTRÁ.` en V1. Usa la paleta existente, es decorativa y no requiere JavaScript ni imágenes externas. En celular se presenta pequeña junto al título. La composición compacta de V2 conserva su encabezado.
 - Tipos sin errores, advertencias ni hints; builds V1/V2 y enlaces internos correctos. Navegador en 320, 390, 768, 1024, 1366 y 1920 px: título del carrito en una línea, sin desbordes ni superposiciones con la ilustración. Búsqueda y lista paginada comprobadas, sin errores JavaScript. Capturas y mediciones en `reports/heading-update/` (ignorado por Git).
 - Sin cambios en los logos, archivos de marca, snapshot, dependencias o configuración del hosting. Vercel continúa como entorno de revisión.
+
+## 22 de octubre de 2026 — Preventa “ANTES DE QUE SUENE.”
+
+- Sincronización real validada: 259 productos, cuatro marcados PREVENTA; Modelo 96 y Sexcalextric en CD ($25.000) y LP blanco/violeta ($65.000). Los datos comerciales provienen de Sheets; cada imagen se resolvió desde `og:image` de su página de Empretienda. La hoja no se modificó.
+- Confirmados y corregidos al importar los dos enlaces de vinilo cruzados. La corrección sólo aplica a las identidades y URLs erróneas verificadas; una URL corregida o nueva en Sheets prevalece. No hay imágenes de productos asociadas manualmente en el código.
+- 46 pruebas aprobadas. Tipos sin errores, advertencias ni hints; builds de V1 y V2 correctos. Casos de importación posicional, encabezados vacíos, prioridad de IMAGEN_URL, metadatos, validación de enlaces, caché por ID/destino, rollback, migración de schema 3 a 4 y carritos externos guardados comprobados.
+- Navegador Chromium local en 320, 390, 768, 1024, 1366 y 1920 px: cuatro imágenes cargadas, cuatro destinos correctos con UTM, sin desbordes ni errores JavaScript. Cuatro columnas en escritorio, dos en tablet y desplazamiento horizontal nativo en móvil, incluido teclado. Enlaces disponibles sin JavaScript y transición desactivada con movimiento reducido.
+- Compra externa comprobada abriendo un producto público en otra pestaña: no modifica el carrito. Los productos externos previamente guardados no totalizan ni pasan a pedido; bloquean WhatsApp hasta quitarlos y ofrecen su enlace de compra. Tras retirarlos, la consulta de los otros discos vuelve a habilitarse. No se realizaron compras ni se enviaron mensajes.
+- Build aislado con todas las marcas PREVENTA desactivadas: restaura el slider original de ocho discos, sin tarjetas de campaña. V2 conserva su portada y catálogo de 259 registros con cuatro enlaces de compra externos.
+- Segunda sincronización real: sin cambios, snapshot idéntico byte por byte y fecha conservada en `2026-10-22T19:19:00.406Z`. No genera candidato, build ni publicación adicionales.
+- Capturas, mediciones y resultados en `reports/presale/` (ignorado por Git). Cambios y snapshot preparados localmente; no se publicaron ni se modificaron hosting, dominio, SEO de producción o dependencias.
+
+### Correcciones de presentación y navegación
+
+- Título simplificado a “PREVENTA”. La campaña también sustituye el slider “UNO MÁS Y YA ESTÁ…” del carrito, con atribución `presale_cart` y sin agregar las ediciones a la consulta. Al quitar las marcas se restauran ambos sliders de ocho discos.
+- Header con Vegan Records antes de Nosotros y sin el enlace Catálogo duplicado; se conserva el botón CATÁLOGO. Descripción de búsquedas/importaciones ampliada de 14 px a un rango adaptable de 16–18 px.
+- “SEGUÍ BAJANDO” ahora apunta a `#preventa` cuando hay campaña y al título del slider original cuando no la hay. Click real y desplazamiento comprobados, también con JavaScript desactivado.
+- Tipos sin errores, advertencias ni hints; builds V1, V2 y catálogo sin preventa correctos. Navegador local en 320, 390, 768, 1024, 1366 y 1920 px: orden del menú, botón de catálogo, destino del Hero, tamaño del texto y cuatro compras externas en el carrito comprobados, sin desbordes ni errores JavaScript. Evidencia en `reports/presale-corrections/` (ignorado por Git).

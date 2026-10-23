@@ -13,10 +13,13 @@ export interface CatalogItem {
   label: string | null;
   coverKey: string | null;
   featuredOrder: number | null;
+  isPresale: boolean;
+  purchaseUrl: string | null;
+  imageUrl: string | null;
 }
 
 export interface CatalogSnapshot {
-  schemaVersion: 3;
+  schemaVersion: 4;
   syncedAt: string;
   products: CatalogItem[];
 }
