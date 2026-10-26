@@ -1,5 +1,12 @@
 # Verificación de la demo
 
+## 26 de octubre de 2026 — Retoques del hero y orden del menú
+
+- H1 sin los dos puntos; “Venta e importación” ampliado aproximadamente un 10%. Descripción reemplazada por el texto indicado: “CDs y vinilos nacionales e internacionales. Encontrá tu próximo disco o consultanos por ese álbum que falta en tu colección. ¡Envíos a todo el país y al mundo!”.
+- Header y footer comparten la configuración de secciones en `src/config/navigation.ts`: Inicio, Preventa/Destacados, Vegan Records, Importación, Nosotros, Contacto, seguidos de Carrito y Catálogo. En V1, Inicio vuelve al comienzo del home, Contacto llega a `#contacto` y la campaña enlaza a `#preventa` o al slider destacado según los datos. V2 conserva sus destinos propios. La navegación queda en `main` y se incorpora también a la rama del hero.
+- Tipos y builds V1/V2 correctos. Chrome: orden exacto en ambos menús, clics de Inicio/Contacto/campaña y cierre del menú móvil correctos; header sin solapamientos a 1100, 1200 y 1366 px. Carrito e importación conservados. Revisión fullscreen/scroll de nueve tamaños y fallback horizontal, movimiento reducido y sin JavaScript aprobados.
+- Build de prueba con una copia del snapshot sin marcas de preventa: header/footer muestran “Destacados” y el enlace abre el slider correcto. No se modificó el snapshot real. Vistas locales reconstruidas; sin publicación remota.
+
 ## 26 de octubre de 2026 — Propuesta de hero fullscreen
 
 - Aislada en `codex/hero-fullscreen-seo`, sobre el commit de navegación de `main`. H1 de texto “CDs y discos de vinilo: venta e importación”, sin logo en el hero; descripción en párrafo sobre ediciones nacionales/importadas, Almagro y envíos. Título y meta descripción consistentes. Botón “Importar álbumes” junto al catálogo, con el mismo ícono de WhatsApp existente y mensaje de importación.

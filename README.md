@@ -116,7 +116,7 @@ La demo con noindex no puede obtener 100 en la auditoría de indexación de Ligh
 
 ## Hero
 
-La propuesta de `codex/hero-fullscreen-seo` reemplaza el logo del hero de V1 por el H1 “CDs y discos de vinilo: venta e importación”, una descripción en párrafo y dos CTA: catálogo e importación por WhatsApp. El título y la meta descripción de la portada acompañan ese contenido. La composición ocupa `100svh` incluyendo el header, con altura mínima que permite crecer si el contenido lo necesita. No cambia el hero compacto de V2.
+La propuesta de `codex/hero-fullscreen-seo` reemplaza el logo del hero de V1 por el H1 “CDs y discos de vinilo venta e importación”, una descripción en párrafo y dos CTA: catálogo e importación por WhatsApp. El título y la meta descripción de la portada acompañan ese contenido. La composición ocupa `100svh` incluyendo el header, con altura mínima que permite crecer si el contenido lo necesita. No cambia el hero compacto de V2.
 
 V1 conserva scroll real, CSS sticky y un script pequeño. La escena permanece fija durante la extracción completa del vinilo y se libera después de una breve permanencia final. No se interceptan wheel ni touch. El movimiento afecta transformaciones y opacidad. Reduced motion y pantallas muy bajas utilizan una escena estática; sin JavaScript el contenido y ambos botones siguen disponibles.
 

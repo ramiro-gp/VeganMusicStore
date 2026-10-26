@@ -29,7 +29,7 @@
 .hero-intro, .hero-details { min-width: 0; }
 .hero-headline { font-family: var(--font-display); font-size: clamp(44px, min(7.2vw, 12svh), 120px); font-weight: 400; line-height: .98; letter-spacing: -.025em; text-transform: uppercase; }
 .hero-headline > span { display: block; }
-.hero-headline-service { margin-top: 20px; font-family: var(--font-body); font-size: clamp(17px, 1.8vw, 28px); font-weight: 500; line-height: 1.2; letter-spacing: .025em; color: var(--accent-ink); }
+.hero-headline-service { margin-top: 20px; font-family: var(--font-body); font-size: clamp(19px, 2vw, 31px); font-weight: 500; line-height: 1.2; letter-spacing: .025em; color: var(--accent-ink); }
 .hero-eyebrow { font-size: clamp(9px, .8vw, 12px); margin-bottom: 20px; }
 .hero-art { width: min(100%, 110svh); max-width: 900px; padding: 0; }
 .hero-art .sleeve-art-word { font-size: clamp(36px, 5.8vw, 100px); }
@@ -52,7 +52,7 @@
   .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-block: 24px 76px; align-content: space-between; }
   .hero-intro { grid-column: 1; grid-row: 1; align-self: auto; }
   .hero-headline { font-size: clamp(36px, min(12vw, 7svh), 80px); line-height: .98; }
-  .hero-headline-service { margin-top: 12px; font-size: clamp(16px, 4.6vw, 24px); }
+  .hero-headline-service { margin-top: 12px; font-size: clamp(18px, 5vw, 26px); }
   .hero-eyebrow { font-size: 8px; max-width: none; margin-bottom: 12px; }
   .hero-art { grid-column: 1; grid-row: 2; width: min(88%, 42svh); justify-self: center; }
   .hero-art .sleeve-art-word { font-size: clamp(24px, 8vw, 54px); }
