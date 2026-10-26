@@ -1,19 +1,14 @@
 ---
 import { ArrowUpRight, ShoppingBag, Menu, X } from '@lucide/astro';
 import BrandLogo from './BrandLogo.astro';
-import { routes, siteVariant } from '../config/variant';
-const navItems = [
-  { href: routes.records, label: 'Vegan Records' },
-  { href: routes.about, label: 'Nosotros' },
-  { href: routes.import, label: 'Importación' },
-  ...(siteVariant === 'v2' ? [{ href: routes.contact, label: 'Contacto' }] : []),
-];
+import { routes } from '../config/variant';
+import { sectionNavigation } from '../config/navigation';
 ---
 <header class="site-header" data-header>
   <div class="header-inner shell">
     <a class="wordmark" href="/" aria-label="Vegan Store Music, inicio"><BrandLogo /></a>
     <nav class="main-nav" id="main-navigation" aria-label="Navegación principal" data-main-nav>
-      {navItems.map(item => <a href={item.href} aria-current={Astro.url.pathname !== '/' && Astro.url.pathname === item.href ? 'page' : undefined}>{item.label}</a>)}
+      {sectionNavigation.map(item => <a href={item.href} aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>{item.label}</a>)}
     </nav>
     <div class="header-actions">
       <a class="header-cart" href={routes.cart} aria-label="Carrito de consulta" data-cart-link><ShoppingBag size={19} stroke-width={1.7} aria-hidden="true" /><span class="header-cart-label">Carrito</span><span class="cart-count" data-cart-count>0</span></a>
