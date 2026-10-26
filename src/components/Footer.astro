@@ -2,6 +2,7 @@
 import { ArrowUpRight, Headphones } from '@lucide/astro';
 import { siteConfig } from '../config/site';
 import { routes, recordsStoreUrl } from '../config/variant';
+import { sectionNavigation } from '../config/navigation';
 import { referralUrl } from '../lib/external-links';
 import BrandLogo from './BrandLogo.astro';
 import SocialLinks from './SocialLinks.astro';
@@ -11,12 +12,9 @@ import SocialLinks from './SocialLinks.astro';
     <div class="footer-top">
       <a href="/" class="footer-brand" aria-label="Vegan Store Music, inicio"><BrandLogo placement="footer" /></a>
       <nav class="footer-navigation" aria-label="Navegación del pie de página">
-        <a href={routes.catalog}>Catálogo <ArrowUpRight size={15} aria-hidden="true" /></a>
-        <a href={routes.about}>Nosotros <ArrowUpRight size={15} aria-hidden="true" /></a>
-        <a href={routes.records}>Vegan Records <ArrowUpRight size={15} aria-hidden="true" /></a>
-        <a href={routes.import}>Importación <ArrowUpRight size={15} aria-hidden="true" /></a>
-        <a href={routes.contact}>Contacto <ArrowUpRight size={15} aria-hidden="true" /></a>
+        {sectionNavigation.map(item => <a href={item.href}>{item.label} <ArrowUpRight size={15} aria-hidden="true" /></a>)}
         <a href={routes.cart} data-cart-link><span>Carrito (<span data-cart-count>0</span> <span data-cart-item-label>items</span>)</span> <ArrowUpRight size={15} aria-hidden="true" /></a>
+        <a href={routes.catalog}>Catálogo <ArrowUpRight size={15} aria-hidden="true" /></a>
       </nav>
       <div class="footer-networks">
         <div><p class="eyebrow">VEGAN STORE MUSIC</p><SocialLinks brand="store" /></div>
