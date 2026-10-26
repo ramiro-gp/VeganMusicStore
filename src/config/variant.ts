@@ -12,6 +12,7 @@ export const routes = {
   about: siteVariant === 'v2' ? '/nosotros/' : '/#tienda',
   contact: siteVariant === 'v2' ? '/contacto/' : '/#contacto',
   records: siteVariant === 'v2' ? '/vegan-records/' : '/#vegan-records',
+  import: '/#importacion',
   cart: '/carrito/',
 } as const;
 

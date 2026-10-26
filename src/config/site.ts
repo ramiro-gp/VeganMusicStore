@@ -29,7 +29,7 @@ export const siteConfig = {
   messages: {
     general: 'Hola Vegan Store Music, quería hacerles una consulta.',
     order: 'Hola Vegan Store Music, estoy buscando un disco. ¿Me ayudan a conseguirlo?',
-    import: 'Hola Vegan Store Music, me gustaría consultar el costo y la disponibilidad de un disco a pedido. ¿Me ayudan a conseguirlo?',
+    import: 'Hola Vegan Store Music, me gustaría consultar el costo y la disponibilidad para importar un álbum. ¿Me ayudan a conseguirlo? Artista: [completar]. Álbum: [completar]. Formato o edición: [completar].',
     sell: 'Hola Vegan Store Music, quería consultarles por la venta de unos discos.',
   },
 } as const;

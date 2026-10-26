@@ -7,6 +7,9 @@ function update() {
     badge.textContent = String(units);
     badge.closest('a')?.setAttribute('aria-label', `Carrito: ${units} ${units === 1 ? 'unidad' : 'unidades'}`);
   }
+  for (const label of document.querySelectorAll<HTMLElement>('[data-cart-item-label]')) {
+    label.textContent = units === 1 ? 'item' : 'items';
+  }
   for (const notice of document.querySelectorAll<HTMLElement>('[data-storage-notice]')) notice.hidden = !storageFailed();
 }
 window.addEventListener('vsm:cartchange', update);

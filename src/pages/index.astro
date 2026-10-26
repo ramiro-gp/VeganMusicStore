@@ -19,5 +19,5 @@ const variantTwo = siteVariant === 'v2';
 const origin = Astro.site ?? new URL('http://localhost:4321');
 ---
 <BaseLayout title={variantTwo ? 'Catálogo de discos y vinilos — Vegan Store Music' : 'Vegan Store Music — Discos, vinilos e importación en Almagro'} schema={variantTwo ? catalogSchema(origin, false) : []}>
-  {variantTwo ? <><CompactHero /><CatalogIntro compact /><CatalogList /><RecordsCallout /></> : <><Hero />{presaleProducts.length ? <PresaleShowcase items={presaleProducts} /> : <RecordSlider />}<StoreDestinations /><ImportCallout /><About /><Process /><Location /></>}
+  {variantTwo ? <><CompactHero /><CatalogIntro compact /><CatalogList /><RecordsCallout /><ImportCallout /></> : <><Hero />{presaleProducts.length ? <PresaleShowcase items={presaleProducts} /> : <RecordSlider />}<StoreDestinations /><ImportCallout /><About /><Process /><Location /></>}
 </BaseLayout>

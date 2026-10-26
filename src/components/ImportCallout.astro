@@ -4,6 +4,19 @@ import ContactLink from './ContactLink.astro';
 import DecorativeMark from './DecorativeMark.astro';
 import { siteConfig } from '../config/site';
 import { routes } from '../config/variant';
-const onLanding = Astro.url.pathname === '/';
 ---
-<section class="import-callout" aria-labelledby="import-title"><div class="shell import-grid"><p class="eyebrow">BÚSQUEDAS & IMPORTACIONES</p><h2 id="import-title">¿NO APARECE<br />EN LA LISTA?</h2><div class="import-copy"><p>Algunos discos necesitan un poco más de búsqueda. Contanos el artista, el álbum y la edición que tenés en mente.</p><p>Consultamos por pedidos e importaciones y coordinamos los detalles con vos.</p>{onLanding ? <a class="button button-paper" href={routes.catalog}>Explorar el catálogo <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a> : <ContactLink class="button button-paper" message={siteConfig.messages.import}>Consultar por importación</ContactLink>}</div><DecorativeMark class="import-asterisk" shape="spark" /></div></section>
+<section class="import-callout" id="importacion" aria-labelledby="import-title">
+  <div class="shell import-grid">
+    <p class="eyebrow">BÚSQUEDAS & IMPORTACIONES</p>
+    <h2 id="import-title">¿NO APARECE<br />EN LA LISTA?</h2>
+    <div class="import-copy">
+      <p>Algunos discos necesitan un poco más de búsqueda. Contanos el artista, el álbum y la edición que tenés en mente.</p>
+      <p>Consultamos por pedidos e importaciones y coordinamos los detalles con vos.</p>
+      <div class="import-actions">
+        <a class="button button-paper" href={routes.catalog}>Explorar el catálogo <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a>
+        <ContactLink class="button button-outline" message={siteConfig.messages.import} icon="whatsapp">Consultar importación</ContactLink>
+      </div>
+    </div>
+    <DecorativeMark class="import-asterisk" shape="spark" />
+  </div>
+</section>

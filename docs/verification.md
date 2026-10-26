@@ -1,5 +1,13 @@
 # Verificación de la demo
 
+## 26 de octubre de 2026 — Importación y contador del footer
+
+- Header y footer enlazan “Importación” a `/#importacion`, disponible en ambas variantes. La sección conserva “Explorar el catálogo” y suma “Consultar importación”, con mensaje editable de artista, álbum y edición hacia el número configurado. Ícono existente de Simple Icons, copia local CC0; procedencia en `src/assets/icons/README.md`.
+- Footer conectado al estado compartido del carrito: `Carrito (0 items)`, singular `Carrito (1 item)` y plural, incluidos recarga, navegación y eventos de almacenamiento.
+- 46 pruebas aprobadas; Astro check sin errores, advertencias ni hints; builds V1/V2 correctos.
+- Chrome local: clic desde header y desde otra página, ancla libre del header fijo, menú móvil cerrado al navegar, URL/mensaje/ícono de WhatsApp, agregar dos productos y persistencia tras recarga comprobados en ambas variantes. Layouts de 320, 390, 768, 1366 y 1920 px sin desbordes y con ambos botones de al menos 44 px de alto. Sin errores JavaScript. Capturas y mediciones en `reports/import-navigation/`, ignorado por Git.
+- Cambios locales; sin publicar, enviar consultas ni modificar catálogo o hosting.
+
 Realizada el 7 de octubre de 2026. Demo temporal: https://vegan-store-music.vercel.app/.
 
 ## Build y datos

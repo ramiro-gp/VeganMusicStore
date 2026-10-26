@@ -1,13 +1,14 @@
 ---
 import { ArrowUpRight } from '@lucide/astro';
+import WhatsAppIcon from '../assets/icons/whatsapp.svg';
 import { siteConfig } from '../config/site';
 import { whatsappUrl } from '../lib/whatsapp';
 import { routes } from '../config/variant';
-interface Props { message?: string; class?: string; label?: string; compact?: boolean; }
-const { message = siteConfig.messages.general, class: className = '', label, compact = false } = Astro.props;
+interface Props { message?: string; class?: string; label?: string; compact?: boolean; icon?: 'arrow' | 'whatsapp'; }
+const { message = siteConfig.messages.general, class: className = '', label, compact = false, icon = 'arrow' } = Astro.props;
 const url = whatsappUrl(message);
 const fallback = routes.contact;
 ---
 <a href={url ?? fallback} class:list={['contact-link', className]} target={url ? '_blank' : undefined} rel={url ? 'noopener noreferrer' : undefined} aria-label={label}>
-  <span><slot /></span><ArrowUpRight size={compact ? 16 : 19} stroke-width={1.7} aria-hidden="true" />
+  <span><slot /></span>{icon === 'whatsapp' && url ? <WhatsAppIcon width={compact ? 16 : 19} height={compact ? 16 : 19} fill="currentColor" aria-hidden="true" focusable="false" /> : <ArrowUpRight size={compact ? 16 : 19} stroke-width={1.7} aria-hidden="true" />}
 </a>
