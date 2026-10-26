@@ -1,7 +1,8 @@
 ---
 import { ArrowDown, ArrowUpRight } from '@lucide/astro';
 import VinylScene from './VinylScene.astro';
-import BrandLogo from './BrandLogo.astro';
+import ContactLink from './ContactLink.astro';
+import { siteConfig } from '../config/site';
 import { routes } from '../config/variant';
 import { presaleProducts } from '../lib/catalog-data';
 const nextSection = presaleProducts.length ? '#preventa' : '#record-slider-home-title';
@@ -9,9 +10,18 @@ const nextSection = presaleProducts.length ? '#preventa' : '#record-slider-home-
 <section class="hero" data-hero aria-labelledby="hero-title">
   <div class="hero-pin" data-hero-pin>
     <div class="hero-grid shell" data-hero-content>
-      <div class="hero-intro"><p class="eyebrow hero-eyebrow"><span class="status-dot"></span> DISCOS / VINILOS / IMPORTACIÓN</p><h1 id="hero-title" class="hero-logo-title"><BrandLogo placement="hero" /></h1></div>
+      <div class="hero-intro">
+        <p class="eyebrow hero-eyebrow"><span class="status-dot"></span> TU DISQUERÍA EN ALMAGRO, BUENOS AIRES</p>
+        <h1 id="hero-title" class="hero-headline"><span>CDs y discos</span>{' '}<span>de vinilo:</span>{' '}<span class="hero-headline-service">Venta e importación</span></h1>
+      </div>
       <div class="hero-art"><VinylScene /></div>
-      <div class="hero-details"><p class="hero-tagline">Ese disco que venís buscando.</p><p class="hero-description">Compra, venta y pedidos de discos y vinilos.<br class="desktop-break" /> Desde Almagro, con envíos a todo el mundo.</p><a class="button button-dark" href={routes.catalog}>Explorar los discos <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a></div>
+      <div class="hero-details">
+        <p class="hero-description">CDs y vinilos nacionales e importados en Almagro, Buenos Aires. Encontrá tu próximo disco o consultanos por ese álbum que falta en tu colección. Envíos a todo el país y al mundo.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href={routes.catalog}>Explorar los discos <ArrowUpRight size={19} stroke-width={1.7} aria-hidden="true" /></a>
+          <ContactLink class="button button-outline" message={siteConfig.messages.import} icon="whatsapp">Importar álbumes</ContactLink>
+        </div>
+      </div>
       <div class="hero-foot"><span>BUENOS AIRES, ARGENTINA</span><a class="hero-scroll" href={nextSection}>SEGUÍ BAJANDO <ArrowDown size={14} aria-hidden="true" /></a></div>
     </div>
   </div>
