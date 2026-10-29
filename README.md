@@ -1,6 +1,6 @@
 # Vegan Store Music
 
-Web de Vegan Store Music, con Astro estático y catálogo/carrito de consulta. V1 es la propuesta elegida. Google Sheets es la fuente de precios y stock; el navegador nunca consulta la hoja. Desarrollo local en `C:\Codigo\vegan-store-music`.
+Web de Vegan Store Music, con Astro estático y catálogo/carrito de consulta. La versión elegida es V1 con hero fullscreen, integrada en `main` el 28/10/2026. Google Sheets es la fuente de precios y stock; el navegador nunca consulta la hoja. Desarrollo local en `C:\Codigo\vegan-store-music`.
 
 Vercel se conserva para revisión de cambios por el dueño, con `SITE_MODE=demo` y noindex. El hosting final será Hostinger; el dominio sigue pendiente. La venta de la web no activa la indexación ni cambia el hosting por sí sola.
 
@@ -116,7 +116,9 @@ La demo con noindex no puede obtener 100 en la auditoría de indexación de Ligh
 
 ## Hero
 
-V1 conserva scroll real, CSS sticky y un script pequeño. No se interceptan wheel ni touch. El movimiento afecta transformaciones y opacidad. Reduced motion y pantallas muy bajas utilizan una escena estática.
+El hero fullscreen de V1 es la versión aprobada y forma parte de `main`. Reemplaza el logo del hero por el H1 “CDs y discos de vinilo venta e importación”, una descripción en párrafo y dos CTA: catálogo e importación por WhatsApp. El título y la meta descripción de la portada acompañan ese contenido. La composición ocupa `100svh` incluyendo el header, con altura mínima que permite crecer si el contenido lo necesita. V2 conserva su hero compacto.
+
+V1 conserva scroll real, CSS sticky y un script pequeño. La escena permanece fija durante la extracción completa del vinilo y se libera después de una breve permanencia final. No se interceptan wheel ni touch. El movimiento afecta transformaciones y opacidad. Reduced motion y pantallas muy bajas utilizan una escena estática; sin JavaScript el contenido y ambos botones siguen disponibles.
 
 V2 utiliza una composición propia de aproximadamente `40svh`, sin sticky ni recorrido adicional, para mostrar el comienzo del catálogo en la primera pantalla. La extracción breve al cargar se realiza con CSS; con movimiento reducido la escena permanece estática. En pantallas muy bajas se prioriza la legibilidad. Todo el contenido existe sin JavaScript.
 

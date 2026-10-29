@@ -18,6 +18,6 @@ import { catalogSchema } from '../lib/catalog-schema';
 const variantTwo = siteVariant === 'v2';
 const origin = Astro.site ?? new URL('http://localhost:4321');
 ---
-<BaseLayout title={variantTwo ? 'Catálogo de discos y vinilos — Vegan Store Music' : 'Vegan Store Music — Discos, vinilos e importación en Almagro'} schema={variantTwo ? catalogSchema(origin, false) : []}>
+<BaseLayout title={variantTwo ? 'Catálogo de discos y vinilos — Vegan Store Music' : 'CDs y discos de vinilo: venta e importación — Vegan Store Music'} description={variantTwo ? undefined : 'Venta e importación de CDs y discos de vinilo en Almagro, Buenos Aires. Explorá ediciones nacionales e importadas y consultá por álbumes a pedido. Envíos a todo el país y al mundo.'} schema={variantTwo ? catalogSchema(origin, false) : []}>
   {variantTwo ? <><CompactHero /><CatalogIntro compact /><CatalogList /><RecordsCallout /><ImportCallout /></> : <><Hero />{presaleProducts.length ? <PresaleShowcase items={presaleProducts} /> : <RecordSlider />}<StoreDestinations /><ImportCallout /><About /><Process /><Location /></>}
 </BaseLayout>

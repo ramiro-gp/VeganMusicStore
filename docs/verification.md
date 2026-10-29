@@ -1,5 +1,25 @@
 # Verificación de la demo
 
+## 28 de octubre de 2026 — Hero fullscreen aprobado para main
+
+- La versión aprobada de `codex/hero-fullscreen-seo` se integra en `main`, que se conserva como rama principal de GitHub. Incluye todos los retoques de texto y navegación del 26/10. Las verificaciones de diseño y scroll de esa versión siguen documentadas más abajo.
+- Catálogo vigente y automatización sobre `main` conservados. No se cambia el destino de hosting, el dominio, las variables de despliegue ni la indexación. El despliegue en Hostinger queda para el paso posterior.
+- Verificación de la integración: 46 pruebas aprobadas; Astro check con 0 errores, advertencias e hints; build estático V1 correcto. El código del hero, su scroll y navegación coincide con la versión previamente revisada; las modificaciones adicionales sólo aclaran su adopción en la documentación y un comentario CSS.
+
+## 26 de octubre de 2026 — Retoques del hero y orden del menú
+
+- H1 sin los dos puntos; “Venta e importación” ampliado aproximadamente un 10%. Descripción reemplazada por el texto indicado: “CDs y vinilos nacionales e internacionales. Encontrá tu próximo disco o consultanos por ese álbum que falta en tu colección. ¡Envíos a todo el país y al mundo!”.
+- Header y footer comparten la configuración de secciones en `src/config/navigation.ts`: Inicio, Preventa/Destacados, Vegan Records, Importación, Nosotros, Contacto, seguidos de Carrito y Catálogo. En V1, Inicio vuelve al comienzo del home, Contacto llega a `#contacto` y la campaña enlaza a `#preventa` o al slider destacado según los datos. V2 conserva sus destinos propios. La navegación queda en `main` y se incorpora también a la rama del hero.
+- Tipos y builds V1/V2 correctos. Chrome: orden exacto en ambos menús, clics de Inicio/Contacto/campaña y cierre del menú móvil correctos; header sin solapamientos a 1100, 1200 y 1366 px. Carrito e importación conservados. Revisión fullscreen/scroll de nueve tamaños y fallback horizontal, movimiento reducido y sin JavaScript aprobados.
+- Build de prueba con una copia del snapshot sin marcas de preventa: header/footer muestran “Destacados” y el enlace abre el slider correcto. No se modificó el snapshot real. Vistas locales reconstruidas; sin publicación remota.
+
+## 26 de octubre de 2026 — Propuesta de hero fullscreen
+
+- Aislada en `codex/hero-fullscreen-seo`, sobre el commit de navegación de `main`. H1 de texto “CDs y discos de vinilo: venta e importación”, sin logo en el hero; descripción en párrafo sobre ediciones nacionales/importadas, Almagro y envíos. Título y meta descripción consistentes. Botón “Importar álbumes” junto al catálogo, con el mismo ícono de WhatsApp existente y mensaje de importación.
+- Escena de V1 con altura mínima `100svh` menos el header. Tipografía y vinilo ampliados; adaptación para móvil y tablet vertical. El script original de extracción y fijación se conserva. No modifica el hero de V2.
+- Chrome local: 320×568, 360×640, 390×844, 430×932, 768×1024, 1024×768, 1366×768, 1366×900 y 1920×1080 llenan la pantalla sin desbordes ni contenido recortado. Escena fija al 40% y 85% del recorrido; extracción terminada al 85%, liberación posterior y un único H1. En 844×390 funciona el fallback sin fijación. Movimiento reducido y JavaScript desactivado comprobados. Sin errores JavaScript. Capturas y mediciones en `reports/hero-fullscreen/`, ignorado por Git.
+- Builds V1/V2 correctos. No se publicaron estos cambios ni se activó la indexación de la demo.
+
 ## 26 de octubre de 2026 — Importación y contador del footer
 
 - Header y footer enlazan “Importación” a `/#importacion`, disponible en ambas variantes. La sección conserva “Explorar el catálogo” y suma “Consultar importación”, con mensaje editable de artista, álbum y edición hacia el número configurado. Ícono existente de Simple Icons, copia local CC0; procedencia en `src/assets/icons/README.md`.
