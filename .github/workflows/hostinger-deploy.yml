@@ -1,0 +1,104 @@
+name: Publicar sitio estático para Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: write
+
+# Pushes, manual runs and catalog updates all publish through this same queue.
+concurrency:
+  group: hostinger-static-production
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: vars.DEPLOY_TARGET == 'hostinger'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SITE_VARIANT: v1
+      SITE_MODE: production
+      SITE_URL: https://veganrecords.com.ar
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          # A queued or reusable invocation may refer to an older event commit.
+          ref: main
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24.12.0'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm check
+      - run: pnpm build
+      - name: Publicar únicamente el build vigente
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          source_commit=$(git rev-parse HEAD)
+
+          # Do not publish stale output if main advanced while we built it.
+          git fetch --no-tags origin main
+          if [ "$source_commit" != "$(git rev-parse origin/main)" ]; then
+            echo "::notice::main cambió durante el build; la ejecución más reciente publicará el sitio."
+            printf 'Publicación omitida: main avanzó después de iniciar el build de `%s`.\n' "$source_commit" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          target="$RUNNER_TEMP/vegan-static"
+          mkdir -p "$target"
+          git -C "$target" init -b deploy-static
+          git -C "$target" config user.name 'github-actions[bot]'
+          git -C "$target" config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C "$target" remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w 0)
+          echo "::add-mask::$auth"
+          artifact_git() {
+            git -C "$target" -c "http.extraheader=AUTHORIZATION: basic $auth" "$@"
+          }
+
+          # Preserve ancestry so Hostinger's regular git pull can fast-forward.
+          if artifact_git ls-remote --exit-code origin refs/heads/deploy-static > /dev/null; then
+            artifact_git fetch --no-tags --depth=1 origin refs/heads/deploy-static
+            git -C "$target" checkout -B deploy-static FETCH_HEAD
+            git -C "$target" rm -r --ignore-unmatch .
+          else
+            remote_status=$?
+            if [ "$remote_status" -ne 2 ]; then
+              echo "::error::No se pudo consultar la rama deploy-static."
+              exit "$remote_status"
+            fi
+            # git init left an unborn branch: only the first deploy has no parent.
+          fi
+
+          if [ -e dist/.git ]; then
+            echo "::error::El build no debe contener metadatos Git."
+            exit 1
+          fi
+          # The dot preserves .htaccess; the artifact repository's .git survives.
+          cp -R dist/. "$target/"
+          git -C "$target" add -A
+          if git -C "$target" diff --cached --quiet; then
+            printf 'Sin cambios en el build de `%s`; deploy-static se conserva.\n' "$source_commit" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git -C "$target" commit -m "Publicar build de main ${source_commit}"
+
+          # Check again after preparing the artifact, immediately before pushing.
+          git fetch --no-tags origin main
+          if [ "$source_commit" != "$(git rev-parse origin/main)" ]; then
+            echo "::notice::main cambió antes de publicar; se conserva el despliegue anterior."
+            printf 'Publicación omitida: main avanzó antes del push del build de `%s`.\n' "$source_commit" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # Normal push keeps deploy-static linear and never modifies main.
+          artifact_git push origin HEAD:deploy-static
+          printf 'Build de producción de `%s` publicado en `deploy-static` para https://veganrecords.com.ar.\n' "$source_commit" >> "$GITHUB_STEP_SUMMARY"

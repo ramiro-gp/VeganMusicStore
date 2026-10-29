@@ -1,0 +1,8 @@
+{
+  "domain": "veganrecords.com.ar",
+  "username": "u571172642",
+  "order_id": 1007470514,
+  "type": "static",
+  "source_branch": "main",
+  "deploy_branch": "deploy-static"
+}

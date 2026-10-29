@@ -1,5 +1,13 @@
 # Verificación de la demo
 
+## 28 de octubre de 2026 — Primer despliegue en Hostinger
+
+- Destino indicado por el usuario: `veganrecords.com.ar`, cuenta `u571172642`, plan Premium. El sitio estaba recién creado y sólo tenía `default.php`. Se subió el build estático de `main` con `SITE_VARIANT=v1`, `SITE_MODE=production` y `SITE_URL=https://veganrecords.com.ar`. Configuración sin credenciales en `.hostinger/site.json`.
+- 31 archivos del build, incluidos `.htaccess`, sitemap y robots, presentes en Hostinger. HTTP 200 y `platform: hostinger` tanto en su vista previa como accediendo al origen `77.37.127.33` con el Host correcto. Hero y descripción aprobados, canonical `https://veganrecords.com.ar/` e indexación habilitada comprobados en el origen. La vista previa temporal de Hostinger reescribe los destinos al mostrar el sitio; la comprobación del dominio se hizo contra el origen.
+- Ruta inexistente: HTTP 404 con el contenido propio. `www` redirige con HTTP 301 al dominio principal conservando la ruta. Carrito y 404 conservan noindex y quedan fuera del sitemap.
+- hPanel indica los nameservers `pixel.dns-parking.com` y `byte.dns-parking.com`; el usuario confirmó que ya están guardados en NIC. Se solicitó la comprobación en hPanel. Al realizar el primer despliegue, los resolvedores todavía respondían que el dominio no existía y el SSL estaba `waiting_for_retry` por `Domain challenge failed`; la resolución pública y el certificado deben verificarse cuando se propague la delegación.
+- Automatización preparada para publicar sólo el build de producción en `deploy-static` por cambios de código, ejecución manual o cambios de catálogo. El catálogo invoca explícitamente el workflow reutilizable, conservando la validación previa del snapshot. La conexión Git de Hostinger y la activación de la variable del repositorio se comprueban por separado.
+
 ## 28 de octubre de 2026 — Hero fullscreen aprobado para main
 
 - La versión aprobada de `codex/hero-fullscreen-seo` se integra en `main`, que se conserva como rama principal de GitHub. Incluye todos los retoques de texto y navegación del 26/10. Las verificaciones de diseño y scroll de esa versión siguen documentadas más abajo.

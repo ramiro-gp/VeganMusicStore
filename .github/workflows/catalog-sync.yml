@@ -13,6 +13,8 @@ jobs:
     if: vars.CATALOG_AUTOMATION_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.catalog.outputs.changed }}
     env:
       SITE_VARIANT: v1
       SITE_MODE: demo
@@ -42,18 +44,10 @@ jobs:
             git commit -m 'Actualizar catálogo validado'
             git push
           fi
-      - name: Archivos estáticos para Hostinger
-        if: steps.catalog.outputs.changed == 'true' && vars.DEPLOY_TARGET == 'hostinger'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          target="$RUNNER_TEMP/vegan-static"
-          mkdir -p "$target"
-          cp -R dist/. "$target/"
-          git -C "$target" init -b deploy-static
-          git -C "$target" config user.name 'github-actions[bot]'
-          git -C "$target" config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git -C "$target" add .
-          git -C "$target" commit -m 'Publicar build estático validado'
-          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w 0)
-          git -C "$target" -c "http.extraheader=AUTHORIZATION: basic $auth" push --force "https://github.com/${GITHUB_REPOSITORY}.git" HEAD:deploy-static
+  publish-hostinger:
+    needs: sync
+    if: needs.sync.outputs.changed == 'true' && vars.DEPLOY_TARGET == 'hostinger'
+    # Pushes made with GITHUB_TOKEN do not trigger the deployment's push event.
+    uses: ./.github/workflows/hostinger-deploy.yml
+    permissions:
+      contents: write
