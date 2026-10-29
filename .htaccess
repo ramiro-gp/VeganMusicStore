@@ -1,0 +1,9 @@
+DirectoryIndex index.html
+Options -Indexes
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.veganrecords\.com\.ar$ [NC]
+  RewriteRule ^ https://veganrecords.com.ar%{REQUEST_URI} [R=301,L,NE]
+</IfModule>
