@@ -23,7 +23,7 @@ export const siteConfig = {
   ],
   referralSource: 'vegan_store_music',
   catalog: {
-    csvUrl: 'https://docs.google.com/spreadsheets/d/1ux6tu3l2bwC_gwFLL83aTMGz2JfYG-8-/export?format=csv&gid=1052727913',
+    csvUrl: 'https://docs.google.com/spreadsheets/d/1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T/export?format=csv&gid=507485430',
     timeoutMs: 15000,
   },
   messages: {

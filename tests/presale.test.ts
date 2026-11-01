@@ -4,7 +4,7 @@ import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { importCatalog } from '../scripts/catalog-import.ts';
-import { productImage, resolvePresaleImages } from '../scripts/catalog-presale.ts';
+import { validatePresales } from '../scripts/catalog-presale.ts';
 import { promoteCatalog, sameCatalog } from '../scripts/catalog-sync.ts';
 import { assertSnapshot, parseSnapshot } from '../src/lib/catalog.ts';
 import { purchaseUrl } from '../src/lib/product-links.ts';
@@ -15,12 +15,11 @@ const sexcalextric = 'https://veganrecords.empretienda.com.ar/general/vinilos/de
 const picture = 'https://images.example.com/disco.jpg';
 const csv = (options: { title?: string; url?: string; image?: string; presale?: string; note?: string; origin?: string; label?: string } = {}) => {
   const headers = ['Banda / Titulo', 'PRECIO EFT/TRAN', 'TARJETA 1 PAGO', 'TARJETA 3 PAGOS', 'Valor cuota', 'STOCK', 'ORIGEN', 'SELLO', 'En todos los casos', '', '', '', '', '', '', '', 'IMAGEN_URL'];
-  const row = [options.title ?? 'Demonios de Tasmania Sexcalextric Lp violeta', '65000', '72800', '80080', '$ 26.693', '10', options.origin ?? 'EUROPA', options.label ?? 'VEGAN RECORDS', options.presale ?? 'PREVENTA', '', options.note ?? '', '', '', '', '', options.url ?? modelo, options.image ?? ''];
+  const row = [options.title ?? 'Demonios de Tasmania Sexcalextric Lp violeta', '65000', '72800', '80080', '$ 26.693', '10', options.origin ?? 'EUROPA', options.label ?? 'VEGAN RECORDS', options.presale ?? 'PREVENTA', '', options.note ?? '', '', '', '', options.image ?? picture, options.url ?? modelo, 'https://images.example.com/ignorada.jpg'];
   return [headers, row].map(row => row.map(value => `"${value.replaceAll('"', '""')}"`).join(',')).join('\n');
 };
-const fetcher = (html = `<meta property="og:image" content="${picture}">`) => (async () => new Response(html)) as typeof fetch;
 
-test('lee I, P e IMAGEN_URL aunque haya encabezados vacíos repetidos y más columnas después de P', () => {
+test('lee I, O y P por posición aunque haya encabezados vacíos repetidos y más columnas después de P', () => {
   const item = importCatalog(csv({ image: picture })).products[0];
   assert.equal(item.isPresale, true);
   assert.equal(item.purchaseUrl, sexcalextric);
@@ -53,48 +52,29 @@ test('rechaza enlaces ejecutables, HTTP, credenciales y hosts que imitan Empreti
     assert.equal(purchaseUrl(url), null);
     assert.throws(() => importCatalog(csv({ url })), /Enlace de Empretienda inválido/);
   }
-  assert.throws(() => importCatalog(csv({ image: 'javascript:alert(1)' })), /IMAGEN_URL inválida/);
+  assert.throws(() => importCatalog(csv({ image: 'javascript:alert(1)' })), /Imagen inválida en columna O/);
 });
 
-test('interpreta metadatos con distinto orden, comillas, entidades y URLs relativas', () => {
-  assert.equal(productImage('<meta content="https://images.example.com/a.jpg?a=1&amp;b=2" property="og:image" />', modelo), 'https://images.example.com/a.jpg?a=1&b=2');
-  assert.equal(productImage("<meta PROPERTY='og:image' content='/producto.jpg'>", modelo), 'https://veganrecords.empretienda.com.ar/producto.jpg');
-  assert.throws(() => productImage('<meta property="og:image" content="javascript:alert(1)">', modelo), /imagen HTTPS/);
-  assert.throws(() => productImage('<html>Sin imagen</html>', modelo), /imagen HTTPS/);
-});
-
-test('resuelve desde la URL corregida y la imagen explícita de Sheets evita cualquier consulta externa', async () => {
+test('exige imagen en O y enlace en P para cada preventa, sin fallback de metadatos', () => {
   const snapshot = importCatalog(csv());
-  let requested = '';
-  await resolvePresaleImages(snapshot, undefined, { fetcher: (async (url) => { requested = String(url); return new Response(`<meta property="og:image" content="${picture}">`); }) as typeof fetch });
-  assert.equal(requested, sexcalextric);
+  validatePresales(snapshot);
   assert.equal(snapshot.products[0].imageUrl, picture);
-  const explicit = importCatalog(csv({ image: 'https://images.example.com/elegida.jpg' }));
-  await resolvePresaleImages(explicit, snapshot, { fetcher: (async () => { throw new Error('No debería consultar'); }) as typeof fetch });
-  assert.equal(explicit.products[0].imageUrl, 'https://images.example.com/elegida.jpg');
+  assert.throws(() => importCatalog(csv({ image: '' })), /sin imagen en columna O/);
+  assert.throws(() => importCatalog(csv({ url: '' })), /sin enlace de compra en columna P/);
+  const ordinary = importCatalog(csv({ presale: '', url: '', image: '' }));
+  assert.equal(ordinary.products[0].imageUrl, null, 'IMAGEN_URL fuera de O no destaca ni repone imágenes');
 });
 
-test('un fallo conserva la imagen sólo si coinciden ID y destino; sin caché válida rechaza la preventa', async () => {
-  const previous = importCatalog(csv({ image: picture }));
-  const failedFetch = (async () => new Response('No disponible', { status: 503 })) as typeof fetch;
+test('la excepción temporal omite preventas incompletas con advertencia; corregirlas las reincorpora', () => {
+  const good = csv({ title: 'Completo' });
+  const incomplete = csv({ title: 'Incompleto', image: '', url: '' }).split('\n')[1];
   const warnings: string[] = [];
-  const current = importCatalog(csv());
-  await resolvePresaleImages(current, previous, { fetcher: failedFetch, warn: message => warnings.push(message) });
-  assert.equal(current.products[0].imageUrl, picture);
-  assert.equal(warnings.length, 1);
-  const changedUrl = importCatalog(csv({ url: 'https://veganrecords.empretienda.com.ar/otra-edicion' }));
-  await assert.rejects(resolvePresaleImages(changedUrl, previous, { fetcher: failedFetch }), /No se pudo resolver/);
-  await assert.rejects(resolvePresaleImages(importCatalog(csv()), undefined, { fetcher: failedFetch }), /No se pudo resolver/);
-  await assert.rejects(resolvePresaleImages(importCatalog(csv({ url: '' }))), /sin enlace/);
-});
-
-test('no sigue redirecciones fuera de Empretienda ni consulta productos sin marca PREVENTA', async () => {
-  let calls = 0;
-  const redirect = (async () => { calls++; return new Response(null, { status: 302, headers: { location: 'https://example.com/' } }); }) as typeof fetch;
-  await assert.rejects(resolvePresaleImages(importCatalog(csv()), undefined, { fetcher: redirect }), /Redirección fuera/);
-  assert.equal(calls, 1);
-  await resolvePresaleImages(importCatalog(csv({ presale: '' })), undefined, { fetcher: redirect });
-  assert.equal(calls, 1);
+  const snapshot = importCatalog(`${good}\n${incomplete}`, undefined, { quarantineIncomplete: true, warn: message => warnings.push(message) });
+  assert.equal(snapshot.products.length, 1);
+  assert.equal(snapshot.products[0].sourceTitle, 'Completo');
+  assert.match(warnings[0], /Preventa omitida.*fila 3.*Incompleto/);
+  const corrected = importCatalog(`${good}\n${csv({ title: 'Incompleto' }).split('\n')[1]}`);
+  assert.equal(corrected.products.length, 2);
 });
 
 test('migra snapshots anteriores sin cambiar IDs, precios, stock ni fecha', () => {
@@ -119,22 +99,25 @@ test('detecta cambios en marca, destino e imagen sin modificar la identidad del 
   }
 });
 
-test('sin cambios conserva bytes y fecha; un fallo inicial de imágenes conserva el snapshot publicado', async () => {
+test('sin cambios conserva bytes; una preventa incompleta conserva el snapshot publicado', async () => {
   const directory = await mkdtemp(join(tmpdir(), 'vegan-presale-'));
   const target = join(directory, 'snapshot.json');
   const candidate = join(directory, 'candidate.json');
-  const previous = importCatalog(csv({ image: picture }), '2026-10-22T12:00:00.000Z');
+  const previous = importCatalog(csv(), '2026-10-22T12:00:00.000Z');
   const bytes = JSON.stringify(previous, null, 4) + '\n';
   try {
     await writeFile(target, bytes);
-    const result = await promoteCatalog(csv(), target, candidate, async () => assert.fail('No debe construir sin cambios'), undefined, { fetcher: fetcher() });
+    const result = await promoteCatalog(csv(), target, candidate, async () => assert.fail('No debe construir sin cambios'));
     assert.equal(result.changed, false);
     assert.equal(await readFile(target, 'utf8'), bytes);
-    await assert.rejects(promoteCatalog(csv({ url: 'https://veganrecords.empretienda.com.ar/nuevo' }), target, candidate, undefined, undefined, { fetcher: fetcher('<html>Sin imagen</html>') }), /No se pudo resolver/);
-    assert.equal(await readFile(target, 'utf8'), bytes);
-    const inactive = await promoteCatalog(csv({ presale: '' }), target, candidate, undefined, undefined, { fetcher: (async () => assert.fail('No debe consultar imágenes sin preventa')) as typeof fetch });
+    for (const options of [{ image: '' }, { url: '' }]) {
+      await assert.rejects(promoteCatalog(csv(options), target, candidate), /Preventa sin/);
+      assert.equal(await readFile(target, 'utf8'), bytes);
+    }
+    const inactive = await promoteCatalog(csv({ presale: '', image: '' }), target, candidate);
     assert.equal(inactive.changed, true);
     assert.equal(inactive.snapshot.products.filter(item => item.isPresale).length, 0);
+    assert.equal(inactive.snapshot.products[0].imageUrl, null, 'borrar O quita la imagen anterior');
   } finally { await rm(directory, { recursive: true, force: true }); }
 });
 

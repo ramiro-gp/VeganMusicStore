@@ -1,0 +1,8 @@
+---
+import { showcase } from '../lib/catalog-data';
+import RecordSlider from './RecordSlider.astro';
+import PresaleShowcase from './PresaleShowcase.astro';
+interface Props { context?: 'home' | 'cart'; }
+const { context = 'home' } = Astro.props;
+---
+{showcase.mode === 'presale' ? <PresaleShowcase items={showcase.items} context={context} /> : <RecordSlider context={context} />}

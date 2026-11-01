@@ -13,6 +13,9 @@
 .slider-records { display: flex; gap: var(--card-gap); list-style: none; padding: 0 max(var(--gutter), calc((100vw - 1680px) / 2)); margin: 0; width: max-content; min-width: 100%; }
 .slider-record { flex: 0 0 var(--card-width); width: var(--card-width); scroll-snap-align: start; display: flex; flex-direction: column; }
 .slider-record .illustrated-cover { padding: 24px; }
+.slider-cover { display: grid; place-items: center; aspect-ratio: 1; overflow: hidden; background: var(--paper, var(--surface)); border: 1px solid var(--line); }
+.slider-cover img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.slider-consult { display: inline-flex; justify-content: center; align-items: center; gap: 6px; margin-top: 10px; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
 .slider-record .cover-caption { font-size: 7px; }
 .slider-record .cover-artist { font-size: clamp(28px, 2.8vw, 40px); margin-top: 24px; }
 .slider-record .cover-album { font-size: 17px; }

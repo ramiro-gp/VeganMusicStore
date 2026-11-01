@@ -1,7 +1,7 @@
 name: Sincronizar catálogo
 on:
   schedule:
-    - cron: '0 1,12,14,17,20 * * *' # Argentina: 22:00, 09:00, 11:00, 14:00, 17:00 (UTC-3)
+    - cron: '0 12,22 * * *' # Argentina: 09:00 y 19:00 (UTC-3)
   workflow_dispatch:
 permissions:
   contents: write
@@ -34,6 +34,7 @@ jobs:
         run: pnpm catalog:sync --verify
         env:
           CATALOG_CSV_URL: ${{ vars.CATALOG_CSV_URL }}
+          CATALOG_QUARANTINE_INCOMPLETE: ${{ vars.CATALOG_QUARANTINE_INCOMPLETE }}
       - name: Versionar el snapshot validado
         if: steps.catalog.outputs.changed == 'true'
         run: |

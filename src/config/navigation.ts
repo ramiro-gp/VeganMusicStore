@@ -1,4 +1,4 @@
-import { presaleProducts } from '../lib/catalog-data';
+import { presaleProducts, showcaseAnchor } from '../lib/catalog-data';
 import { routes, siteVariant } from './variant';
 
 const hasPresale = presaleProducts.length > 0;
@@ -6,7 +6,7 @@ const hasPresale = presaleProducts.length > 0;
 export const sectionNavigation = [
   { href: '/', label: 'Inicio' },
   {
-    href: siteVariant === 'v2' ? routes.catalog : hasPresale ? '/#preventa' : '/#record-slider-home-title',
+    href: siteVariant === 'v2' ? routes.catalog : `/${showcaseAnchor}`,
     label: hasPresale ? 'Preventa' : 'Destacados',
   },
   { href: routes.records, label: 'Vegan Records' },

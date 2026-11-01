@@ -4,8 +4,8 @@ import VinylScene from './VinylScene.astro';
 import ContactLink from './ContactLink.astro';
 import { siteConfig } from '../config/site';
 import { routes } from '../config/variant';
-import { presaleProducts } from '../lib/catalog-data';
-const nextSection = presaleProducts.length ? '#preventa' : '#record-slider-home-title';
+import { showcaseAnchor } from '../lib/catalog-data';
+const nextSection = showcaseAnchor;
 ---
 <section class="hero" data-hero aria-labelledby="hero-title">
   <div class="hero-pin" data-hero-pin>

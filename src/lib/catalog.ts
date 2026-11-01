@@ -33,6 +33,7 @@ export function assertSnapshot(value: unknown): asserts value is CatalogSnapshot
     if (!item.id || ids.has(item.id) || !item.sourceTitle?.trim() || typeof item.stockRaw !== 'string' || !['listed', 'out', 'unknown'].includes(item.stockStatus) || prices.some(price => price !== null && (typeof price !== 'number' || !Number.isFinite(price) || price <= 0 || !Number.isSafeInteger(Math.round(price * 100))))) throw new Error(`Producto inválido o duplicado: ${item.id ?? 'sin ID'}.`);
     ids.add(item.id);
     if (typeof item.isPresale !== 'boolean' || (item.purchaseUrl !== null && (typeof item.purchaseUrl !== 'string' || purchaseUrl(item.purchaseUrl) !== item.purchaseUrl)) || (item.imageUrl !== null && (typeof item.imageUrl !== 'string' || imageUrl(item.imageUrl) !== item.imageUrl))) throw new Error(`Enlaces o preventa inválidos: ${item.id}.`);
+    if (item.isPresale && (!item.purchaseUrl || !item.imageUrl)) throw new Error(`Preventa incompleta (columnas O/P): ${item.sourceTitle}.`);
   }
 }
 

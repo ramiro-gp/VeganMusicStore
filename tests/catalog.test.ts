@@ -34,7 +34,7 @@ test('identificadores independientes del stock, precio y orden', () => {
   assert.deepEqual(before.products.map(p => p.id), after.products.map(p => p.id));
 });
 test('rechaza HTML de login, columnas incompatibles, precios inválidos y catálogo vacío', () => {
-  for (const source of ['', '<!DOCTYPE html><html>login</html>', 'Nombre,Precio\nDisco,2', header, csv('Disco,$ 1.000,1,USA,SELLO')]) assert.throws(() => importCatalog(source));
+  for (const source of ['', '<!DOCTYPE html><html>login</html>', 'Nombre,Precio\nDisco,2', header, csv('Disco,$ 1.00.0,1,USA,SELLO')]) assert.throws(() => importCatalog(source));
   assert.throws(() => importCatalog(csv(`Disco,${'9'.repeat(400)},1,USA,SELLO`)), /fuera de rango/);
 });
 test('stock desconocido no se convierte en disponible y el precio decimal se conserva', () => {
@@ -170,4 +170,29 @@ test('admite 2000 títulos sin truncar y detecta cambios al final del catálogo'
   assert.equal(after.products.at(-1)?.id, before.products.at(-1)?.id);
   assert.equal(after.products.at(-1)?.priceCashArs, 250);
   assert.equal(after.products.at(-1)?.stockStatus, 'out');
+});
+
+
+test('efectivo acepta moneda argentina y decimales anteriores sin cambiar importes', () => {
+  for (const [raw, expected] of [['$63.130', 63130], ['$ 63.130,50', 63130.5], ['63.130', 63130], ['63130', 63130], ['100.50', 100.5], ['100,50', 100.5], ['$0', null], ['', null]] as const) {
+    const snapshot = importCatalog(csv(`Disco,"${raw}",1,ARGENTINA,SELLO`));
+    assert.equal(snapshot.products[0].priceCashArs, expected, raw);
+  }
+  for (const raw of ['$1.00.0', '-20', 'gratis', '$1,234', '1e5']) {
+    assert.throws(() => importCatalog(csv(`Disco,"${raw}",1,ARGENTINA,SELLO`)), /Precio inválido/);
+  }
+});
+
+test('la excepción temporal omite todo el grupo contradictorio, mantiene duplicados exactos y se retira al corregir', () => {
+  const warnings: string[] = [];
+  const source = csv('Conflicto,100,1,USA,SELLO', 'Válido,200,1,USA,SELLO', 'Conflicto,150,2,USA,SELLO', 'Conflicto,100,1,USA,SELLO', 'Válido,200,1,USA,SELLO');
+  assert.throws(() => importCatalog(source), /datos diferentes/);
+  const result = importCatalog(source, undefined, { quarantineIncomplete: true, warn: message => warnings.push(message) });
+  assert.deepEqual(result.products.map(item => item.sourceTitle), ['Válido']);
+  assert.equal(result.products[0].stockRaw, '1');
+  assert.equal(warnings.length, 1);
+  assert.match(warnings[0], /filas 2 y 4/);
+  const fixed = importCatalog(csv('Conflicto,100,1,USA,SELLO', 'Válido,200,1,USA,SELLO'), undefined, { quarantineIncomplete: true });
+  assert.equal(fixed.products.length, 2);
+  assert.throws(() => importCatalog(csv('Conflicto,100,1,USA,SELLO', 'Conflicto,150,2,USA,SELLO'), undefined, { quarantineIncomplete: true, warn: () => {} }), /no contiene productos válidos/);
 });
