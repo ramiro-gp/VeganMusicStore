@@ -23,7 +23,8 @@ export const siteConfig = {
   ],
   referralSource: 'vegan_store_music',
   catalog: {
-    csvUrl: 'https://docs.google.com/spreadsheets/d/1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T/export?format=csv&gid=507485430',
+    // The shared XLSX has one sheet (VINILOS NUEVOS). Its former gid now returns HTTP 400.
+    csvUrl: 'https://docs.google.com/spreadsheets/d/1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T/export?format=csv',
     timeoutMs: 15000,
   },
   messages: {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "syncedAt": "2026-11-01T23:20:04.857Z",
+  "syncedAt": "2026-11-02T01:00:08.587Z",
   "products": [
     {
       "id": "42f1459f15e2b64e",
@@ -2774,7 +2774,7 @@
       "featuredOrder": null,
       "isPresale": true,
       "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/vinilos/preventa/demonios-de-tasmania-modelo-96-vinilo-blanco",
-      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/45cf089099f8860a854307e9682a97a0ae5ed912621d3b71bcb4bcbad52fdd67369298.jpg"
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/c180aa15c5fb64e3b4009a2159abdbc60c0bed1a96566b919d52c8bb4c8e04cd369298.jpg"
     },
     {
       "id": "b37054c7ba142adf",
@@ -2812,7 +2812,7 @@
       "featuredOrder": null,
       "isPresale": true,
       "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/vinilos/demonios-de-tasmania-sexcalextric-vinilo-violeta",
-      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/c180aa15c5fb64e3b4009a2159abdbc60c0bed1a96566b919d52c8bb4c8e04cd369298.jpg"
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/45cf089099f8860a854307e9682a97a0ae5ed912621d3b71bcb4bcbad52fdd67369298.jpg"
     },
     {
       "id": "3df2af6650a4c777",
@@ -5627,7 +5627,7 @@
       "imageUrl": null
     },
     {
-      "id": "3ca32dd673901484",
+      "id": "bcbc063c8a2efb42",
       "sourceTitle": "La Chancha Muda Quien Autoriza?",
       "artist": null,
       "album": null,
@@ -5637,7 +5637,7 @@
       "installment3Ars": 20123,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -5646,7 +5646,7 @@
       "imageUrl": null
     },
     {
-      "id": "cb4822c95bfe89a8",
+      "id": "e77a8c646e722c0d",
       "sourceTitle": "La Ley Invisible (2LP)",
       "artist": null,
       "album": null,
@@ -5656,7 +5656,7 @@
       "installment3Ars": 38603,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "WARNER",
       "coverKey": null,
       "featuredOrder": null,
@@ -5665,7 +5665,7 @@
       "imageUrl": null
     },
     {
-      "id": "cc1a75fa76278329",
+      "id": "fe1434fe13153e8d",
       "sourceTitle": "La Maquina De Hacer Pajaros La Maquina De Hacer Pajaros",
       "artist": null,
       "album": null,
@@ -5675,7 +5675,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "2",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -5741,7 +5741,7 @@
       "imageUrl": null
     },
     {
-      "id": "bb45143c1735ddb4",
+      "id": "26d7de662ca02cac",
       "sourceTitle": "La Polla Records Revolucion",
       "artist": null,
       "album": null,
@@ -5751,7 +5751,7 @@
       "installment3Ars": 19774,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": "EUROPA",
+      "origin": "ARGENTINA",
       "label": "OIHUKA",
       "coverKey": null,
       "featuredOrder": null,
@@ -5779,7 +5779,7 @@
       "imageUrl": null
     },
     {
-      "id": "987c2e700a64c094",
+      "id": "caca96d9f2d60e03",
       "sourceTitle": "La Renga Adonde Me Lleva La Vida",
       "artist": null,
       "album": null,
@@ -5789,7 +5789,7 @@
       "installment3Ars": 24229,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
       "featuredOrder": null,
@@ -5817,7 +5817,7 @@
       "imageUrl": null
     },
     {
-      "id": "6e347f002b7af9e0",
+      "id": "94f2cc2113dea31a",
       "sourceTitle": "La Renga Despedazado Por Mil Partes: 30° Aniversario (2LP ROJO/VERDE)",
       "artist": null,
       "album": null,
@@ -5827,7 +5827,7 @@
       "installment3Ars": 40656,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
       "featuredOrder": null,
@@ -5836,7 +5836,7 @@
       "imageUrl": null
     },
     {
-      "id": "f6ebbcb8892b7567",
+      "id": "0a16083378bb3b8a",
       "sourceTitle": "La Renga La Esquina Del Infinito",
       "artist": null,
       "album": null,
@@ -5846,7 +5846,7 @@
       "installment3Ars": 24229,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
       "featuredOrder": null,
@@ -5855,7 +5855,7 @@
       "imageUrl": null
     },
     {
-      "id": "4c45757c013bd920",
+      "id": "4ee4e25c9ee45494",
       "sourceTitle": "La Renga La Renga (LP BLANCO)",
       "artist": null,
       "album": null,
@@ -5865,7 +5865,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
       "featuredOrder": null,
@@ -5874,7 +5874,7 @@
       "imageUrl": null
     },
     {
-      "id": "096ccb6d83443a8c",
+      "id": "11601a249fbb557e",
       "sourceTitle": "La Torre Solo Quiero Rock And Roll Ed (40 Años)",
       "artist": null,
       "album": null,
@@ -5884,7 +5884,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -5893,7 +5893,7 @@
       "imageUrl": null
     },
     {
-      "id": "59a6b9f2f1aa1045",
+      "id": "e96a22b21bd9c33f",
       "sourceTitle": "La Vela Puerca Destilar",
       "artist": null,
       "album": null,
@@ -5903,7 +5903,7 @@
       "installment3Ars": 20123,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -5912,7 +5912,7 @@
       "imageUrl": null
     },
     {
-      "id": "e73189ec71513a99",
+      "id": "20f6a4f4a64a5505",
       "sourceTitle": "La Vela Puerca Discopatico",
       "artist": null,
       "album": null,
@@ -5922,7 +5922,7 @@
       "installment3Ars": 25461,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -5931,7 +5931,7 @@
       "imageUrl": null
     },
     {
-      "id": "03365dadc90f60c1",
+      "id": "527f6c5700897dfb",
       "sourceTitle": "La Vela Puerca El Impulso (2LP)",
       "artist": null,
       "album": null,
@@ -5941,7 +5941,7 @@
       "installment3Ars": 34085,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "UNIVERSAL",
       "coverKey": null,
       "featuredOrder": null,
@@ -7451,7 +7451,7 @@
       "imageUrl": null
     },
     {
-      "id": "a51e27f8ac088876",
+      "id": "03717c6702be5665",
       "sourceTitle": "Maxi Pardo 45",
       "artist": null,
       "album": null,
@@ -7461,7 +7461,7 @@
       "installment3Ars": 18069,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -7508,7 +7508,7 @@
       "imageUrl": null
     },
     {
-      "id": "acf58c6c055f65c0",
+      "id": "a54678bc24b130bc",
       "sourceTitle": "Memphis La Blusera 25 Aniversario En Vivo En El Luna Park (2LP)",
       "artist": null,
       "album": null,
@@ -7518,7 +7518,7 @@
       "installment3Ars": 28336,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -7527,7 +7527,7 @@
       "imageUrl": null
     },
     {
-      "id": "b843370d8932b23c",
+      "id": "bf9d12425a822d85",
       "sourceTitle": "Memphis La Blusera Medias Negras",
       "artist": null,
       "album": null,
@@ -7537,7 +7537,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": null,
       "coverKey": null,
       "featuredOrder": null,
@@ -7565,7 +7565,7 @@
       "imageUrl": null
     },
     {
-      "id": "7ab8451b5a2c1dff",
+      "id": "ac59da209e16bb5c",
       "sourceTitle": "Metallica …And Justice For All",
       "artist": null,
       "album": null,
@@ -7575,7 +7575,7 @@
       "installment3Ars": 25925,
       "stockStatus": "out",
       "stockRaw": "0",
-      "origin": "USA",
+      "origin": "ARGENTINA",
       "label": "BLACKENED",
       "coverKey": null,
       "featuredOrder": null,
@@ -7584,7 +7584,7 @@
       "imageUrl": null
     },
     {
-      "id": "84fc87f00339012e",
+      "id": "fd221c4b268f87c1",
       "sourceTitle": "Metallica Load (2LP)",
       "artist": null,
       "album": null,
@@ -7594,7 +7594,7 @@
       "installment3Ars": 28562,
       "stockStatus": "listed",
       "stockRaw": "2",
-      "origin": "USA",
+      "origin": "ARGENTINA",
       "label": "BLACKENED",
       "coverKey": null,
       "featuredOrder": null,
@@ -7641,7 +7641,7 @@
       "imageUrl": null
     },
     {
-      "id": "f4be2e3a5a11f992",
+      "id": "e80741f4096ceaa9",
       "sourceTitle": "Miguel Mateos Atado A Un Sentimiento",
       "artist": null,
       "album": null,
@@ -7651,7 +7651,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -7660,7 +7660,7 @@
       "imageUrl": null
     },
     {
-      "id": "5eb5cebb175084ea",
+      "id": "7c1f85d395251f4f",
       "sourceTitle": "Miguel Mateos Kriptonita",
       "artist": null,
       "album": null,
@@ -7670,7 +7670,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -7755,7 +7755,7 @@
       "imageUrl": null
     },
     {
-      "id": "b0b2ff649e39f1d6",
+      "id": "ab9138285614cfc6",
       "sourceTitle": "Minoria Activa Minoria Activa (Vinilo Color)",
       "artist": null,
       "album": null,
@@ -7765,8 +7765,8 @@
       "installment3Ars": 22587,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": "ARGENTINA",
-      "label": "PINHEAD RECORDS",
+      "origin": "REPUBLICA CHECA",
+      "label": "VEGAN RECORDS",
       "coverKey": null,
       "featuredOrder": null,
       "isPresale": false,
@@ -7774,7 +7774,7 @@
       "imageUrl": null
     },
     {
-      "id": "819110b219d0bbe1",
+      "id": "e7b92e4f8c22dc89",
       "sourceTitle": "Miranda Fuerte",
       "artist": null,
       "album": null,
@@ -7784,7 +7784,7 @@
       "installment3Ars": 15195,
       "stockStatus": "listed",
       "stockRaw": "2",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -7793,7 +7793,7 @@
       "imageUrl": null
     },
     {
-      "id": "9543f8af6168406d",
+      "id": "f617f0a656faeb78",
       "sourceTitle": "Miranda Hotel Miranda",
       "artist": null,
       "album": null,
@@ -7803,7 +7803,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -7812,7 +7812,7 @@
       "imageUrl": null
     },
     {
-      "id": "395f39b49f96a285",
+      "id": "4a032616e36f7125",
       "sourceTitle": "Miranda Nuevo Hotel Miranda",
       "artist": null,
       "album": null,
@@ -7822,7 +7822,7 @@
       "installment3Ars": 18069,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -7831,7 +7831,7 @@
       "imageUrl": null
     },
     {
-      "id": "573a279d3d6582f3",
+      "id": "d84b3218be7dd646",
       "sourceTitle": "Miranda Souvenir",
       "artist": null,
       "album": null,
@@ -7841,7 +7841,7 @@
       "installment3Ars": 15195,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -8230,8 +8230,8 @@
       "imageUrl": null
     },
     {
-      "id": "f287b3827192b50a",
-      "sourceTitle": "Nepal Manifiesto",
+      "id": "1b2f4e19d2760ce4",
+      "sourceTitle": "Nepal Ideología",
       "artist": null,
       "album": null,
       "format": null,
@@ -8363,7 +8363,7 @@
       "imageUrl": null
     },
     {
-      "id": "e63bdc182093d1f5",
+      "id": "d3b308a5c609308b",
       "sourceTitle": "No Te Va Gustar El Camino Mas Largo",
       "artist": null,
       "album": null,
@@ -8373,7 +8373,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ALEMANIA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
       "featuredOrder": null,
@@ -8382,7 +8382,7 @@
       "imageUrl": null
     },
     {
-      "id": "5f3efa7610742f75",
+      "id": "97ee457ac98c77fb",
       "sourceTitle": "No Te Va Gustar El TIempo Otra Vez Avanza (LP AZUL)",
       "artist": null,
       "album": null,
@@ -8392,7 +8392,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ALEMANIA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
       "featuredOrder": null,
@@ -8401,7 +8401,7 @@
       "imageUrl": null
     },
     {
-      "id": "dd332937e54b3a48",
+      "id": "dc249e7ae04406b2",
       "sourceTitle": "No Te Va Gustar Florece En El Caos",
       "artist": null,
       "album": null,
@@ -8411,7 +8411,7 @@
       "installment3Ars": 26283,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ALEMANIA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -8420,7 +8420,7 @@
       "imageUrl": null
     },
     {
-      "id": "373c257b8914ad2d",
+      "id": "d60f42f05dd91b63",
       "sourceTitle": "No Te Va Gustar Luz (LP BLANCO)",
       "artist": null,
       "album": null,
@@ -8430,7 +8430,7 @@
       "installment3Ars": 18069,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ALEMANIA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
       "featuredOrder": null,
@@ -8439,7 +8439,7 @@
       "imageUrl": null
     },
     {
-      "id": "3f03ba7c8f3f9b69",
+      "id": "7a2c9780327ca2e0",
       "sourceTitle": "No Te Va Gustar Otras Canciones (LP ROJO)",
       "artist": null,
       "album": null,
@@ -8449,7 +8449,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ALEMANIA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
       "featuredOrder": null,
@@ -8458,7 +8458,7 @@
       "imageUrl": null
     },
     {
-      "id": "40a43ad6ff30c76f",
+      "id": "12acb0621dda41f5",
       "sourceTitle": "No Te Va Gustar Por Lo Menos Hoy",
       "artist": null,
       "album": null,
@@ -8468,7 +8468,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ALEMANIA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
       "featuredOrder": null,
@@ -8477,7 +8477,7 @@
       "imageUrl": null
     },
     {
-      "id": "6b56bedbae61281f",
+      "id": "070d25f0875f1231",
       "sourceTitle": "No Te Va Gustar Solo De Noche (LP DORADO)",
       "artist": null,
       "album": null,
@@ -8487,7 +8487,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ALEMANIA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
       "featuredOrder": null,
@@ -8496,7 +8496,7 @@
       "imageUrl": null
     },
     {
-      "id": "1733dcad2499e8f1",
+      "id": "6c578f502aa101a6",
       "sourceTitle": "No Te Va Gustar Suenan Las Alarmas (LP ROJO)",
       "artist": null,
       "album": null,
@@ -8506,7 +8506,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ALEMANIA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
       "featuredOrder": null,
@@ -8515,7 +8515,7 @@
       "imageUrl": null
     },
     {
-      "id": "3959109935976dab",
+      "id": "33f6820c4eb1bc7f",
       "sourceTitle": "No Te Va Gustar Todo Es Tan Inflamable",
       "artist": null,
       "album": null,
@@ -8525,7 +8525,7 @@
       "installment3Ars": 22176,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ALEMANIA",
       "label": "PLAZA INDEPENDENCIA",
       "coverKey": null,
       "featuredOrder": null,
@@ -8584,6 +8584,25 @@
       "stockRaw": "1",
       "origin": null,
       "label": null,
+      "coverKey": null,
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": null
+    },
+    {
+      "id": "59bb93252fa02b51",
+      "sourceTitle": "Nueva Etica Inquenbrantable",
+      "artist": null,
+      "album": null,
+      "format": null,
+      "priceCashArs": 50000,
+      "priceCardOneArs": 56000,
+      "installment3Ars": 20533,
+      "stockStatus": "listed",
+      "stockRaw": "10+",
+      "origin": "ESPAÑA",
+      "label": "VEGAN RECORDS",
       "coverKey": null,
       "featuredOrder": null,
       "isPresale": false,
@@ -8914,7 +8933,7 @@
       "imageUrl": null
     },
     {
-      "id": "d419d225f981ef11",
+      "id": "be00d4dd3a384f5b",
       "sourceTitle": "Pappo's Blues Pappo S Blues Vol 1",
       "artist": null,
       "album": null,
@@ -8924,7 +8943,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -8933,7 +8952,7 @@
       "imageUrl": null
     },
     {
-      "id": "b2f5de4b0f34c430",
+      "id": "626904c5371d877f",
       "sourceTitle": "Pappo's Blues Pappo S Blues Vol 2",
       "artist": null,
       "album": null,
@@ -8943,7 +8962,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -8952,7 +8971,7 @@
       "imageUrl": null
     },
     {
-      "id": "a8efa4d4fb589653",
+      "id": "61635a9a03548760",
       "sourceTitle": "Pappo's Blues Pappo S Blues Vol 3",
       "artist": null,
       "album": null,
@@ -8962,7 +8981,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -8971,7 +8990,7 @@
       "imageUrl": null
     },
     {
-      "id": "7db30fc5f4797ab7",
+      "id": "fe73f5049d805abc",
       "sourceTitle": "Pappo's Blues Pappo S Blues Vol 4",
       "artist": null,
       "album": null,
@@ -8981,7 +9000,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -8990,7 +9009,7 @@
       "imageUrl": null
     },
     {
-      "id": "3ab16d865185c88e",
+      "id": "3590ac131bd7c243",
       "sourceTitle": "Pappo's Blues Pappo S Blues Vol 5",
       "artist": null,
       "album": null,
@@ -9000,7 +9019,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -9009,7 +9028,7 @@
       "imageUrl": null
     },
     {
-      "id": "0332d2df0739b0b5",
+      "id": "30808aa597af0f35",
       "sourceTitle": "Pappo's Blues Pappo S Blues Vol 6",
       "artist": null,
       "album": null,
@@ -9019,7 +9038,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -9028,7 +9047,7 @@
       "imageUrl": null
     },
     {
-      "id": "96255e36f0da8196",
+      "id": "7a731a5a7ef6c2bc",
       "sourceTitle": "Pappo's Blues Pappo S Blues Vol7",
       "artist": null,
       "album": null,
@@ -9038,7 +9057,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -9161,7 +9180,7 @@
       "imageUrl": null
     },
     {
-      "id": "e7e1f864b6b66b88",
+      "id": "0cccad66ef3ffe3c",
       "sourceTitle": "Pedro Y Pablo Yo Vivo En Esta Ciudad",
       "artist": null,
       "album": null,
@@ -9171,7 +9190,7 @@
       "installment3Ars": 17248,
       "stockStatus": "listed",
       "stockRaw": "1",
-      "origin": null,
+      "origin": "ARGENTINA",
       "label": "SONY",
       "coverKey": null,
       "featuredOrder": null,
@@ -10451,6 +10470,82 @@
       "isPresale": false,
       "purchaseUrl": null,
       "imageUrl": null
+    },
+    {
+      "id": "32bd53df0b042f01",
+      "sourceTitle": "Sin Ley 1000 del 3000 CD",
+      "artist": null,
+      "album": null,
+      "format": null,
+      "priceCashArs": 30000,
+      "priceCardOneArs": 33600,
+      "installment3Ars": 12320,
+      "stockStatus": "listed",
+      "stockRaw": "10",
+      "origin": "ARGENTINA",
+      "label": "VEGAN RECORDS",
+      "coverKey": null,
+      "featuredOrder": null,
+      "isPresale": true,
+      "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/preventa/sin-ley-a-1000-del-3000-cd",
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/30747f5c1747fb8d59c2bec74bd67d7da44897215cc84ab8afbde77a5bef38f9369298.jpg"
+    },
+    {
+      "id": "49345295e54568c9",
+      "sourceTitle": "Sin Ley 1000 del 3000 vinilo blanco",
+      "artist": null,
+      "album": null,
+      "format": null,
+      "priceCashArs": 65000,
+      "priceCardOneArs": 72800,
+      "installment3Ars": 26693,
+      "stockStatus": "listed",
+      "stockRaw": "10",
+      "origin": "EUROPA",
+      "label": "VEGAN RECORDS",
+      "coverKey": null,
+      "featuredOrder": null,
+      "isPresale": true,
+      "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/preventa/sin-ley-a-1000-del-3000-vinilo-blanco",
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/4c5c4fc6d785714a397292f5b19b04b868727d77e12af934c025d85146330414369298.jpg"
+    },
+    {
+      "id": "975b32c7efecace5",
+      "sourceTitle": "Sin Ley MAFISIMA CD",
+      "artist": null,
+      "album": null,
+      "format": null,
+      "priceCashArs": 30000,
+      "priceCardOneArs": 33600,
+      "installment3Ars": 12320,
+      "stockStatus": "listed",
+      "stockRaw": "10",
+      "origin": "ARGENTINA",
+      "label": "VEGAN RECORDS",
+      "coverKey": null,
+      "featuredOrder": null,
+      "isPresale": true,
+      "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/preventa/sin-ley-mafisima-cd-reedicion-2026",
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/e16568f07fa3d4be86388fd72b71691803d130960cc74ce310de2b23b1b0b8e2369298.jpg"
+    },
+    {
+      "id": "ef97fe2604b6c7f9",
+      "sourceTitle": "Sin Ley Mafísima vinilo dorado",
+      "artist": null,
+      "album": null,
+      "format": null,
+      "priceCashArs": 65000,
+      "priceCardOneArs": 72800,
+      "installment3Ars": 26693,
+      "stockStatus": "listed",
+      "stockRaw": "10",
+      "origin": "EUROPA",
+      "label": "VEGAN RECORDS",
+      "coverKey": null,
+      "featuredOrder": null,
+      "isPresale": true,
+      "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/preventa/sin-ley-mafisima-vinilo-dorado",
+      "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/f7fc8379a703aebb6a1bb00e849b5c68dd7a66f344448bd38f1ad79540111f21369298.jpg"
     },
     {
       "id": "18df4a777e906b9d",

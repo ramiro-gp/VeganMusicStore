@@ -1,6 +1,7 @@
 # Administración del catálogo desde Google Sheets
 
-Fuente: archivo `1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T`, pestaña `507485430`.
+Fuente: archivo `1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T`, única pestaña **VINILOS NUEVOS**.
+La exportación CSV usa la pestaña predeterminada del XLSX: el antiguo `gid=507485430` devuelve HTTP 400. Antes de añadir o reordenar pestañas, revisar la fuente de sincronización.
 Sitio comercial: https://veganrecords.com.ar.
 
 ## Guía para el dueño
@@ -31,7 +32,7 @@ No reutilizar la credencial general de Git almacenada en la computadora para ins
 
 ## Configuración de GitHub y publicación
 
-- `CATALOG_CSV_URL`: `https://docs.google.com/spreadsheets/d/1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T/export?format=csv&gid=507485430`.
+- `CATALOG_CSV_URL`: `https://docs.google.com/spreadsheets/d/1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T/export?format=csv`.
 - `CATALOG_AUTOMATION_ENABLED=true` y `DEPLOY_TARGET=hostinger`.
 - El cron de `catalog-sync.yml` es `0 12,22 * * *` en UTC.
 - Comparar datos normalizados; sin cambios no generar commit, build ni despliegue. Con cambios validar pruebas, tipos y build antes de promover el snapshot.
@@ -43,13 +44,9 @@ No reutilizar la credencial general de Git almacenada en la computadora para ins
 
 Sin esa variable, la validación es estricta y esas situaciones bloquean la actualización. Localmente puede solicitarse la excepción con `pnpm catalog:sync --verify --quarantine-incomplete`.
 
-Consultas pendientes para el dueño:
+Actualización posterior del 1 de noviembre: el dueño corrigió los enlaces e imágenes de los vinilos de Demonios de Tasmania, completó las cuatro preventas de Sin Ley y resolvió los duplicados de Nepal Ideologia y Nueva Etica. Esos productos ya pueden importarse. El importador respeta los enlaces corregidos sin aplicarles la corrección temporal de valores cruzados.
 
-- **Nepal Ideologia**: decidir cuál fila corresponde o identificar las ediciones distintas.
-- **Nepal Raza De Traidores**: $50.000 con stock 1 frente a $48.150 con stock 2.
-- **Nueva Etica Inquenbrantable**: $50.000 con stock 10+ frente a $55.000 con stock 1; confirmar si son ediciones distintas.
-- **Sin Ley 1000 del 3000, Mafísima y sus versiones CD**: completar O y P.
-- **Demonios de Tasmania, vinilos Sexcalextric y Modelo 96**: corregir los enlaces cruzados en P. El importador mantiene la corrección puntual de los dos valores erróneos conocidos y respeta correcciones futuras de la hoja.
+Queda pendiente **Nepal Raza De Traidores**, filas 434/435: $50.000 con stock 1 frente a $48.150 con stock 2. Se omiten ambas filas hasta confirmar sus datos.
 
 Las filas corregidas vuelven automáticamente en la siguiente sincronización. Cuando no haya omisiones, desactivar la excepción con `CATALOG_QUARANTINE_INCOMPLETE=false`.
 
