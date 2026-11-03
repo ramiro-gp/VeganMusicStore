@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "syncedAt": "2026-11-03T19:16:29.958Z",
+  "syncedAt": "2026-11-03T19:19:49.055Z",
   "products": [
     {
       "id": "42f1459f15e2b64e",
@@ -5736,7 +5736,7 @@
       "label": "PINHEAD RECORDS",
       "coverKey": null,
       "featuredOrder": null,
-      "isPresale": false,
+      "isPresale": true,
       "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/vinilos/preventa/demonios-de-tasmania-modelo-96-vinilo-blanco",
       "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/c180aa15c5fb64e3b4009a2159abdbc60c0bed1a96566b919d52c8bb4c8e04cd369298.jpg"
     },
