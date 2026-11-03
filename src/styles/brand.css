@@ -36,6 +36,10 @@
 .hero-description { font-size: clamp(14px, 1.2vw, 18px); line-height: 1.65; max-width: 47ch; margin-bottom: 24px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .hero-actions .button { width: auto; }
+.button-records { background: #000; color: #fff; border-color: #000; }
+.button-records:hover { background: #252525; border-color: #252525; }
+.home-content { position: relative; background: var(--paper); }
+.home-content-over-presale { z-index: 1; box-shadow: 0 -20px 64px #00000026; }
 .hero-foot { position: absolute; inset-inline: 0; bottom: 12px; border-top: 1px solid var(--line); }
 @media (min-width: 768px) and (max-width: 1099px) {
   .hero-actions .button { gap: 10px; padding-inline: 12px; font-size: 12px; }

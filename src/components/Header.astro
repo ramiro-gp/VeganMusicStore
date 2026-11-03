@@ -8,7 +8,7 @@ import { sectionNavigation } from '../config/navigation';
   <div class="header-inner shell">
     <a class="wordmark" href="/" aria-label="Vegan Store Music, inicio"><BrandLogo /></a>
     <nav class="main-nav" id="main-navigation" aria-label="Navegación principal" data-main-nav>
-      {sectionNavigation.map(item => <a href={item.href} aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>{item.label}</a>)}
+      {sectionNavigation.map(item => <a href={item.href} aria-current={Astro.url.pathname === item.href ? 'page' : undefined}><span>{item.label}</span><ArrowUpRight class="menu-link-arrow" size={28} aria-hidden="true" /></a>)}
     </nav>
     <div class="header-actions">
       <a class="header-cart" href={routes.cart} aria-label="Carrito de consulta" data-cart-link><ShoppingBag size={19} stroke-width={1.7} aria-hidden="true" /><span class="header-cart-label">Carrito</span><span class="cart-count" data-cart-count>0</span></a>
@@ -17,25 +17,4 @@ import { sectionNavigation } from '../config/navigation';
     </div>
   </div>
 </header>
-<script>
-  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
-  const navigation = document.querySelector<HTMLElement>('[data-main-nav]');
-  if (toggle && navigation) {
-    const setOpen = (open: boolean) => {
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-      navigation.dataset.open = String(open);
-    };
-    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
-    navigation.addEventListener('click', event => {
-      if ((event.target as Element).closest('a')) setOpen(false);
-    });
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
-    });
-    document.addEventListener('click', event => {
-      if (!(event.target as Element).closest('.site-header')) setOpen(false);
-    });
-    matchMedia('(min-width: 1100px)').addEventListener('change', () => setOpen(false));
-  }
-</script>
+<script>import '../scripts/header-navigation';</script>

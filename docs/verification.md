@@ -1,5 +1,33 @@
 # Verificación de la demo
 
+## 3 de noviembre de 2026 — Menú de pantalla completa, contacto y pie de página
+
+- La configuración local ya usaba el nuevo Google Sheets `1RUfWYnwu8UeFVyGasognSvI9-lZnM4rZjOxpHlRghcw`, pestaña comercial `1738630085`. Documentación alineada con esa referencia. El usuario confirmó que el script/botón ya sincroniza producción; no se modificó esa instalación ni el snapshot.
+- Contacto muestra “Consultar” con el ícono de WhatsApp. Las tres redes de “Seguí buscando” reutilizan los íconos del footer, antes del nombre de cada red. Footer inferior con guion normal en la dirección y “DISCOS / VINILOS / CDS / IMPORTACIÓN”. La grilla tiene cuatro columnas desde 1100 px y dos columnas por debajo: nunca distribuye tres ítems y uno.
+- Menú móvil con opciones grandes, apertura descendente y cierre ascendente de 500 ms. El panel comienza exactamente en el borde inferior del header y llega al borde inferior de la pantalla. Bloquea el contenido de fondo mientras abre, mantiene el foco en el header/menú, cierra con Escape y respeta movimiento reducido. En pantallas bajas, su contenido se puede desplazar sin ocultar el header.
+- Navegador real: 390×844 con header de 85 px y panel desde y=85 hasta y=844; apertura también desde el final de la página; cierre con Escape y botón; Tab/Shift+Tab contenidos; enlace “Contacto” cierra y navega a `/#contacto`. En 844×390, panel desde y=93 hasta y=390 y opciones desplazables. Footer 2×2 en 320, 390 y 768 px; una fila en 1440 px; sin desbordes horizontales. Íconos y textos comprobados en el DOM; sin errores JavaScript de consola.
+- 54 pruebas aprobadas, Astro check con 0 errores/advertencias/hints y build V1 correcto. Evidencia en `reports/header-menu-mobile.jpg`, `reports/footer-bottom-mobile.jpg` y `reports/footer-bottom-desktop.jpg`. Vista previa y servidor conservados activos. El usuario aprobó los cambios y solicitó commit y push.
+
+## 3 de noviembre de 2026 — Lila del catálogo y destacados sin preventas repetidas
+
+- “COMPRAR AHORA” y el hover/foco de “Sumar al carrito” y “Sin stock · Pedir” usan el lila principal `--accent` (`#9c84c3`), con texto oscuro como el botón “CATÁLOGO” del header. Las compras externas conservan el hover suave del botón del header.
+- “Dale una vuelta” excluye todos los productos en preventa, tanto de los destacados con imagen como de la selección fija de respaldo. Si no quedan imágenes fuera de la campaña, vuelve a la selección habitual sin repetir preventas. El carrito mantiene la campaña de preventa y los productos que dejan de estar en preventa vuelven a ser elegibles como destacados.
+- 54 pruebas aprobadas; Astro check sin errores, advertencias ni hints; build V1 correcto. Navegador local: header y ocho compras externas con fondo `rgb(156, 132, 195)`; “Sumar al carrito” enfocado con el mismo color y regla de hover compartida. Portada con ocho preventas y ocho destacados, sin ningún ID compartido. Sin errores JavaScript en el catálogo; búsqueda restaurada a su valor inicial. Captura en `reports/catalog-lilac.jpg`. Servidor local conservado activo.
+
+## 3 de noviembre de 2026 — Footer en tres columnas y vista previa accesible
+
+- Footer de escritorio dividido, en orden, en Vegan Music Store (logo, Instagram y WhatsApp con sus íconos), Vegan Records (logo, Instagram, Facebook y botón a Empretienda) y navegación. En celular se apilan las tres columnas. Los logos conservan sus proporciones y los enlaces de navegación usan violeta al pasar el cursor y al recibir foco de teclado.
+- El servidor anterior había quedado detenido. Al reiniciarlo dentro del sandbox, el proceso escuchaba en 4321 pero las conexiones desde Windows vencían. Se reinició Astro fuera del sandbox como proceso local persistente, con salida en `reports/dev-server.stdout.log` y `reports/dev-server.stderr.log`; se conserva activo para que el usuario revise los cambios.
+- Inicio HTTP 200 con el nuevo footer en la respuesta, y carga real en el navegador integrado confirmada. Escritorio de 1299 px: tres columnas iguales y ambos logos cargados. Celular de 390 px: una columna, sin desbordes horizontales. Enlaces, íconos y destino de Empretienda inspeccionados; la regla de hover coincide con el foco violeta observado (`rgb(156, 132, 195)`). Sin errores JavaScript en consola. Capturas en `reports/footer-desktop.jpg` y `reports/footer-mobile.jpg`.
+- Astro check: 0 errores, advertencias e hints. Build V1 correcto. Cambios locales, sin publicación remota.
+
+## 3 de noviembre de 2026 — Preventa antes del hero y acceso a Empretienda
+
+- V1 abre con la preventa cuando hay campaña, seguida del hero y de “Dale una vuelta”. La preventa tiene un alto mínimo de pantalla menos el encabezado y queda fija mientras el contenido siguiente sube por delante. Las campañas altas se pueden recorrer antes de fijarse; el efecto se desactiva con movimiento reducido o sin JavaScript. El ancla del menú permanece en el flujo normal para poder volver al comienzo de la campaña.
+- El carrito conserva el reemplazo de sus destacados por la preventa. El hero ahora enlaza a la Empretienda con “Tienda de Vegan Records”, fondo negro y texto blanco. Catálogo: hover violeta para sumar/pedir, compras externas violetas desde el estado inicial y “Compra en Empretienda” en negrita con la fuente 700 incluida.
+- 53 pruebas aprobadas; Astro check con 0 errores, advertencias e hints; builds V1 con y sin preventa correctos. Comprobación del HTML generado: orden de secciones, enlaces del hero, etiqueta en negrita y reemplazo exclusivo del carrito, también al cerrar la campaña. Las pruebas utilizan un directorio temporal dentro de `reports` para evitar un error de permisos de renombrado en el directorio temporal del sandbox. El snapshot real no se modificó.
+- Revisión visual pendiente: el navegador integrado devolvió `ERR_CONNECTION_TIMED_OUT` para el servidor local (que respondió HTTP 200 desde la terminal). El control de Chrome se detuvo porque no pudo verificar con confianza la URL activa. El desplazamiento y la adaptación visual requieren comprobación en un navegador. Cambios locales, sin publicación remota.
+
 ## 28 de octubre de 2026 — Primer despliegue en Hostinger
 
 - Destino indicado por el usuario: `veganrecords.com.ar`, cuenta `u571172642`, plan Premium. El sitio estaba recién creado y sólo tenía `default.php`. Se subió el build estático de `main` con `SITE_VARIANT=v1`, `SITE_MODE=production` y `SITE_URL=https://veganrecords.com.ar`. Configuración sin credenciales en `.hostinger/site.json`.

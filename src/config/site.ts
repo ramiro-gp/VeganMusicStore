@@ -12,7 +12,7 @@ export const siteConfig = {
     city: 'Ciudad Autónoma de Buenos Aires',
     region: 'CABA',
     country: 'AR',
-    display: 'Medrano 529 — Almagro, CABA',
+    display: 'Medrano 529 - Almagro, CABA',
   },
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Medrano%20529%2C%20Almagro%2C%20CABA',
   mapsEmbedUrl: 'https://www.google.com/maps?q=Medrano%20529%2C%20Almagro%2C%20CABA&output=embed',
@@ -23,8 +23,8 @@ export const siteConfig = {
   ],
   referralSource: 'vegan_store_music',
   catalog: {
-    // The shared XLSX has one sheet (VINILOS NUEVOS). Its former gid now returns HTTP 400.
-    csvUrl: 'https://docs.google.com/spreadsheets/d/1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T/export?format=csv',
+    // Native Google Sheet owned by VSM; export only the commercial catalog tab.
+    csvUrl: 'https://docs.google.com/spreadsheets/d/1RUfWYnwu8UeFVyGasognSvI9-lZnM4rZjOxpHlRghcw/export?format=csv&gid=1738630085',
     timeoutMs: 15000,
   },
   messages: {

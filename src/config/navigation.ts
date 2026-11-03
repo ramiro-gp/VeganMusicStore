@@ -6,7 +6,7 @@ const hasPresale = presaleProducts.length > 0;
 export const sectionNavigation = [
   { href: '/', label: 'Inicio' },
   {
-    href: siteVariant === 'v2' ? routes.catalog : `/${showcaseAnchor}`,
+    href: siteVariant === 'v2' ? routes.catalog : `/${hasPresale ? '#preventa' : showcaseAnchor}`,
     label: hasPresale ? 'Preventa' : 'Destacados',
   },
   { href: routes.records, label: 'Vegan Records' },

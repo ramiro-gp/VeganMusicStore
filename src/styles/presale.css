@@ -1,5 +1,10 @@
 .presale { --presale-ink: #17131d; --presale-paper: #f5f1f7; --presale-accent: #c5a7ec; background: var(--presale-ink); color: var(--presale-paper); padding-block: clamp(28px, 4vw, 54px) 26px; overflow: clip; }
 .presale-cart { margin-bottom: 64px; }
+.presale-home { min-height: calc(100svh - var(--header-height)); display: flex; flex-direction: column; justify-content: center; }
+.presale-home[data-pinned="true"] { position: sticky; top: var(--presale-top, var(--header-height)); z-index: 0; }
+.presale-continue { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 44px; color: var(--presale-accent); font-size: 10px; letter-spacing: .08em; }
+.presale-continue:hover { color: var(--presale-paper); }
+.presale-continue:focus-visible { outline-color: var(--presale-paper); }
 .presale-topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid #ffffff30; }
 .presale-badge { display: inline-flex; align-items: center; gap: 9px; color: var(--presale-accent); font-size: 11px; font-weight: 500; letter-spacing: .1em; }
 .presale-badge > span { width: 7px; height: 7px; background: currentColor; border-radius: 50%; box-shadow: 0 0 0 4px #c5a7ec18; }
@@ -53,4 +58,4 @@
   .presale-swipe { display: inline-flex; align-items: center; gap: 16px; color: var(--presale-accent); font-size: 9px; letter-spacing: .06em; }
   .presale-footer-mark { display: none; }
 }
-@media (prefers-reduced-motion: reduce) { .presale-art img { transition: none; } .presale-card:hover .presale-art img { transform: none; } .presale-track { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { .presale-home[data-pinned="true"] { position: relative; top: auto; } .presale-art img { transition: none; } .presale-card:hover .presale-art img { transform: none; } .presale-track { scroll-behavior: auto; } }

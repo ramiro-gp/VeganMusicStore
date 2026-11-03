@@ -6,12 +6,22 @@ import { selectShowcase, canAddToCart } from '../src/lib/catalog-selection.ts';
 const product = (title: string) => importCatalog(`Banda / Titulo,PRECIO EFT/TRAN,STOCK,ORIGEN,SELLO\n${title},100,1,ARGENTINA,SELLO`).products[0];
 const image = 'https://images.example.com/disco.jpg';
 
-test('las preventas reemplazan todos los destacados; cerrarlas restaura la selección de O', () => {
+test('las preventas conviven con los destacados del inicio y sólo los reemplazan en el carrito', () => {
   const marked = { ...product('Zeta'), imageUrl: image };
   const presale = { ...product('Alfa'), isPresale: true, imageUrl: image, purchaseUrl: 'https://veganrecords.empretienda.com.ar/disco' };
-  assert.deepEqual(selectShowcase([marked, presale]), { mode: 'presale', items: [presale] });
+  assert.deepEqual(selectShowcase([marked, presale]), { mode: 'featured', items: [marked] });
+  assert.deepEqual(selectShowcase([marked, presale], 'cart'), { mode: 'presale', items: [presale] });
   const closed = { ...presale, isPresale: false };
   assert.deepEqual(selectShowcase([marked, closed]), { mode: 'featured', items: [closed, marked] });
+  assert.deepEqual(selectShowcase([marked, closed], 'cart'), { mode: 'featured', items: [closed, marked] });
+});
+
+test('si sólo las preventas tienen imagen, usa la selección fija sin repetir preventas ni por título', () => {
+  const presale = { ...product('Babasonicos Jessico'), isPresale: true, imageUrl: image, purchaseUrl: 'https://veganrecords.empretienda.com.ar/disco' };
+  const fallback = product('Bad Brains Into The Future');
+  assert.deepEqual(selectShowcase([presale, fallback]), { mode: 'fallback', items: [fallback] });
+  assert.deepEqual(selectShowcase([presale]), { mode: 'fallback', items: [] });
+  assert.deepEqual(selectShowcase([presale, fallback], 'cart'), { mode: 'presale', items: [presale] });
 });
 
 test('destaca todos los álbumes con imagen, en orden alfabético, sin límite ni filtro de stock', () => {

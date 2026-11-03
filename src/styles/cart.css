@@ -10,7 +10,10 @@ a[aria-disabled="true"] { pointer-events: none; }
 .catalog-feedback:has(a:not([hidden])) { position: sticky; top: var(--header-height); z-index: 20; padding-block: 12px; background: var(--paper); border-bottom: 1px solid var(--line); margin-bottom: 16px; }
 .catalog-item-actions { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .catalog-add { background: transparent; color: var(--ink); font-size: 11px; padding: 9px 12px; gap: 8px; white-space: nowrap; }
-.catalog-add:not(:disabled):hover { background: var(--ink); color: var(--paper); }
+.catalog-add:not(:disabled):hover, .catalog-add:focus-visible { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.catalog-add.purchase-link, .catalog-add[data-line-buy] { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.catalog-add.purchase-link:hover, .catalog-add[data-line-buy]:hover { background: var(--accent-soft); border-color: var(--accent-ink); color: var(--ink); }
+.catalog-item-meta strong { font-weight: 700; }
 .catalog-item-actions .catalog-item-link { grid-column: auto; grid-row: auto; min-height: 44px; }
 .catalog-controls { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 16px; }
 .catalog-controls .search-field { grid-column: 1 / -1; }

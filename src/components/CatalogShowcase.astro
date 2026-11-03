@@ -1,8 +1,8 @@
 ---
-import { showcase } from '../lib/catalog-data';
+import { cartShowcase } from '../lib/catalog-data';
 import RecordSlider from './RecordSlider.astro';
 import PresaleShowcase from './PresaleShowcase.astro';
 interface Props { context?: 'home' | 'cart'; }
 const { context = 'home' } = Astro.props;
 ---
-{showcase.mode === 'presale' ? <PresaleShowcase items={showcase.items} context={context} /> : <RecordSlider context={context} />}
+{context === 'cart' && cartShowcase.mode === 'presale' ? <PresaleShowcase items={cartShowcase.items} context={context} /> : <RecordSlider context={context} />}

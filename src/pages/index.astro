@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import CatalogShowcase from '../components/CatalogShowcase.astro';
+import PresaleShowcase from '../components/PresaleShowcase.astro';
 import StoreDestinations from '../components/StoreDestinations.astro';
 import CompactHero from '../components/CompactHero.astro';
 import CatalogIntro from '../components/CatalogIntro.astro';
@@ -13,9 +14,15 @@ import Process from '../components/Process.astro';
 import Location from '../components/Location.astro';
 import { siteVariant } from '../config/variant';
 import { catalogSchema } from '../lib/catalog-schema';
+import { presaleProducts } from '../lib/catalog-data';
 const variantTwo = siteVariant === 'v2';
 const origin = Astro.site ?? new URL('http://localhost:4321');
 ---
 <BaseLayout title={variantTwo ? 'Catálogo de discos y vinilos — Vegan Store Music' : 'CDs y discos de vinilo: venta e importación — Vegan Store Music'} description={variantTwo ? undefined : 'Venta e importación de CDs y discos de vinilo en Almagro, Buenos Aires. Explorá ediciones nacionales e importadas y consultá por álbumes a pedido. Envíos a todo el país y al mundo.'} schema={variantTwo ? catalogSchema(origin, false) : []}>
-  {variantTwo ? <><CompactHero /><CatalogIntro compact /><CatalogList /><RecordsCallout /><ImportCallout /></> : <><Hero /><CatalogShowcase /><StoreDestinations /><ImportCallout /><About /><Process /><Location /></>}
+  {variantTwo ? <><CompactHero /><CatalogIntro compact /><CatalogList /><RecordsCallout /><ImportCallout /></> : <>
+    {presaleProducts.length > 0 && <PresaleShowcase items={presaleProducts} />}
+    <div class:list={['home-content', { 'home-content-over-presale': presaleProducts.length > 0 }]}>
+      <Hero /><CatalogShowcase /><StoreDestinations /><ImportCallout /><About /><Process /><Location />
+    </div>
+  </>}
 </BaseLayout>

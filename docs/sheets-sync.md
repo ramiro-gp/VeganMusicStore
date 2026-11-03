@@ -1,14 +1,14 @@
 # Administración del catálogo desde Google Sheets
 
-Fuente: archivo `1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T`, única pestaña **VINILOS NUEVOS**.
-La exportación CSV usa la pestaña predeterminada del XLSX: el antiguo `gid=507485430` devuelve HTTP 400. Antes de añadir o reordenar pestañas, revisar la fuente de sincronización.
+Fuente: [Google Sheets del catálogo](https://docs.google.com/spreadsheets/d/1RUfWYnwu8UeFVyGasognSvI9-lZnM4rZjOxpHlRghcw/edit?usp=sharing), archivo `1RUfWYnwu8UeFVyGasognSvI9-lZnM4rZjOxpHlRghcw`.
+La exportación CSV selecciona explícitamente la pestaña comercial con `gid=1738630085`. Antes de cambiar de pestaña, revisar la fuente de sincronización. El dueño confirmó que el script y botón de sincronización ya funcionan con producción.
 Sitio comercial: https://veganrecords.com.ar.
 
 ## Guía para el dueño
 
 1. Editá precios y stock en la pestaña del catálogo.
-2. Para destacar un disco, pegá una URL HTTPS directa a su imagen en **O**. Borrarla quita el destacado. Los discos elegidos aparecen en ambos sliders, en orden alfabético.
-3. Para activar una preventa, escribí **PREVENTA** en **I** y completá **O** (imagen) y **P** (producto de Empretienda). Las preventas reemplazan ambos sliders. Al quitar la marca de todas las preventas vuelven los destacados de O; si no hay imágenes, vuelve la selección fija anterior.
+2. Para destacar un disco, pegá una URL HTTPS directa a su imagen en **O**. Borrarla quita el destacado. “Dale una vuelta” muestra los discos elegidos que no están en preventa, en orden alfabético. Si todos los discos con imagen están en preventa, se usa la selección fija anterior sin repetir preventas. El carrito muestra esos destacados cuando no hay campaña de preventa.
+3. Para activar una preventa, escribí **PREVENTA** en **I** y completá **O** (imagen) y **P** (producto de Empretienda). En el inicio de V1, la preventa aparece antes del hero y “Dale una vuelta” sigue debajo de él. En el carrito, la preventa sí reemplaza el slider. Al quitar la marca de todas las preventas desaparece la apertura de preventa y vuelven los destacados de O al carrito; si no hay imágenes, vuelve la selección fija anterior.
 4. Abrí **Vegan Store Music → Sincronizar web** y pulsá **Sincronizar web**. Si se agregó un dibujo como botón, abre el mismo panel.
 5. “Solicitud enviada” confirma el pedido. El enlace permite revisar su ejecución en GitHub; sólo al finalizar la publicación estará actualizada la web. Puede tardar unos minutos. No hace falta repetir el clic: hay un intervalo mínimo de 60 segundos.
 
@@ -32,7 +32,7 @@ No reutilizar la credencial general de Git almacenada en la computadora para ins
 
 ## Configuración de GitHub y publicación
 
-- `CATALOG_CSV_URL`: `https://docs.google.com/spreadsheets/d/1ev9w0mKaMnLavvfRfqYRYZ-jFpj0_o5T/export?format=csv`.
+- `CATALOG_CSV_URL`: `https://docs.google.com/spreadsheets/d/1RUfWYnwu8UeFVyGasognSvI9-lZnM4rZjOxpHlRghcw/export?format=csv&gid=1738630085`.
 - `CATALOG_AUTOMATION_ENABLED=true` y `DEPLOY_TARGET=hostinger`.
 - El cron de `catalog-sync.yml` es `0 12,22 * * *` en UTC.
 - Comparar datos normalizados; sin cambios no generar commit, build ni despliegue. Con cambios validar pruebas, tipos y build antes de promover el snapshot.

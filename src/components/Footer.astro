@@ -6,23 +6,34 @@ import { sectionNavigation } from '../config/navigation';
 import { referralUrl } from '../lib/external-links';
 import BrandLogo from './BrandLogo.astro';
 import SocialLinks from './SocialLinks.astro';
+import ContactLink from './ContactLink.astro';
 ---
 <footer class="site-footer">
   <div class="shell">
     <div class="footer-top">
-      <a href="/" class="footer-brand" aria-label="Vegan Store Music, inicio"><BrandLogo placement="footer" /></a>
-      <nav class="footer-navigation" aria-label="Navegación del pie de página">
-        {sectionNavigation.map(item => <a href={item.href}>{item.label} <ArrowUpRight size={15} aria-hidden="true" /></a>)}
-        <a href={routes.cart} data-cart-link><span>Carrito (<span data-cart-count>0</span> <span data-cart-item-label>items</span>)</span> <ArrowUpRight size={15} aria-hidden="true" /></a>
-        <a href={routes.catalog}>Catálogo <ArrowUpRight size={15} aria-hidden="true" /></a>
-      </nav>
-      <div class="footer-networks">
-        <div><p class="eyebrow">VEGAN STORE MUSIC</p><SocialLinks brand="store" /></div>
-        <div><p class="eyebrow">VEGAN RECORDS</p><SocialLinks brand="records" /><a class="footer-store-link" href={recordsStoreUrl} target="_blank" rel="noopener">Tienda en Empretienda <ArrowUpRight size={14} aria-hidden="true" /></a></div>
+      <div class="footer-column" aria-labelledby="footer-store-title">
+        <h2 class="eyebrow footer-column-title" id="footer-store-title">VEGAN MUSIC STORE</h2>
+        <a href="/" class="footer-brand" aria-label="Vegan Music Store, inicio"><BrandLogo placement="footer" /></a>
+        <SocialLinks brand="store" withIcons />
+        <ContactLink class="footer-contact" icon="whatsapp" compact label="WhatsApp de Vegan Music Store (abre en otra pestaña)">WhatsApp</ContactLink>
+      </div>
+      <div class="footer-column" aria-labelledby="footer-records-title">
+        <h2 class="eyebrow footer-column-title" id="footer-records-title">VEGAN RECORDS</h2>
+        <a href={routes.records} class="footer-brand" aria-label="Conocé Vegan Records"><BrandLogo brand="records" placement="footer" /></a>
+        <SocialLinks brand="records" withIcons />
+        <a class="button footer-store-button" href={recordsStoreUrl} target="_blank" rel="noopener" aria-label="Tienda de Vegan Records (abre en otra pestaña)">Tienda de Vegan Records <ArrowUpRight size={17} aria-hidden="true" /></a>
+      </div>
+      <div class="footer-column" aria-labelledby="footer-navigation-title">
+        <h2 class="eyebrow footer-column-title" id="footer-navigation-title">NAVEGACIÓN</h2>
+        <nav class="footer-navigation" aria-label="Navegación del pie de página">
+          {sectionNavigation.map(item => <a href={item.href}>{item.label} <ArrowUpRight size={15} aria-hidden="true" /></a>)}
+          <a href={routes.cart} data-cart-link><span>Carrito (<span data-cart-count>0</span> <span data-cart-item-label>items</span>)</span> <ArrowUpRight size={15} aria-hidden="true" /></a>
+          <a href={routes.catalog}>Catálogo <ArrowUpRight size={15} aria-hidden="true" /></a>
+        </nav>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>{siteConfig.address.display}</p><p>DISCOS / VINILOS / IMPORTACIÓN</p><p>HECHO PARA ESCUCHAR.</p>
+      <p>{siteConfig.address.display}</p><p>DISCOS / VINILOS / CDS / IMPORTACIÓN</p><p>HECHO PARA ESCUCHAR.</p>
       <p class="footer-credit">Hecho con <Headphones class="footer-credit-icon" size={15} aria-hidden="true" /> por <a href={referralUrl('https://ramita.dev', 'footer_credit')} target="_blank" rel="noopener">Ramiro Garcia</a></p>
     </div>
   </div>
