@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "syncedAt": "2026-11-03T19:13:18.380Z",
+  "syncedAt": "2026-11-03T19:16:29.958Z",
   "products": [
     {
       "id": "42f1459f15e2b64e",
@@ -5717,7 +5717,7 @@
       "label": "PINHEAD RECORDS",
       "coverKey": null,
       "featuredOrder": null,
-      "isPresale": false,
+      "isPresale": true,
       "purchaseUrl": "https://veganrecords.empretienda.com.ar/general/vinilos/demonios-de-tasmania-sexcalextric-vinilo-violeta",
       "imageUrl": "https://d22fxaf9t8d39k.cloudfront.net/45cf089099f8860a854307e9682a97a0ae5ed912621d3b71bcb4bcbad52fdd67369298.jpg"
     },
