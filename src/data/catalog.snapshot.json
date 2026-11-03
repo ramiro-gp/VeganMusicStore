@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "syncedAt": "2026-11-02T01:00:08.587Z",
+  "syncedAt": "2026-11-03T18:54:02.207Z",
   "products": [
     {
       "id": "42f1459f15e2b64e",
@@ -9926,9 +9926,9 @@
       "artist": null,
       "album": null,
       "format": null,
-      "priceCashArs": 80250,
-      "priceCardOneArs": 89880,
-      "installment3Ars": 32956,
+      "priceCashArs": 95000,
+      "priceCardOneArs": 106400,
+      "installment3Ars": 39013,
       "stockStatus": "listed",
       "stockRaw": "3",
       "origin": "CANADA",
