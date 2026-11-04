@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "syncedAt": "2026-11-03T19:22:38.587Z",
+  "syncedAt": "2026-11-04T19:11:12.118Z",
   "products": [
     {
       "id": "42f1459f15e2b64e",
@@ -1121,7 +1121,7 @@
       "featuredOrder": null,
       "isPresale": false,
       "purchaseUrl": null,
-      "imageUrl": null
+      "imageUrl": "https://drive.google.com/file/d/1Nj2sTrOzjkKpdrOjDW8EUpfH1uev2YS0/view?usp=sharing"
     },
     {
       "id": "5378badd1e1ca87f",
@@ -3743,7 +3743,7 @@
       "featuredOrder": null,
       "isPresale": false,
       "purchaseUrl": null,
-      "imageUrl": null
+      "imageUrl": "https://drive.google.com/file/d/1CItxwJm_fq6upW1P8_-ZAw80VBC6pkXq/view?usp=sharing"
     },
     {
       "id": "f74485484a9e439f",
@@ -5969,6 +5969,25 @@
       "imageUrl": null
     },
     {
+      "id": "0bb8d638ef360688",
+      "sourceTitle": "Lali y Miranda Bailar o Morir",
+      "artist": null,
+      "album": null,
+      "format": null,
+      "priceCashArs": 58000,
+      "priceCardOneArs": 64960,
+      "installment3Ars": 23819,
+      "stockStatus": "listed",
+      "stockRaw": "1",
+      "origin": "ARGENTINA",
+      "label": "SONY",
+      "coverKey": null,
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": "https://drive.google.com/file/d/12sGiTW6QDNS5zUG-daoMzyM7MmfT1vqX/view?usp=sharing"
+    },
+    {
       "id": "79efa6ff6956e818",
       "sourceTitle": "Las Mosquitas Las Mosquitas",
       "artist": null,
@@ -7087,7 +7106,7 @@
       "featuredOrder": null,
       "isPresale": false,
       "purchaseUrl": null,
-      "imageUrl": null
+      "imageUrl": "https://drive.google.com/file/d/11UyRDYvzuKsSiw66UFYWac8pTWcnky1J/view?usp=sharing"
     },
     {
       "id": "c0481d76aeb239d3",
@@ -9736,9 +9755,9 @@
       "artist": null,
       "album": null,
       "format": null,
-      "priceCashArs": 54000,
-      "priceCardOneArs": 60480,
-      "installment3Ars": 22176,
+      "priceCashArs": 55000,
+      "priceCardOneArs": 61600,
+      "installment3Ars": 22587,
       "stockStatus": "listed",
       "stockRaw": "1",
       "origin": null,
@@ -9766,7 +9785,7 @@
       "featuredOrder": null,
       "isPresale": false,
       "purchaseUrl": null,
-      "imageUrl": null
+      "imageUrl": "https://drive.google.com/file/d/16WpcPnRBM_9UrfKUlyDaNAd92Z0j9B3t/view?usp=sharing"
     },
     {
       "id": "53e2ac4e3f329627",
@@ -11933,6 +11952,25 @@
       "isPresale": false,
       "purchaseUrl": null,
       "imageUrl": null
+    },
+    {
+      "id": "b4e9e49ab538251b",
+      "sourceTitle": "Trueno Atrevido",
+      "artist": null,
+      "album": null,
+      "format": null,
+      "priceCashArs": 45000,
+      "priceCardOneArs": 50400,
+      "installment3Ars": 18480,
+      "stockStatus": "listed",
+      "stockRaw": "1",
+      "origin": "ARGENTINA",
+      "label": "SONY",
+      "coverKey": null,
+      "featuredOrder": null,
+      "isPresale": false,
+      "purchaseUrl": null,
+      "imageUrl": "https://drive.google.com/file/d/1NUDZE9Z8aWIb64aOXe2diQ3HP8gKktsr/view?usp=sharing"
     },
     {
       "id": "6aaf5ca520e2b997",
