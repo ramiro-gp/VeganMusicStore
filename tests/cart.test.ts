@@ -149,7 +149,7 @@ test('mensaje completo coincide con resumen para cada medio y conserva acentos y
     }
     if (summary.installmentCents !== null) assert.ok(message.includes(`3 cuotas de ${format(summary.installmentCents)}`));
     const url = new URL(whatsappUrl(message)!);
-    assert.equal(url.pathname, '/5491158974298');
+    assert.equal(url.pathname, '/5491133209284');
     assert.equal(url.searchParams.get('text'), message);
     assert.doesNotMatch(message, /[\u00a0\u202f\u0000]/);
     assert.match(message, /stock y el precio/);

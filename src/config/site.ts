@@ -4,7 +4,7 @@ export const siteConfig = {
   locale: 'es-AR',
   contact: {
     // Único lugar para el número. Usar código internacional, sin + ni espacios.
-    whatsappNumber: '5491158974298' as string | null,
+    whatsappNumber: '5491133209284' as string | null,
   },
   address: {
     street: 'Medrano 529',

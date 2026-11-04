@@ -30,12 +30,12 @@ test('la consulta directa de un agotado pregunta por el costo a pedido y omite e
 });
 
 test('el destinatario configurado es exactamente el número nuevo y acepta separadores sin alterar sus dígitos', () => {
-  for (const number of ['5491158974298', '+54 9 11 5897-4298', '+54 (9) 11 5897–4298', '  +５４ ９ １１ ５８９７-４２９８  ']) {
-    assert.equal(normalizeWhatsappNumber(number), '5491158974298');
-    assert.equal(new URL(whatsappUrl('Consulta', number)!).pathname, '/5491158974298');
+  for (const number of ['5491133209284', '+54 9 11 3320-9284', '+54 (9) 11 3320–9284', '  +５４ ９ １１ ３３２０-９２８４  ']) {
+    assert.equal(normalizeWhatsappNumber(number), '5491133209284');
+    assert.equal(new URL(whatsappUrl('Consulta', number)!).pathname, '/5491133209284');
   }
-  assert.equal(new URL(whatsappUrl('Consulta')!).pathname, '/5491158974298');
-  for (const invalid of ['', '005491158974298', '5491158974298 ext 12', '5491158974298?text=otro', 'https://wa.me/5491158974298', '54911+58974298', '9'.repeat(16)]) assert.throws(() => normalizeWhatsappNumber(invalid));
+  assert.equal(new URL(whatsappUrl('Consulta')!).pathname, '/5491133209284');
+  for (const invalid of ['', '005491133209284', '5491133209284 ext 12', '5491133209284?text=otro', 'https://wa.me/5491133209284', '54911+33209284', '9'.repeat(16)]) assert.throws(() => normalizeWhatsappNumber(invalid));
 });
 
 test('el texto conserva acentos, signos, importes y saltos de línea tras una sola decodificación', () => {
