@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "syncedAt": "2026-11-12T16:38:41.111Z",
+  "syncedAt": "2026-11-12T21:04:59.894Z",
   "products": [
     {
       "id": "42f1459f15e2b64e",
@@ -1121,7 +1121,7 @@
       "featuredOrder": null,
       "isPresale": false,
       "purchaseUrl": null,
-      "imageUrl": "https://drive.google.com/file/d/1Nj2sTrOzjkKpdrOjDW8EUpfH1uev2YS0/view?usp=sharing"
+      "imageUrl": null
     },
     {
       "id": "5378badd1e1ca87f",
@@ -3743,7 +3743,7 @@
       "featuredOrder": null,
       "isPresale": false,
       "purchaseUrl": null,
-      "imageUrl": "https://drive.google.com/file/d/1CItxwJm_fq6upW1P8_-ZAw80VBC6pkXq/view?usp=sharing"
+      "imageUrl": null
     },
     {
       "id": "f74485484a9e439f",
@@ -7106,7 +7106,7 @@
       "featuredOrder": null,
       "isPresale": false,
       "purchaseUrl": null,
-      "imageUrl": "https://drive.google.com/file/d/11UyRDYvzuKsSiw66UFYWac8pTWcnky1J/view?usp=sharing"
+      "imageUrl": null
     },
     {
       "id": "c0481d76aeb239d3",
@@ -9804,7 +9804,7 @@
       "featuredOrder": null,
       "isPresale": false,
       "purchaseUrl": null,
-      "imageUrl": "https://drive.google.com/file/d/16WpcPnRBM_9UrfKUlyDaNAd92Z0j9B3t/view?usp=sharing"
+      "imageUrl": null
     },
     {
       "id": "53e2ac4e3f329627",
