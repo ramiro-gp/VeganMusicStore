@@ -1,7 +1,7 @@
 name: Sincronizar catálogo
 on:
   schedule:
-    - cron: '0 12,22 * * *' # Argentina: 09:00 y 19:00 (UTC-3)
+    - cron: '0 12,16,19,22 * * *' # Argentina: 09:00, 13:00, 16:00 y 19:00 (UTC-3)
   workflow_dispatch:
 permissions:
   contents: write
@@ -17,8 +17,8 @@ jobs:
       changed: ${{ steps.catalog.outputs.changed }}
     env:
       SITE_VARIANT: v1
-      SITE_MODE: demo
-      SITE_URL: https://vegan-store-music.vercel.app
+      SITE_MODE: production
+      SITE_URL: https://veganrecords.com.ar
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:

@@ -12,7 +12,9 @@ Sitio comercial: https://veganrecords.com.ar.
 4. Abrí **Vegan Store Music → Sincronizar web** y pulsá **Sincronizar web**. Si se agregó un dibujo como botón, abre el mismo panel.
 5. “Solicitud enviada” confirma el pedido. El enlace permite revisar su ejecución en GitHub; sólo al finalizar la publicación estará actualizada la web. Puede tardar unos minutos. No hace falta repetir el clic: hay un intervalo mínimo de 60 segundos.
 
-Los respaldos automáticos se solicitan a las **09:00 y 19:00 de Argentina**, todos los días. GitHub puede demorarlos. La fecha del catálogo cambia cuando cambian los datos; no cambia por una revisión sin novedades. Los visitantes no consultan Sheets.
+Las sincronizaciones automáticas se solicitan a las **09:00, 13:00, 16:00 y 19:00 de Argentina**, todos los días. GitHub puede demorarlas. La fecha del catálogo cambia cuando cambian los datos; no cambia por una revisión sin novedades. Los visitantes no consultan Sheets.
+
+Si `sync` termina en verde y `publish-hostinger` aparece gris con **This job was skipped**, revisá el resumen de la ejecución: **Sin cambios en el catálogo** significa que Sheets ya coincide con el snapshot. Es una revisión correcta y no requiere publicar de nuevo. Si hay cambios válidos, se versionan y se ejecuta la publicación. El botón manual usa este mismo comportamiento.
 
 Usá URLs de imágenes accesibles sin iniciar sesión, no enlaces a una página de Drive. No muevas I, O ni P. El formato `$63.130` equivale a 63.130 pesos. La hoja contiene información comercial pública.
 
@@ -34,7 +36,7 @@ No reutilizar la credencial general de Git almacenada en la computadora para ins
 
 - `CATALOG_CSV_URL`: `https://docs.google.com/spreadsheets/d/1RUfWYnwu8UeFVyGasognSvI9-lZnM4rZjOxpHlRghcw/export?format=csv&gid=1738630085`.
 - `CATALOG_AUTOMATION_ENABLED=true` y `DEPLOY_TARGET=hostinger`.
-- El cron de `catalog-sync.yml` es `0 12,22 * * *` en UTC.
+- El cron de `catalog-sync.yml` es `0 12,16,19,22 * * *` en UTC.
 - Comparar datos normalizados; sin cambios no generar commit, build ni despliegue. Con cambios validar pruebas, tipos y build antes de promover el snapshot.
 - Las consultas o ventas no descuentan inventario: el dueño mantiene el stock en Sheets.
 

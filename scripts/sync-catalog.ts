@@ -27,7 +27,7 @@ try {
   const result = changed ? 'Catálogo actualizado' : 'Sin cambios en el catálogo';
   console.log(`${result}: ${snapshot.products.length} productos únicos. Última actualización de datos: ${snapshot.syncedAt}`);
   if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `changed=${changed}\n`);
-  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `### ${result}\n\n${snapshot.products.length} productos. Fecha del snapshot: ${snapshot.syncedAt}.\n${changed ? 'Snapshot validado; listo para versionar y publicar.' : 'Se conserva el snapshot anterior. No se genera commit ni despliegue.'}\n`);
+  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `### ${result}\n\n${snapshot.products.length} productos. Fecha del snapshot: ${snapshot.syncedAt}.\n${changed ? 'Snapshot validado; listo para versionar y publicar.' : 'La revisión de Sheets finalizó correctamente. Se conserva el snapshot anterior. No se genera commit ni despliegue: publish-hostinger figura como skipped (omitido) porque no hay novedades que publicar.'}\n`);
   if (warnings.length && process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `\n### Filas pendientes del dueño\n\n${warnings.map(message => `- ${message}`).join('\n')}\n\nSe omitieron por la excepción temporal CATALOG_QUARANTINE_INCOMPLETE. Corregir Sheets y volver a sincronizar.\n`);
 } catch (error) {
   console.error((error as Error).message);

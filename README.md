@@ -2,9 +2,9 @@
 
 Web de Vegan Store Music, con Astro estático y catálogo/carrito de consulta. La versión elegida es V1 con hero fullscreen, integrada en `main` el 28/10/2026. Google Sheets es la fuente de precios y stock; el navegador nunca consulta la hoja. Desarrollo local en `C:\Codigo\vegan-store-music`.
 
-El sitio comercial se publica como Astro estático en Hostinger para `https://veganrecords.com.ar`, con `SITE_MODE=production`. Vercel se conserva para revisión de cambios, con `SITE_MODE=demo` y noindex. El registro del dominio se mantiene en NIC Argentina.
+El sitio comercial se publica como Astro estático en Hostinger para `https://veganrecords.com.ar`, con `SITE_MODE=production`. Las demos históricas de Vercel ya no se utilizan; `vercel.json` deshabilita sus despliegues automáticos desde Git. El registro del dominio se mantiene en NIC Argentina.
 
-V1: [vegan-store-music.vercel.app](https://vegan-store-music.vercel.app/). V2 se publica en el proyecto independiente `vegan-store-music-v2`. Validaciones y métricas reales en [docs/verification.md](docs/verification.md).
+Sitio: [veganrecords.com.ar](https://veganrecords.com.ar/). Validaciones y métricas reales en [docs/verification.md](docs/verification.md).
 
 ## Desarrollo
 
@@ -126,14 +126,13 @@ V2 utiliza una composición propia de aproximadamente `40svh`, sin sticky ni rec
 
 ## Despliegue
 
-- **Demos Vercel:** framework Astro, comando `pnpm build`, salida `dist`, sin adaptador. Proyecto existente `vegan-store-music` con `SITE_VARIANT=v1`; segundo proyecto `vegan-store-music-v2` con `SITE_VARIANT=v2`. Mantener `SITE_MODE=demo` y `SITE_URL` propio en cada proyecto. Ambas propuestas se presentan mediante enlaces independientes.
 - **Cloudflare Pages:** repositorio GitHub, comando `pnpm build`, salida `dist`. No añadir adaptador ni Functions.
 - **Hostinger:** sitio estático en `veganrecords.com.ar`, con destino en `.hostinger/site.json`. Construir con `SITE_VARIANT=v1`, `SITE_MODE=production` y `SITE_URL=https://veganrecords.com.ar`. El contenido de `dist/` va directamente a `public_html`, sin requerir Node en el servidor. `public/.htaccess` configura el 404 propio, desactiva el listado de directorios y redirige `www` al dominio principal.
 - **Publicación automática de Hostinger:** configurada con la variable de repositorio `DEPLOY_TARGET=hostinger` y la rama `deploy-static` conectada en hPanel al repositorio `ramiro-gp/VeganMusicStore`. `hostinger-deploy.yml` genera esa rama con sólo el build de producción, luego de pruebas, tipos y build. Se ejecuta por pushes a `main`, manualmente o desde la sincronización del catálogo. Conserva un historial lineal en `deploy-static`, no crea commits si el build no cambia y evita publicar un build si `main` avanzó durante su preparación. El primer despliegue también puede hacerse subiendo el build estático por la API de Hostinger.
 
-El repositorio es `ramiro-gp/VeganMusicStore`, rama `main`, conectado al proyecto existente `vegan-store-music`. GitHub Actions comprueba el CSV a las **09:00 y 19:00 de Argentina**: `0 12,22 * * *` en UTC. Se habilita con la variable de repositorio `CATALOG_AUTOMATION_ENABLED=true`. También puede ejecutarse desde Actions → Sincronizar catálogo → Run workflow. El código del botón de Sheets está en `scripts/google-sheets-sync.gs`; su instalación y credencial limitada se detallan en [docs/sheets-sync.md](docs/sheets-sync.md).
+El repositorio es `ramiro-gp/VeganMusicStore`. `main` contiene el código y `deploy-static` contiene únicamente el build que recibe Hostinger: es una rama técnica de publicación, no una segunda línea de desarrollo. GitHub Actions comprueba el CSV a las **09:00, 13:00, 16:00 y 19:00 de Argentina**: `0 12,16,19,22 * * *` en UTC. Se habilita con la variable de repositorio `CATALOG_AUTOMATION_ENABLED=true`. También puede ejecutarse desde Actions → Sincronizar catálogo → Run workflow. El código del botón de Sheets está en `scripts/google-sheets-sync.gs`; su instalación y credencial limitada se detallan en [docs/sheets-sync.md](docs/sheets-sync.md).
 
-Se compara el catálogo normalizado sin considerar fecha ni orden de filas. Sin cambios se conserva el archivo y su fecha; la sincronización no genera commit, build ni despliegue. Con cambios se valida el candidato con pruebas, tipos y build, y sólo entonces se reemplaza y versiona el snapshot. Con `DEPLOY_TARGET=hostinger`, el workflow invoca explícitamente la publicación de producción para `deploy-static`; no depende de que el commit del bot dispare un segundo evento `push` de Actions. Los cambios de código en `main` también publican. Vercel conserva su configuración de demo. La fecha visible indica la última actualización de datos, no el último chequeo. La programación puede demorarse y la publicación requiere completar el build; no es inventario en tiempo real. Las visitas al sitio no generan consultas a Sheets.
+Se compara el catálogo normalizado sin considerar fecha ni orden de filas. Sin cambios se conserva el archivo y su fecha; la sincronización no genera commit, build ni despliegue y `publish-hostinger` figura como `skipped` (omitido). Esto es un resultado correcto, también al usar el botón manual. Con cambios se valida el candidato con pruebas, tipos y build, y sólo entonces se reemplaza y versiona el snapshot. Con `DEPLOY_TARGET=hostinger`, el workflow invoca explícitamente la publicación de producción para `deploy-static`; no depende de que el commit del bot dispare un segundo evento `push` de Actions. Los cambios de código en `main` también publican. La fecha visible indica la última actualización de datos, no el último chequeo. La programación puede demorarse y la publicación requiere completar el build; no es inventario en tiempo real. Las visitas al sitio no generan consultas a Sheets.
 
 Los fallos se reflejan en el workflow de GitHub y no reemplazan el sitio vigente. No guardar credenciales en este repositorio. GitHub puede deshabilitar horarios en repositorios públicos tras 60 días sin actividad; revisar Actions si ocurre.
 
@@ -141,12 +140,9 @@ Los fallos se reflejan en el workflow de GitHub y no reemplazan el sitio vigente
 
 Incluye catálogo, filtros y carrito de consulta por WhatsApp. No incluye cuentas, administración, base de datos, cobro online, reservas, fichas individuales ni stock en tiempo real.
 
-## Demos publicadas
+## Retiro de demos Vercel
 
-- V1: https://vegan-store-music.vercel.app/
-- V2: https://vegan-store-music-v2.vercel.app/
-
-La configuración de cada proyecto contiene SITE_VARIANT, SITE_MODE=demo y su propio SITE_URL. El enlace local .vercel/project.json sigue apuntando a V1. Para desplegar V2 desde el mismo código se usaron VERCEL_PROJECT_ID=prj_hPRKV4G07q7y95mAxYvefnEzHSwz y VERCEL_ORG_ID=team_R1YVYDstAQFiKxZ8jPg5mo8A en el entorno del comando, sin cambiar el enlace local. Los IDs de proyecto/equipo no son credenciales. SITE_VARIANT se configura como variable del proceso de build, consistente entre Astro y las páginas.
+Los proyectos históricos son `vegan-store-music` (V1) y `vegan-store-music-v2` (V2). No forman parte del circuito de producción. `git.deploymentEnabled=false` bloquea nuevos despliegues automáticos; no elimina las demos ya publicadas. Su pausa o eliminación se gestiona por separado en Vercel y no afecta a Hostinger.
 
 ## Identidad y sliders — 18 de octubre de 2026
 
